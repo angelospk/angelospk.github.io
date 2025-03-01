@@ -1,0 +1,61 @@
+baseURL = "https://angelospk.github.io/"
+title = "Angelos Papamichail"
+theme = "hugo-coder"
+languageCode = "en"
+defaultContentLanguage = "en"
+paginate = 20
+pygmentsStyle = "bw"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+enableEmoji = true
+
+[params]
+  author = "Angelos Papamichail"
+  info = "Electrical and Computer Engineer"
+  description = "Angelos Papamichail's personal website"
+  keywords = "blog,developer,personal"
+  avatarURL = "images/avatar.jpg"
+  
+  favicon_32 = "images/favicon-32x32.png"
+  favicon_16 = "images/favicon-16x16.png"
+  
+  since = 2024
+  
+  enableTwemoji = true
+  
+  colorScheme = "auto"
+  hideColorSchemeToggle = false
+  
+  # Social links
+  [[params.social]]
+    name = "Github"
+    icon = "fa fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/angelospk"
+  [[params.social]]
+    name = "LinkedIn"
+    icon = "fa fa-linkedin fa-2x"
+    weight = 2
+    url = "https://www.linkedin.com/in/angelos-papamichail/-"
+
+# Menu links
+[[menu.main]]
+  name = "Blog"
+  weight = 1
+  url  = "posts/"
+[[menu.main]]
+  name = "About"
+  weight = 2
+  url = "about/"
+[[menu.main]]
+  name = "CV"
+  weight = 3
+  url = "cv/"
+[[menu.main]]
+  name = "Projects"
+  weight = 4
+  url = "projects/"
+[[menu.main]]
+  name = "Contact"
+  weight = 5
+  url = "contact/" 
