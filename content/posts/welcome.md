@@ -12,7 +12,7 @@ author = "Angelos Papamichail"
 Hello and welcome to my personal website and blog! I'm excited to share my thoughts, experiences, and projects with you.
 
 ## What to Expect
-
+ ![My screenshot](/images/capture.jpg)
 On this blog, I'll be sharing:
 
 - **Technical Tutorials**: Step-by-step guides on various technologies I work with, including SvelteKit, Docker, Python, and more.
