@@ -3,7 +3,9 @@ title = "Angelos Papamichail"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
-paginate = 20
+# paginate = 20  # Deprecated
+[pagination]
+  pagerSize = 20
 pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
