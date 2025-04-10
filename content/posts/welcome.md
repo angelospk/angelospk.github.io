@@ -8,4 +8,3 @@ author = "Angelos Papamichail"
 +++
 
 ## Header
-This is just a test paragraph. Real blog post is coming soon.

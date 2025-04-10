@@ -19,7 +19,6 @@ A comprehensive website dedicated to Veterinary Medicine, developed using Svelte
 
 - Utilized Pocketbase as an open-source backend database for efficient data management
 - Integrated a WebAssembly GLPK linear solver to enhance analytical capabilities
-- Collaborated with team members to implement best practices in web development
 
 ### Mobile Game Backend Services (2024)
 **Python Developer** | Koukas Iason Software
@@ -39,7 +38,6 @@ A Chrome extension enhancing the shopping experience on Skroutz (a popular Greek
 
 - Implemented a dynamic historical price wheel, providing users with insights on pricing trends
 - Engineered a feature showcasing the lowest recorded price for each product
-- Enhanced user awareness and facilitated informed purchasing decisions
 
 ### Custom RSS Feed Creator
 A Python-based RSS feed system for curated content delivery.

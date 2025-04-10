@@ -12,7 +12,7 @@ I'm an Electrical and Computer Engineer with a passion for software development 
 
 ## My Expertise
 
-I specialize in web development, particularly using SvelteKit for creating modern, responsive websites. I'm also proficient in Docker containerization and have experience with various programming languages including Python, JavaScript, Golang, and more.
+I specialize in full stack web development, particularly using Svelte, Vue, or Astro frameworks for creating modern, responsive websites. I'm also proficient in Docker containerization and have experience with various programming languages including Python, JavaScript, Golang, and more.
 
 ## Professional Experience
 

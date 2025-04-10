@@ -15,7 +15,8 @@ author = "Angelos Papamichail"
 
 # SUMMARY
 
-Dedicated and dynamic Master of Engineering graduate, specializing in Electrical and Computer Engineering from Aristotle University of Thessaloniki. A creative thinker with a passion for software development and a knack for finding innovative solutions. Proficient in Docker containers and skilled in crafting exceptional websites using SvelteKit. Meticulous in IT operations, excelling in swiftly resolving challenges. Eager to bring a blend of technical expertise and inventive problem-solving to a collaborative team environment. Committed to continuous learning and staying ahead in the ever-evolving world of technology.
+Dedicated and dynamic Master of Engineering graduate, specializing in Electrical and Computer Engineering from Aristotle University of Thessaloniki. A creative thinker with a passion for software development and a knack for finding innovative solutions. Proficient in Docker containers and skilled in crafting websites using Javascript frameworks, like Svelte, Vue, Astro. Meticulous in IT operations, excelling in swiftly resolving challenges. Eager to bring a blend of technical expertise and inventive problem-solving to a collaborative team environment. Committed to continuous learning and staying ahead in the ever-evolving world of technology.
+
 
 ---
 
@@ -24,6 +25,10 @@ Dedicated and dynamic Master of Engineering graduate, specializing in Electrical
 Aristotle University of Thessaloniki, Faculty of Engineering  
 Master of Engineering, Electrical and Computer Engineering (2014 \- 2023\)  
 GPA: 7.33
+
+IDEA Lifelong Learning Center
+Smart Building Programming Technician (Level 1) (2024)
+
 
 ---
 
@@ -46,14 +51,11 @@ Co-Developer, [www.rationvetauth.vercel.app](http://www.rationvetauth.vercel.app
 * Developed the website using SvelteKit, ensuring a responsive and user-friendly interface.  
 * Utilized Pocketbase as an open-source backend database for optimized data storage and retrieval.  
 * Integrated a wasm GLPK linear solver to enhance analytical capabilities, supporting complex problem-solving in Veterinary Medicine.  
-* Collaborated closely with team members to achieve project milestones, contributing innovative solutions and adhering to best practices in web development.
 
 ### SOFTWARE DEVELOPER | VELTIO (August \- October 2020\)
 
 * Applied hands-on expertise in configuring and optimizing Docker containers for streamlined application deployment, resulting in enhanced efficiency and reliability.  
-* Led IT operations with a focus on meticulous ticket management, consistently delivering prompt resolutions to bug-related issues and ensuring seamless functionality of software systems.  
-* Collaborated cross-functionally to contribute to the development and implementation of innovative software solutions, actively participating in code reviews and maintaining high coding standards.  
-* Engaged in continuous professional development, staying updated on emerging technologies and industry best practices to bring fresh insights and efficiency improvements to the development team.  
+* Handled IT operations with a focus on meticulous ticket management, consistently delivering prompt resolutions to bug-related issues and ensuring seamless functionality of software systems.    
     
 ---
 
