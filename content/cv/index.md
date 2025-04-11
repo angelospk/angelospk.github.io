@@ -9,7 +9,7 @@ author = "Angelos Papamichail"
 # `Angelos Papamichail`
 
 [angelos.papamichail@gmail.com](mailto:angelos.papamichail@gmail.com)  
-![Github](https://github.githubassets.com/favicons/favicon.svg) Github: [angelospk](https://github.com/angelospk)	![LinkedIn](https://static.licdn.com/sc/h/eahiplrwoq61f4uan012ia17i) Linked in: [angelos-papamichail](https://www.linkedin.com/in/angelos-papamichail/-)
+Github: [angelospk](https://github.com/angelospk)	 Linked in: [angelos-papamichail](https://www.linkedin.com/in/angelos-papamichail/-)
 
 ---
 
