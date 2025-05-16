@@ -1,7 +1,7 @@
 +++
 title = "Curriculum Vitae"
 description = "Angelos Papamichail's CV"
-date = "2024-03-02"
+date = "2025-05-05"
 aliases = ["cv", "resume"]
 author = "Angelos Papamichail"
 +++
@@ -15,7 +15,7 @@ Github: [angelospk](https://github.com/angelospk)	 Linked in: [angelos-papamicha
 
 # SUMMARY
 
-Dedicated and dynamic Master of Engineering graduate, specializing in Electrical and Computer Engineering from Aristotle University of Thessaloniki. A creative thinker with a passion for software development and a knack for finding innovative solutions. Proficient in Docker containers and skilled in crafting websites using Javascript frameworks, like Svelte, Vue, Astro. Meticulous in IT operations, excelling in swiftly resolving challenges. Eager to bring a blend of technical expertise and inventive problem-solving to a collaborative team environment. Committed to continuous learning and staying ahead in the ever-evolving world of technology.
+Software Developer | MEng Electrical & Computer Engineering graduate specializing in modern frontend technologies like Svelte and backend tools (Python, Golang, Docker). Proficient in leveraging AI Large Language Models and prompt engineering techniques for enhanced development workflows and creative solutions. Experienced in the full project lifecycle, from conception to deployment, in both team and independent settings. 
 
 
 ---
