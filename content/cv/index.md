@@ -34,6 +34,10 @@ Smart Building Programming Technician (Level 1) (2024)
 
 # WORK EXPERIENCE
 
+### Data Entry Clerk | Agricultural Cooperative of Didymoteicho (May \- October 2025)
+
+* Developed Vue.js browser extension improving navigation speed, reducing task time by 40%
+
 ### NIGHT AUDITOR | TUI Magic Life Plimmiri by Atlantica (May \- November 2024 )
 
 * Semi-automated the guests' room cards scanning process, making it 3x faster  
