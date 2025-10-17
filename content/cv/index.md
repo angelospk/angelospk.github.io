@@ -36,13 +36,13 @@ Smart Building Programming Technician (Level 1) (2024)
 
 ### Data Entry Clerk | Agricultural Cooperative of Didymoteicho (May \- October 2025)
 
-* Developed Vue.js browser extension improving navigation speed, reducing task time by 40%
+* Engineered Vue.js browser extension to streamline data entry workflows, achieving 40% reduction in task completion time [OSDE Helper](https://github.com/angelospk/enosi-ext)
 
+* Authored comprehensive operational documentation and deployed internal wiki platform, establishing the organization's first centralized knowledge base for new staff reference and training ([Enosi Wiki](https://angelospk.github.io/enosi))
 ### NIGHT AUDITOR | TUI Magic Life Plimmiri by Atlantica (May \- November 2024 )
 
 * Semi-automated the guests' room cards scanning process, making it 3x faster  
-* Developed a demo-website for hotel map usage for the guests when they arrive:  
-  [https://qr-map.vercel.app/](https://qr-map.vercel.app/)
+* Developed a demo-website for hotel map usage for the guests when they arrive:  [qr-map](https://qr-map.vercel.app/)
 
 ### PYTHON DEVELOPER | Koukas Iason Software, (February \- June 2024\)
 
