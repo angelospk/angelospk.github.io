@@ -8,51 +8,96 @@ author = "Angelos Papamichail"
 
 # My Projects
 
-Here are some of the projects I've worked on throughout my career and as personal endeavors.
+A collection of personal and professional projects spanning full-stack development, AI/ML, automation, and tools.
 
-## Professional Projects
+---
 
-### Veterinary Medicine Website (2023)
-**Co-Developer** | [www.rationvetauth.vercel.app](http://www.rationvetauth.vercel.app/)
+## Featured Projects
 
-A comprehensive website dedicated to Veterinary Medicine, developed using SvelteKit with a focus on responsive design and user experience.
+### [Order Local](/projects/order-local/) (2025)
+**Self-Hosted Restaurant Ordering System**
 
-- Utilized Pocketbase as an open-source backend database for efficient data management
-- Integrated a WebAssembly GLPK linear solver to enhance analytical capabilities
+Self-hosted ordering system for Raspberry Pi. Customers scan QR codes to browse menus and order from their phones. Single Go binary, no dependencies.
 
-### Mobile Game Backend Services (2024)
-**Python Developer** | Koukas Iason Software
+*Technologies: Go, SQLite, HTMX, Alpine.js, Tailwind CSS*
 
-Worked on backend service integration for mobile game development, ensuring seamless functionality and optimal performance.
+---
 
-### Hotel Guest Experience Enhancement (2024)
-**Night Auditor** | TUI Magic Life Plimmiri by Atlantica
+### [Diesi Analytics](/projects/diesi-analytics/) (2026)
+**Radio Station Analytics Platform**
 
-- Semi-automated the guests' room cards scanning process, making it 3x faster
-- Developed a demo-website for hotel map usage for the guests when they arrive: [https://qr-map.vercel.app/](https://qr-map.vercel.app/)
+Analytics platform analyzing 3 years of radio play data (~337K records) with ML predictions for next song and real-time dashboards.
 
-## Personal Projects
+*Technologies: Python, FastAPI, Vue.js, Redis, Docker*
 
-### Skroutz Vanced Chrome Extension
-A Chrome extension enhancing the shopping experience on Skroutz (a popular Greek price comparison website).
+[Live Demo →](https://diesi.haroldpoi.click)
 
-- Implemented a dynamic historical price wheel, providing users with insights on pricing trends
-- Engineered a feature showcasing the lowest recorded price for each product
+---
 
-### Custom RSS Feed Creator
-A Python-based RSS feed system for curated content delivery.
+### [PC Basics](/projects/pcbasics/) (2025)
+**Digital Literacy Training Platform**
 
-- Developed a seamless and efficient delivery mechanism for curated content
-- Conducted comprehensive data gathering from diverse websites
-- Implemented customization options for users to tailor the feed according to specific search criteria
+Educational platform teaching elderly users Windows 11 skills through interactive lessons with progress tracking.
 
-### Church Products Showcase Website
-A visually compelling showcase website for a church products company.
+*Technologies: SvelteKit, Svelte 5, SQLite/Turso, Drizzle ORM*
 
-- Employed SvelteKit to ensure a modern and seamless user experience
-- Innovatively leveraged Google Sheets as an alternative to a conventional database
-- Enhanced data management flexibility and accessibility for streamlined content updates
+[Live Demo →](https://pcbasics.vercel.app/)
+
+---
+
+### [SubtitleKit](/projects/subtitlekit/) (2025)
+**AI-Enhanced Subtitle Processing Toolkit**
+
+Python library and desktop app for subtitle processing, synchronization, and AI-powered corrections. Available on PyPI.
+
+*Technologies: Python, AI/LLM*
+
+[GitHub →](https://github.com/angelospk/SubtitleKit) | [PyPI →](https://pypi.org/project/subtitlekit/)
+
+---
+
+## AI & Machine Learning
+
+### [Emotion Recognition](/projects/emotion-recognition/) (2021)
+Real-time emotion detection using SVM and Local Binary Patterns for video conferencing integration.
+
+### [AiMovie](/projects/aimovie/) (2025)
+AI-powered movie recommendations using Gemini/OpenRouter with viewing history tracking.
+
+### [Diesi-stat](/projects/diesi-stat/) (2024)
+Music statistics visualizer with KNN classification for radio station data.
+
+---
+
+## Full-Stack & Web Apps
+
+### [RationVet](/projects/rationvet/) (2023)
+Veterinary platform with WebAssembly linear solver for animal diet optimization. *Thesis project.*
+
+[Live Demo →](https://rationvetauth.vercel.app/)
+
+### [SpotifyPay](/projects/spotifypay/) (2024)
+Automated cost splitting for Spotify Family subscriptions with email notifications.
+
+### [AthosCy](/projects/athoscy/) (2023)
+Church products showcase using Google Sheets as database.
+
+[Live Demo →](https://athoscy.vercel.app/)
+
+---
+
+## Tools & Extensions
+
+### [Skroutz Vanced](/projects/skroutz-vanced/) (2023)
+Chrome extension showing historical price data on Greece's popular price comparison site.
+
+[Chrome Store →](https://chromewebstore.google.com/detail/skroutz-vanced/aamggoaflfffjgpcbccmopohkgppgkdm)
+
+### [Trading Toolkit](/projects/trading-toolkit/) (2026)
+Go-based HTTP API server for programmatic stock trading with market, limit, and stop orders.
+
+---
 
 ## Want to Collaborate?
 
-If you're interested in collaborating on a project or have any questions about my work, feel free to [contact me](/contact/). 
+If you're interested in collaborating on a project or have questions about my work, feel free to [contact me](/contact/).

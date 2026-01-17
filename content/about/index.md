@@ -2,28 +2,45 @@
 title = "About Me"
 description = "About Angelos Papamichail"
 date = "2024-03-02"
-aliases = ["about-me", "about-angelos", "contact"]
+aliases = ["about-me", "about-angelos"]
 author = "Angelos Papamichail"
 +++
 
-# Hello, I'm Angelos Papamichail
+# Hey there! 👋
 
-I'm an Electrical and Computer Engineer with a passion for software development and innovative solutions. I graduated from Aristotle University of Thessaloniki with a Master of Engineering degree.
+I'm **Angelos**, a software developer from Northern Greece with a passion for building things that make a difference.
 
-## My Expertise
+## The Short Version
 
-I specialize in full stack web development, particularly using Svelte, Vue, or Astro frameworks for creating modern, responsive websites. I'm also proficient in Docker containerization and have experience with various programming languages including Python, JavaScript, Golang, and more.
+I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit** or **Vue** on the frontend.
 
-## Professional Experience
+## What Drives Me
 
-Throughout my career, I've worked on various projects ranging from backend services integration for mobile games to developing websites for specialized fields like Veterinary Medicine. I've also created personal projects such as Chrome extensions and custom RSS feeds.
+I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), automating tedious tasks at a [local agricultural cooperative](/projects/), or building a [self-order system](/projects/order-local/) that runs on a Raspberry Pi—I love seeing my code make someone's day a little easier.
 
-## My Approach
+I'm a big believer in:
+- **Keep it simple** - The best solution is often the simplest one
+- **Local-first** - Build for reliability, not just connectivity
+- **Automation** - If I'm doing something twice, I'll probably script it
 
-I believe in continuous learning and staying updated with the latest technologies and industry best practices. I'm detail-oriented and enjoy solving complex problems with creative solutions.
+## Beyond Code
+
+When I'm not coding, you'll find me:
+- ♟️ Playing chess (amateur but enthusiastic)
+- 🎹 Learning piano (slowly but surely)
+- 🎬 Subtitling films (yes, I built [a tool for that](/projects/subtitlekit/))
+- 🏊 Swimming when the weather allows
+
+## What I'm Looking For
+
+I'm open to opportunities in **Full-Stack**, **Backend**, or **DevOps** roles. I work well in startups and smaller teams where I can wear multiple hats. Remote or hybrid works best for me, and I'm open to both Greek and international companies.
 
 ## Let's Connect
 
-Feel free to reach out to me through [email](mailto:angelos.papamichail@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/angelos-papamichail/-) or [GitHub](https://github.com/angelospk).
+I'm always happy to chat about interesting projects, potential collaborations, or just to geek out about tech.
 
-For more detailed information about my experience and skills, please check out my [CV](/cv/). 
+- 📧 [angelos.papamichail@gmail.com](mailto:angelos.papamichail@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/angelos-papamichail/-)
+- 🐙 [GitHub](https://github.com/angelospk)
+
+For the formal stuff, check out my [CV](/cv/).
