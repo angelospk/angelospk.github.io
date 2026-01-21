@@ -1,0 +1,46 @@
+# =============================================================================
+# SKILLS - Angelos Papamichail
+# =============================================================================
+
+skills:
+  programming:
+    - name: "Python"
+      level: "advanced"
+    - name: "JavaScript/TypeScript"
+      level: "advanced"
+    - name: "Go"
+      level: "intermediate"
+    - name: "C/C++"
+      level: "intermediate"
+    - name: "SQL"
+      level: "intermediate"
+      
+  frameworks:
+    - name: "SvelteKit"
+      level: "advanced"
+    - name: "Vue.js"
+      level: "intermediate"
+    - name: "React"
+      level: "intermediate"
+    - name: "React Native"
+      level: "beginner"
+    - name: "Astro"
+      level: "intermediate"
+    - name: "Hugo"
+      level: "intermediate"
+      
+  devops:
+    - name: "Docker"
+      level: "intermediate"
+    - name: "Git"
+      level: "advanced"
+    - name: "Linux"
+      level: "intermediate"
+    - name: "CI/CD"
+      level: "intermediate"
+      
+  other:
+    - name: "AI/LLM Integration"
+      level: "intermediate"
+    - name: "Prompt Engineering"
+      level: "intermediate"

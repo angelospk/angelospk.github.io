@@ -212,6 +212,7 @@ projects:
     subtitle: "Real-time Emotion Detection"
     type: "academic"
     category: "ai"
+    weight: 9
     period:
       start: "2021"
       end: "2021"
@@ -244,6 +245,7 @@ projects:
     subtitle: "Spotify Family Cost Splitter"
     type: "personal"
     category: "fullstack"
+    weight: 8
     period:
       start: "2024"
       end: "2024"
@@ -269,6 +271,7 @@ projects:
     subtitle: "Digital Literacy Training Platform"
     type: "personal"
     category: "fullstack"
+    weight: 9
     period:
       start: "2025"
       end: null
@@ -297,6 +300,7 @@ projects:
     title: "AiMovie"
     subtitle: "AI-powered Movie Recommendations"
     type: "personal"
+    weight: 9
     category: "fullstack"
     period:
       start: "2025"
@@ -322,6 +326,7 @@ projects:
     subtitle: "Radio Station Analytics Platform"
     type: "personal"
     category: "fullstack"
+    weight: 9
     period:
       start: "2026"
       end: null
@@ -352,6 +357,7 @@ projects:
     subtitle: "Veterinary Medicine Platform"
     type: "thesis"
     category: "fullstack"
+    weight: 9
     description: |
       Website για τη Κτηνιατρική με ενσωματωμένο linear solver 
       για βελτιστοποίηση διατροφής ζώων.
@@ -374,6 +380,7 @@ projects:
     subtitle: "Chrome Extension"
     type: "personal"
     category: "tools"
+    weight: 8
     description: |
       Chrome extension που βελτιώνει την εμπειρία χρήσης του Skroutz 
       με ιστορικό τιμών και χρήσιμες πληροφορίες.
@@ -400,6 +407,7 @@ projects:
     subtitle: "Self-Hosted Restaurant Ordering System"
     type: "personal"
     category: "fullstack"
+    weight: 9
     period:
       start: "2025"
       end: null
@@ -428,6 +436,7 @@ projects:
     subtitle: "Portfolio Management Server"
     type: "personal"
     category: "backend"
+    weight: 7
     period:
       start: "2026"
       end: null
@@ -455,6 +464,7 @@ projects:
     subtitle: "AI-Enhanced Subtitle Tool"
     type: "personal"
     category: "data"
+    weight: 7
     period:
       start: "2025"
       end: "2025"
@@ -479,6 +489,7 @@ projects:
     subtitle: "Music Stats Visualizer"
     type: "personal"
     category: "data"
+    weight: 7
     description: |
       Visualization και στατιστική ανάλυση 3 ετών ραδιοφωνικών δεδομένων 
       με χρήση machine learning για προβλέψεις.
@@ -497,6 +508,7 @@ projects:
     subtitle: "Church Products Showcase"
     type: "personal"
     category: "fullstack"
+    weight: 6
     period:
       start: "2023"
       end: "2023"
@@ -546,6 +558,7 @@ projects:
     subtitle: "School Management System"
     type: "legacy"
     category: "fullstack"
+    weight: 8
     description: |
       School management system with staff, library, and 
       student attendance management.
@@ -583,6 +596,7 @@ projects:
     title: "Carpooling App"
     subtitle: "Mobile App Concept"
     type: "concept"
+    weight: 7
     category: "mobile"
     description: |
       Mobile εφαρμογή carpooling (proof of concept).

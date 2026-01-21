@@ -1,0 +1,137 @@
+# =============================================================================
+# EXPERIENCE - Angelos Papamichail
+# =============================================================================
+
+experiences:
+  # Current Positions
+  - id: "social-inov-trainer"
+    title: "Εκπαιδευτής Ψηφιακών Δεξιοτήτων"
+    title_en: "Digital Skills Trainer"
+    organization: "Social Inov"
+    organization_type: "NGO"
+    type: "work"
+    period:
+      start: "2025-11"
+      end: null  # ongoing
+    description: |
+      Σεμινάρια ψηφιακών δεξιοτήτων για ενήλικες σε συνεργασία με την ΜΚΟ Social Inov.
+    highlights: []
+    technologies: []
+    skills:
+      - "Teaching"
+      - "Digital Literacy"
+      - "Communication"
+    
+  - id: "saek-trainer"
+    title: "Εκπαιδευτής Digital Marketing & Social Media"
+    title_en: "Digital Marketing & Social Media Trainer"
+    organization: "ΣΑΕΚ ΔΥΠΑ Ορεστιάδας"
+    organization_type: "Public"
+    type: "work"
+    period:
+      start: "2025-10"
+      end: null  # ongoing
+    description: |
+      Διδασκαλία κατεύθυνσης ψηφιακού marketing και κοινωνικών δικτύων.
+    highlights: []
+    technologies:
+      - "Social Media Marketing"
+      - "Digital Marketing"
+    skills:
+      - "Teaching"
+      - "Curriculum Development"
+      - "Communication"
+
+  - id: "enosi-2025"
+    title: "Data Entry & Process Automation"
+    organization: "Αγροτικός Συνεταιρισμός Διδυμοτείχου"
+    organization_en: "Agricultural Cooperative of Didymoteicho"
+    type: "work"
+    period:
+      start: "2025-05"
+      end: "2025-10"
+    description: |
+      Βελτίωση ροών εργασίας μέσω τεχνολογίας και δημιουργία 
+      βάσης γνώσης για νέους εργαζόμενους.
+    # NOTE: See projects.yaml (enosi-extension) for detailed technical contribution
+    highlights:
+      - text: "Engineered 'Agronet Automation Suite' to reduce data entry time by 40%"
+        link: "#enosi-extension"
+      - text: "Δημιουργία internal wiki για εκπαίδευση νέου προσωπικού"
+        link: "https://angelospk.github.io/enosi"
+    technologies:
+      - "Vue.js"
+      - "Chrome Extensions"
+      - "JavaScript"
+      - "Wiki/Documentation"
+    skills:
+      - "Process Automation"
+      - "Documentation"
+      - "Knowledge Management"
+
+  - id: "tui-magic-life"
+    title: "Night Auditor"
+    organization: "TUI Magic Life Plimmiri by Atlantica"
+    type: "work"
+    period:
+      start: "2024-05"
+      end: "2024-11"
+    description: |
+      Διαχείριση νυχτερινής βάρδιας και βελτίωση διαδικασιών 
+      με τεχνολογικές λύσεις.
+    # NOTE: See projects.yaml (tui-qr-map, tui-scanner-automation)
+    highlights:
+      - text: "Automated check-in data entry (3x faster)"
+        link: "#tui-digital-tools"
+      - text: "Built 'Magic Life Hotel Map' for guests"
+        link: "#tui-digital-tools"
+      - text: "Documentation για Protel ξενοδοχειακό σύστημα"
+        detail: "Obsidian knowledge base για χρήση του λογισμικού"
+        link: "https://github.com/angelospk/protel-vault"
+    technologies:
+      - "JavaScript"
+      - "Web Development"
+      - "Obsidian"
+      - "Protel PMS"
+    skills:
+      - "Problem Solving"
+      - "Initiative"
+      - "Documentation"
+
+  - id: "koukas-iason"
+    title: "Python Developer"
+    organization: "Koukas Iason Software"
+    type: "work"
+    period:
+      start: "2024-02"
+      end: "2024-06"
+    description: |
+      Backend services integration για mobile game development.
+    highlights: []
+    technologies:
+      - "Python"
+      - "Backend Development"
+      - "Mobile Gaming"
+    skills:
+      - "Backend Development"
+      - "API Integration"
+
+  - id: "veltio"
+    title: "Software Developer"
+    organization: "VELTIO"
+    type: "work"
+    period:
+      start: "2020-08"
+      end: "2020-10"
+    description: |
+      Docker configuration, IT operations και ticket management.
+    highlights:
+      - text: "Configuration και optimization Docker containers"
+      - text: "Ticket management και bug resolution"
+    technologies:
+      - "Docker"
+      - "DevOps"
+    skills:
+      - "Docker"
+      - "IT Operations"
+      - "Troubleshooting"

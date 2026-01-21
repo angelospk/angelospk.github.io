@@ -4,6 +4,7 @@ description = "Radio Station Analytics Platform"
 date = "2026-01-01"
 tags = ["Python", "FastAPI", "Vue.js", "SQLite", "Redis", "Docker", "Machine Learning"]
 categories = ["Full Stack", "Data", "AI"]
+weight = 9
 +++
 
 # Diesi Analytics

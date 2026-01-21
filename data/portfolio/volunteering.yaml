@@ -1,0 +1,34 @@
+# =============================================================================
+# VOLUNTEERING - Angelos Papamichail
+# =============================================================================
+
+volunteering:
+  - id: "youth-council"
+    title: "Μέλος Διοικητικού Συμβουλίου"
+    organization: "Δημοτικό Συμβούλιο Νέων Ορεστιάδας"
+    period:
+      start: null
+      end: null  # ongoing
+    description: |
+      Ενεργή συμμετοχή στη διαμόρφωση πολιτικών για νέους στον δήμο.
+    highlights:
+      - text: "Δημιουργία demo website για το ΔΣΝ"
+        link: "https://angelospk.github.io/dsn-ore/"
+    
+  - id: "tedx-thessaloniki"
+    title: "Εθελοντής"
+    organization: "TEDx Thessaloniki"
+    period:
+      start: null
+      end: null
+    description: |
+      Εθελοντική συμμετοχή σε διοργάνωση TEDx Thessaloniki.
+    
+  - id: "ardas-festival"
+    title: "Εθελοντής"
+    organization: "Ardas Music Festival"
+    period:
+      start: null
+      end: null
+    description: |
+      Εθελοντική υποστήριξη σε μουσικό φεστιβάλ για νέους.

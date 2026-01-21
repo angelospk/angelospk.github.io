@@ -1,0 +1,487 @@
+# =============================================================================
+# PROJECTS - Angelos Papamichail
+# =============================================================================
+
+# ========================
+# WORK-EMBEDDED PROJECTS (Promoted from Experience)
+# ========================
+
+- id: "enosi-extension"
+  title: "Agronet Automation Suite"
+  subtitle: "Vue.js Extension & AI Integration"
+  type: "work-embedded"
+  category: "automation"
+  weight: 10
+  period:
+    start: "2025-05"
+    end: "2025-10"
+  description: |
+    A sophisticated browser extension and automation suite built to solve critical inefficiencies 
+    in the agricultural cooperative's ERP data entry platform.
+  context:
+    problem: |
+      Employees were manually copying data between hundreds of land plots on a legacy web ERP. 
+      The process was error-prone, repetitive, and led to missed deadlines.
+    solution: |
+      I reverse-engineered the ERP's frontend and built a Vue.js overlay that injected 
+      automation controls directly into the UI.
+  highlights:
+    - text: "Batch Data Injection"
+      detail: "Enabled copying data from one plot to multiple others instantly, eliminating hours of repetitive clicks."
+    - text: "Background Validator"
+      detail: "Automated manual checks in the background, showing a non-intrusive floating status window with required fixes."
+    - text: "AI Error Analysis"
+      detail: "Integrated an LLM to parse error messages and automatically generate simple, copy-paste instructions for producers."
+    - text: "Year-over-Year Data Porting"
+      detail: "Automated the migration of declaration data from previous years, saving ~5 minutes per application."
+  technologies:
+    - "Vue.js"
+    - "Chrome Extensions API"
+    - "LLM Integration"
+    - "DOM Manipulation"
+  featured: true
+
+- id: "tui-digital-tools"
+  title: "TUI Digital Tools"
+  subtitle: "Hotel Map & Check-in Automation"
+  type: "work-embedded"
+  category: "fullstack"
+  weight: 8
+  period:
+    start: "2024-06"
+    end: "2024-08"
+  description: |
+    A suite of digital tools developed to improve guest experience and operational efficiency 
+    at TUI Magic Life Plimmiri.
+  context:
+    problem: |
+      Guests struggled with navigation due to outdated PDF maps, and reception faced long queues 
+      due to manual data entry requirements.
+    solution: |
+      Developed two solutions: An interactive web map for guests and a Python automation script 
+      for reception staff.
+  highlights:
+    - text: "Interactive Resort Map"
+      detail: "Mobile-first PWA with pin-drop navigation and Google Maps integration."
+    - text: "Check-in Automation"
+      metric: "3x Faster Processing"
+      detail: "Python script to pre-populate guest data from backend systems."
+    - text: "Google Maps Deep-Linking"
+      detail: "One-tap navigation instructions."
+  links:
+    - url: "https://qr-map.vercel.app/"
+      label: "Live Map"
+  technologies:
+    - "JavaScript"
+    - "Leaflet.js"
+    - "Python"
+    - "Automation"
+  featured: true
+
+
+
+
+# ========================
+# ACADEMIC / AI PROJECTS
+# ========================
+
+- id: "emotion-recognition"
+  title: "Emotion Recognition Addon"
+  subtitle: "Real-time Emotion Detection"
+  type: "academic"
+  category: "ai"
+  weight: 9
+  period:
+    start: "2021"
+    end: "2021"
+  description: |
+    Μοντέλο μηχανικής μάθησης για αναγνώριση ανθρωπίνων συναισθημάτων 
+    από βίντεο συνεχούς ροής, με στόχο τη χρήση σε πλατφόρμες τηλεδιάσκεψης.
+  highlights:
+    - text: "Face detection με Cascade Classifier"
+    - text: "Emotion classification: Positive, Neutral, Negative"
+    - text: "Local Binary Patterns (LBP) για feature extraction"
+    - text: "SVM/LinearSVC για classification με Grid Search CV"
+    - text: "Real-time integration με IRC protocol"
+  links:
+    - url: "https://github.com/beyondTheMyth/Emotion-Recognition-Addon"
+      label: "GitHub"
+  technologies:
+    - "Python"
+    - "OpenCV"
+    - "scikit-learn"
+    - "SVM"
+    - "Machine Learning"
+  featured: true
+
+# ========================
+# FULL STACK & WEB APPS
+# ========================
+
+- id: "spot-cash"
+  title: "SpotifyPay"
+  subtitle: "Spotify Family Cost Splitter"
+  type: "personal"
+  category: "fullstack"
+  weight: 8
+  period:
+    start: "2024"
+    end: "2024"
+  description: |
+    Εφαρμογή υπολογισμού χρεώσεων για Spotify Family subscription.
+    Υπολογίζει αυτόματα τι χρωστάει κάθε μέλος λαμβάνοντας υπόψη 
+    αυξήσεις τιμών και στέλνει email ενημερώσεις.
+  highlights:
+    - text: "Έξυπνη αρχιτεκτονική ασφαλείας"
+      detail: "Emails σε private Google Sheet, ποσά/ονόματα σε public GitHub JSON"
+    - text: "Αυτόματο commit δεδομένων μέσω Google Apps Script"
+  links:
+    - url: "https://github.com/angelospk/spotifypay"
+      label: "GitHub"
+  technologies:
+    - "React"
+    - "Google Apps Script"
+    - "GitHub API"
+  featured: true
+
+- id: "pcbasics"
+  title: "PC Basics"
+  subtitle: "Digital Literacy Training Platform"
+  type: "personal"
+  category: "fullstack"
+  weight: 9
+  period:
+    start: "2025"
+    end: null
+  description: |
+    Educational platform for teaching elderly users Windows 11 skills.
+    Interactive lessons with progress tracking and bilingual support.
+  highlights:
+    - text: "Dynamic lesson system with drag & drop, click, hover exercises"
+    - text: "Multi-level difficulty (Beginner/Intermediate/Advanced)"
+    - text: "Bilingual support (English/Greek) via inlang"
+    - text: "Admin panel for content management"
+    - text: "Per-user progress tracking"
+  links:
+    - url: "https://pcbasics.vercel.app/"
+      label: "Live Demo"
+  technologies:
+    - "SvelteKit"
+    - "Svelte 5"
+    - "SQLite/Turso"
+    - "Drizzle ORM"
+    - "shadcn-svelte"
+    - "Tailwind CSS"
+  featured: true
+
+- id: "aimovie"
+  title: "AiMovie"
+  subtitle: "AI-powered Movie Recommendations"
+  type: "personal"
+  weight: 9
+  category: "fullstack"
+  period:
+    start: "2025"
+    end: "2025"
+  description: |
+    Εφαρμογή προτάσεων ταινιών/σειρών με AI, που λαμβάνει υπόψη 
+    το ιστορικό του χρήστη για personalized recommendations.
+  highlights:
+    - text: "AI integration με Gemini/OpenRouter"
+    - text: "Ιστορικό χρήστη για αποφυγή επαναλήψεων"
+    - text: "Modern dark design"
+  links:
+    - url: "https://github.com/angelospk/aimovie"
+      label: "GitHub"
+  technologies:
+    - "Svelte"
+    - "AI/LLM (Gemini)"
+    - "Modern UI"
+  featured: true
+
+- id: "diesi-analytics"
+  title: "Diesi Analytics"
+  subtitle: "Radio Station Analytics Platform"
+  type: "personal"
+  category: "fullstack"
+  weight: 9
+  period:
+    start: "2026"
+    end: null
+  description: |
+    Analytics platform for Diesi FM radio station. Analyzes 3 years of 
+    song play history (~337K records) with ML predictions and real-time dashboards.
+  highlights:
+    - text: "Analytics dashboards for top artists, songs, time patterns"
+    - text: "Markov Chain + time-aware ML predictions for next song"
+    - text: "Real-time Now Playing with persistent audio player"
+    - text: "Docker deployment with Redis caching"
+    - text: "Interactive ECharts visualizations"
+  links:
+    - url: "https://diesi.haroldpoi.click"
+      label: "Live Demo"
+  technologies:
+    - "Python"
+    - "FastAPI"
+    - "Vue.js 3"
+    - "SQLite"
+    - "Redis"
+    - "Docker"
+    - "ECharts"
+  featured: true
+
+- id: "rationvet"
+  title: "RationVet"
+  subtitle: "Veterinary Medicine Platform"
+  type: "thesis"
+  category: "fullstack"
+  weight: 9
+  description: |
+    Website για τη Κτηνιατρική με ενσωματωμένο linear solver 
+    για βελτιστοποίηση διατροφής ζώων.
+  highlights:
+    - text: "SvelteKit frontend με responsive design"
+    - text: "Pocketbase backend για data management"
+    - text: "WebAssembly GLPK solver για linear optimization"
+  links:
+    - url: "https://rationvetauth.vercel.app/"
+      label: "Live Demo"
+  technologies:
+    - "SvelteKit"
+    - "Pocketbase"
+    - "WebAssembly"
+    - "GLPK"
+  featured: true
+
+- id: "skroutz-vanced"
+  title: "Skroutz Vanced"
+  subtitle: "Chrome Extension"
+  type: "personal"
+  category: "tools"
+  weight: 8
+  description: |
+    Chrome extension που βελτιώνει την εμπειρία χρήσης του Skroutz 
+    με ιστορικό τιμών και χρήσιμες πληροφορίες.
+  highlights:
+    - text: "Dynamic historical price wheel"
+    - text: "Εμφάνιση χαμηλότερης ιστορικής τιμής"
+  links:
+    - url: "https://github.com/angelospk/skroutz-vanced"
+      label: "GitHub"
+    - url: "https://chromewebstore.google.com/detail/skroutz-vanced/aamggoaflfffjgpcbccmopohkgppgkdm?hl=el"
+      label: "Chrome Store"
+  technologies:
+    - "JavaScript"
+    - "Chrome Extensions"
+    - "Web Scraping"
+  featured: true
+
+# ========================
+# BACKEND & SYSTEMS (Go)
+# ========================
+
+- id: "order-local"
+  title: "Order Local"
+  subtitle: "Self-Hosted Restaurant Ordering System"
+  type: "personal"
+  category: "fullstack"
+  weight: 9
+  period:
+    start: "2025"
+    end: null
+  description: |
+    Self-hosted restaurant ordering system designed for Raspberry Pi. 
+    Customers scan QR codes to browse menu and place orders from their phones.
+  highlights:
+    - text: "Single binary deployment - no runtime dependencies"
+    - text: "Optimized for Raspberry Pi hardware (< 1GB RAM)"
+    - text: "SSE-based real-time order tracking"
+    - text: "Mobile-first responsive web UI"
+    - text: "Clean architecture with TDD (95%+ coverage)"
+    - text: "JWT auth with HTTP-only cookies"
+  technologies:
+    - "Go"
+    - "SQLite"
+    - "templ"
+    - "HTMX"
+    - "Alpine.js"
+    - "Tailwind CSS"
+    - "Chi Router"
+  featured: true
+
+- id: "trading-toolkit"
+  title: "Trading Automation Toolkit"
+  subtitle: "Portfolio Management Server"
+  type: "personal"
+  category: "backend"
+  weight: 7
+  period:
+    start: "2026"
+    end: null
+  description: |
+    Go-based trading automation toolkit and authenticated HTTP API server 
+    for programmatic stock trading (market, limit, stop orders).
+  highlights:
+    - text: "Authenticated HTTP API with Chi router"
+    - text: "Market, Limit, Stop, Stop-Limit order support"
+    - text: "Mimics browser behavior for reliability"
+    - text: "Real-time market data via WebSocket"
+  technologies:
+    - "Go"
+    - "Chi Router"
+    - "WebSocket"
+    - "REST API"
+  featured: true
+
+# ========================
+# DATA & UTILITIES
+# ========================
+
+- id: "subtitlekit"
+  title: "SubtitleKit"
+  subtitle: "AI-Enhanced Subtitle Tool"
+  type: "personal"
+  category: "data"
+  weight: 7
+  period:
+    start: "2025"
+    end: "2025"
+  description: |
+    Εργαλείο επεξεργασίας υποτίτλων. Κόβει "filler words", 
+    βελτιώνει το reading speed (CPS) και χρησιμοποιεί AI για διορθώσεις.
+  highlights:
+    - text: "Αφαίρεση filler words"
+    - text: "Βελτίωση CPS (Characters Per Second)"
+    - text: "AI-powered διορθώσεις με LLM"
+  links:
+    - url: "https://github.com/angelospk/SubtitleKit"
+      label: "GitHub"
+  technologies:
+    - "Python"
+    - "AI/LLM"
+    - "Subtitle Processing"
+  featured: true
+
+- id: "Diesi-stat"
+  title: "Diesi-stat"
+  subtitle: "Music Stats Visualizer"
+  type: "personal"
+  category: "data"
+  weight: 7
+  description: |
+    Visualization και στατιστική ανάλυση 3 ετών ραδιοφωνικών δεδομένων 
+    με χρήση machine learning για προβλέψεις.
+  highlights:
+    - text: "Ανάλυση 3 ετών ραδιοφωνικών δεδομένων"
+    - text: "KNN model για κατηγοριοποίηση"
+    - text: "Interactive visualizations"
+  technologies:
+    - "Vue.js"
+    - "Machine Learning (KNN)"
+    - "Data Visualization"
+  featured: true
+
+- id: "church-showcase"
+  title: "AthosCy"
+  subtitle: "Church Products Showcase"
+  type: "personal"
+  category: "fullstack"
+  weight: 6
+  period:
+    start: "2023"
+    end: "2023"
+  description: |
+    Showcase website για εταιρεία εκκλησιαστικών ειδών με 
+    Google Sheets ως database.
+  highlights:
+    - text: "SvelteKit για modern UX"
+    - text: "Google Sheets integration αντί παραδοσιακής database"
+  links:
+    - url: "https://athoscy.vercel.app/"
+      label: "Live Demo"
+  technologies:
+    - "SvelteKit"
+    - "Google Sheets API"
+  featured: false
+
+- id: "testrss"
+  title: "TestRSS"
+  subtitle: "Custom RSS Feed Creator"
+  type: "legacy"
+  category: "data"
+  period:
+    start: "2023"
+    end: "2023"
+  description: |
+    Python-based RSS feed generator με data gathering 
+    από διάφορες πηγές. Ένα από τα πρώτα projects.
+  highlights:
+    - text: "Customizable search criteria"
+    - text: "Multi-source data gathering"
+  links:
+    - url: "https://github.com/angelospk/testrss"
+      label: "GitHub"
+  technologies:
+    - "Python"
+    - "Web Scraping"
+    - "RSS"
+  featured: false
+
+# ========================
+# LEGACY PROJECTS
+# ========================
+
+- id: "school-management"
+  title: "PHP School"
+  subtitle: "School Management System"
+  type: "legacy"
+  category: "fullstack"
+  weight: 8
+  description: |
+    School management system with staff, library, and 
+    student attendance management.
+  links:
+    - url: "https://github.com/angelospk/php-school"
+      label: "GitHub"
+  technologies:
+    - "PHP"
+    - "MySQL"
+  featured: false
+
+- id: "cinema-booking"
+  title: "CinemaPHP"
+  subtitle: "Cinema Booking System"
+  type: "legacy"
+  category: "fullstack"
+  period:
+    start: "2024"
+    end: "2024"
+  description: |
+    Σύστημα κρατήσεων σινεμά με διαχείριση θέσεων και εισιτηρίων.
+  links:
+    - url: "https://github.com/angelospk/cinemaphp"
+      label: "GitHub"
+  technologies:
+    - "PHP"
+    - "MySQL"
+  featured: false
+
+# ========================
+# CONCEPTS / MENTIONS
+# ========================
+
+- id: "carpooling-app"
+  title: "Carpooling App"
+  subtitle: "Mobile App Concept"
+  type: "concept"
+  weight: 7
+  category: "mobile"
+  description: |
+    Mobile εφαρμογή carpooling (proof of concept).
+  period:
+    start: "2025"
+    end: "2025"
+  technologies:
+    - "React Native"
+    - "Expo"
+  featured: false

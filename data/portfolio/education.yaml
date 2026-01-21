@@ -1,0 +1,48 @@
+# =============================================================================
+# EDUCATION - Angelos Papamichail
+# =============================================================================
+
+education:
+  - id: "auth-meng"
+    institution: "Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης"
+    institution_en: "Aristotle University of Thessaloniki"
+    degree: "Master of Engineering, Ηλεκτρολόγων Μηχανικών & Μηχανικών Υπολογιστών"
+    degree_en: "Master of Engineering, Electrical and Computer Engineering"
+    period:
+      start: "2014"
+      end: "2023"
+    gpa: "7.33"
+    highlights: []
+    
+  - id: "idea-smart-building"
+    institution: "IDEA Lifelong Learning Center"
+    degree: "Smart Building Programming Technician (Level 1)"
+    period:
+      start: "2024"
+      end: "2024"
+    highlights: []
+
+certifications:
+  - name: "Back End Development and APIs"
+    issuer: "freeCodeCamp"
+    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/back-end-development-and-apis"
+    
+  - name: "Data Analysis with Python"
+    issuer: "freeCodeCamp"
+    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/data-analysis-with-python-v7"
+    
+  - name: "JavaScript Algorithms and Data Structures"
+    issuer: "freeCodeCamp"
+    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/javascript-algorithms-and-data-structures"
+    
+  - name: "Scientific Computing with Python"
+    issuer: "freeCodeCamp"
+    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/scientific-computing-with-python-v7"
+    
+  - name: "Data Scientist Professional Certification"
+    issuer: "Codecademy"
+    url: "https://www.codecademy.com/profiles/angelospk/certificates/7dec503730a448c8b22bb251ada403f3"
+    
+  - name: "Front-End Engineer Professional Certification"
+    issuer: "Codecademy"
+    url: "https://www.codecademy.com/profiles/angelospk/certificates/2682884a0719474f96407efe432fdd87"
