@@ -16,7 +16,7 @@ I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web d
 
 ## What Drives Me
 
-I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), automating tedious tasks at a [local agricultural cooperative](/projects/), or building a [self-order system](/projects/order-local/) that runs on a Raspberry Pi—I love seeing my code make someone's day a little easier.
+I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), automating tedious tasks at a [local agricultural cooperative](/projects/), or building a [self-order system](/projects/order-local/) that runs on a Raspberry Pi, I love seeing my code make someone's day a little easier.
 
 I'm a big believer in:
 - **Keep it simple** - The best solution is often the simplest one
@@ -26,8 +26,8 @@ I'm a big believer in:
 ## Beyond Code
 
 When I'm not coding, you'll find me:
-- ♟️ Playing chess (amateur but enthusiastic)
-- 🎹 Learning piano (slowly but surely)
+- ♟️ Playing chess
+- 🎹 Learning piano
 - 🎬 Subtitling films (yes, I built [a tool for that](/projects/subtitlekit/))
 - 🏊 Swimming when the weather allows
 
