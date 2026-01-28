@@ -114,6 +114,51 @@
     - "Machine Learning"
   featured: true
 
+- id: "gemini-rag-demo"
+  title: "Gemini RAG Demo"
+  subtitle: "Greek FEK Document Q&A System"
+  type: "personal"
+  category: "ai"
+  weight: 8
+  period:
+    start: "2026-01"
+    end: "2026-01"
+  description: |
+    RAG (Retrieval-Augmented Generation) system that answers questions 
+    based on Greek FEK (Government Gazette) PDF documents, using Gemini 
+    for embeddings and generation.
+  context:
+    problem: |
+      Greek legal documents (ΦΕΚ) are dense and difficult to navigate. 
+      Finding specific information requires manual reading of multiple documents.
+    solution: |
+      Built a RAG pipeline that indexes PDF documents, stores semantic embeddings 
+      in FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.
+  highlights:
+    - text: "PDF Ingestion Pipeline"
+      detail: "Reads and chunks PDF documents using LangChain, optimized for Greek text."
+    - text: "Gemini Embeddings"
+      detail: "Uses text-embedding-004 with native Greek language support."
+    - text: "FAISS Vector Store"
+      detail: "Local vector database for fast similarity search."
+    - text: "Source Citations"
+      detail: "Returns answers with references to specific documents and pages."
+    - text: "Google Colab Support"
+      detail: "Includes notebook for easy cloud-based experimentation."
+  links:
+    - url: "https://github.com/angelospk/gemini-rag-demo"
+      label: "GitHub"
+    - url: "https://colab.research.google.com/github/angelospk/gemini-rag-demo/blob/main/rag_demo.ipynb"
+      label: "Open in Colab"
+  technologies:
+    - "Python"
+    - "LangChain"
+    - "Gemini API"
+    - "FAISS"
+    - "RAG"
+    - "NLP"
+  featured: true
+
 # ========================
 # FULL STACK & WEB APPS
 # ========================
