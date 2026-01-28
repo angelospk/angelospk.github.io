@@ -1,7 +1,7 @@
 +++
 title = "Gemini RAG Demo"
 description = "Greek FEK Document Q&A System"
-date = "2026-01"
+date = "2026-01-27"
 tags = ["Python", "LangChain", "Gemini API", "FAISS", "RAG", "NLP"]
 categories = ["ai"]
 weight = 8
