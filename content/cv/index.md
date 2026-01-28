@@ -80,6 +80,10 @@ Educational platform teaching Windows 11 skills to elderly users with interactiv
 PyPI package for subtitle processing, synchronization, and AI-powered corrections.
 *Technologies: Python, LLM Integration*
 
+### [Emotion Recognition](/projects/emotion-recognition/) - Real-time Emotion Detection
+Machine learning model for emotion recognition from streaming video using SVM and LBP.
+*Technologies: Python, OpenCV, scikit-learn, SVM*
+
 → [View all projects](/projects/)
 
 ---
@@ -116,9 +120,9 @@ PyPI package for subtitle processing, synchronization, and AI-powered correction
 
 ## Volunteering
 
-- **TEDx Thessaloniki** - Tech Team *(2016)*
+- **Youth Council of Orestiada** - Board Member & Developer *(2025-)*
+- **TEXAuth** - Tech Volunteer *(2016)*
 - **Ardas Music Festival** - Volunteer *(2017)*
-- **Youth Council of Orestiada** - Digital Contributor *(2014-2016)*
 
 ---
 

@@ -20,7 +20,7 @@ The platform combines traditional analytics dashboards with machine learning to 
 ## Key Features
 
 - **Analytics Dashboards** - Top artists, songs, time patterns, and trends
-- **ML Predictions** - Markov Chain + time-aware model predicts next song
+- **ML Predictions** - KNN + time-aware model predicts next song
 - **Real-time Learning** - Model adapts based on actual vs predicted plays
 - **Now Playing** - Live display with persistent audio player
 - **Interactive Charts** - ECharts visualizations for all metrics
@@ -34,7 +34,7 @@ The platform combines traditional analytics dashboards with machine learning to 
 | **Frontend** | Vue.js 3 (Composition API), Tailwind CSS, Vite |
 | **Backend** | Python 3.11+, FastAPI, SQLAlchemy |
 | **Database** | SQLite (local-first, lightweight) |
-| **ML** | Markov Chain + time-aware features |
+| **ML** | KNN + time-aware features |
 | **Caching** | Redis with smart TTLs |
 | **Deployment** | Docker |
 | **Charts** | ECharts |
@@ -42,7 +42,7 @@ The platform combines traditional analytics dashboards with machine learning to 
 ### ML Model
 
 The prediction model combines:
-- **Markov Chain** - Probability of song B following song A
+- **KNN (K-Nearest Neighbors)** - Finds similar patterns in historical data
 - **Time-aware features** - Different patterns for morning/afternoon/night
 - **Real-time learning** - Updates weights based on prediction accuracy
 

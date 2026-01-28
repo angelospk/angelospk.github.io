@@ -56,10 +56,21 @@ Python library and desktop app for subtitle processing, synchronization, and AI-
 
 ---
 
+### [Emotion Recognition](/projects/emotion-recognition/) (2021)
+**Real-time Emotion Detection for Video Conferencing**
+
+Machine learning model for emotion recognition from streaming video using SVM/LinearSVC and Local Binary Patterns (LBP). Integrated with IRC protocol for teleconferencing platforms.
+
+*Technologies: Python, OpenCV, scikit-learn, SVM*
+
+[GitHub →](https://github.com/beyondTheMyth/Emotion-Recognition-Addon)
+
+---
+
 ## AI & Machine Learning
 
-### [Emotion Recognition](/projects/emotion-recognition/) (2021)
-Real-time emotion detection using SVM and Local Binary Patterns for video conferencing integration.
+### [Gemini RAG Demo](https://github.com/angelospk/gemini-rag-demo) (2026)
+RAG system for Greek FEK documents using LangChain, FAISS, and Gemini for embeddings/generation.
 
 ### [AiMovie](/projects/aimovie/) (2025)
 AI-powered movie recommendations using Gemini/OpenRouter with viewing history tracking.
