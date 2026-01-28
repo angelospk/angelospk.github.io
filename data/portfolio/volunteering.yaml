@@ -4,25 +4,25 @@
 
 volunteering:
   - id: "youth-council"
-    title: "Μέλος Διοικητικού Συμβουλίου"
+    title: "Διοικητικό Μέλος & Προγραμματιστής"
     organization: "Δημοτικό Συμβούλιο Νέων Ορεστιάδας"
     period:
-      start: null
+      start: "2025"
       end: null  # ongoing
     description: |
-      Ενεργή συμμετοχή στη διαμόρφωση πολιτικών για νέους στον δήμο.
+      Διοικητικό μέλος και υπεύθυνος ανάπτυξης ψηφιακών εργαλείων για το Συμβούλιο Νέων.
     highlights:
       - text: "Δημιουργία demo website για το ΔΣΝ"
         link: "https://angelospk.github.io/dsn-ore/"
     
-  - id: "tedx-thessaloniki"
-    title: "Εθελοντής"
-    organization: "TEDx Thessaloniki"
+  - id: "texauth"
+    title: "Tech Volunteer"
+    organization: "TEXAuth"
     period:
-      start: null
-      end: null
+      start: "2016"
+      end: "2016"
     description: |
-      Εθελοντική συμμετοχή σε διοργάνωση TEDx Thessaloniki.
+      Τεχνική υποστήριξη σε εκδήλωση TEXAuth.
     
   - id: "ardas-festival"
     title: "Εθελοντής"
