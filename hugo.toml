@@ -16,7 +16,7 @@ enableEmoji = true
   info = "Electrical and Computer Engineer"
   description = "Angelos Papamichail's personal website"
   keywords = "blog,developer,personal"
-  avatarURL = "images/avatar.jpg"
+  avatarURL = "https://avatars.githubusercontent.com/u/55174356?v=4"
   
   favicon_32 = "images/favicon-32x32.png"
   favicon_16 = "images/favicon-16x16.png"
