@@ -51,21 +51,30 @@ experiences:
       start: "2025-05"
       end: "2025-10"
     description: |
-      Βελτίωση ροών εργασίας μέσω τεχνολογίας και δημιουργία 
-      βάσης γνώσης για νέους εργαζόμενους.
+      Developed 'Agronet Automation Suite', a comprehensive browser extension to modernize legacy ERP workflows.
+      Streamlined agricultural data entry and validation processes.
+      Established knowledge management systems for staff training.
     # NOTE: See projects.yaml (enosi-extension) for detailed technical contribution
     highlights:
-      - text: "Engineered 'Agronet Automation Suite' to reduce data entry time by 40%"
+      - text: "Engineered 'Agronet Automation Suite' (Vue.js/Chrome Ext), reducing data entry time by ~40% and eliminating manual errors."
         link: "#enosi-extension"
-      - text: "Δημιουργία internal wiki για εκπαίδευση νέου προσωπικού"
+      - text: "Integrated AI/LLM for automated error analysis, translating complex system logs into actionable user instructions."
+        link: "#enosi-extension"
+      - text: "Automated Year-over-Year data migration, saving ~5 minutes per application."
+        link: "#enosi-extension"
+      - text: "Created internal wiki/knowledge base to accelerate new staff onboarding."
         link: "https://angelospk.github.io/enosi"
     technologies:
       - "Vue.js"
       - "Chrome Extensions"
       - "JavaScript"
+      - "AI/LLM Integration"
+      - "DOM Manipulation"
       - "Wiki/Documentation"
     skills:
       - "Process Automation"
+      - "Full Stack Development"
+      - "Problem Solving"
       - "Documentation"
       - "Knowledge Management"
 
@@ -77,26 +86,30 @@ experiences:
       start: "2024-05"
       end: "2024-11"
     description: |
-      Διαχείριση νυχτερινής βάρδιας και βελτίωση διαδικασιών 
-      με τεχνολογικές λύσεις.
+      Combined Night Auditor responsibilities with custom software development to optimize hotel operations.
+      Developed digital tools to enhance guest experience and streamline front-desk workflows.
     # NOTE: See projects.yaml (tui-qr-map, tui-scanner-automation)
     highlights:
-      - text: "Automated check-in data entry (3x faster)"
+      - text: "Developed 'Magic Life Hotel Map', a mobile-first PWA for guest navigation using Leaflet.js."
         link: "#tui-digital-tools"
-      - text: "Built 'Magic Life Hotel Map' for guests"
+      - text: "Created Python automation scripts to speed up check-in data entry by 3x."
         link: "#tui-digital-tools"
-      - text: "Documentation για Protel ξενοδοχειακό σύστημα"
-        detail: "Obsidian knowledge base για χρήση του λογισμικού"
+      - text: "Maintained 'Protel Vault', an Obsidian-based knowledge base for standardizing PMS procedures."
         link: "https://github.com/angelospk/protel-vault"
     technologies:
+      - "Python"
       - "JavaScript"
+      - "Leaflet.js"
       - "Web Development"
       - "Obsidian"
       - "Protel PMS"
+      - "Automation"
     skills:
+      - "Software Development"
+      - "Process Improvement"
       - "Problem Solving"
-      - "Initiative"
       - "Documentation"
+      - "Hotel Operations"
 
   - id: "koukas-iason"
     title: "Python Developer"
@@ -115,6 +128,22 @@ experiences:
     skills:
       - "Backend Development"
       - "API Integration"
+
+  - id: "haf-military"
+    title: "Military Service, Fire Rescue"
+    organization: "Hellenic Air Force (HAF)"
+    type: "work"
+    period:
+      start: "2021-09"
+      end: "2022-06"
+    description: |
+      Fulfilled mandatory military service with specialization in Fire Rescue operations.
+    highlights: []
+    technologies: []
+    skills:
+      - "Crisis Management"
+      - "Teamwork"
+
 
   - id: "veltio"
     title: "Software Developer"

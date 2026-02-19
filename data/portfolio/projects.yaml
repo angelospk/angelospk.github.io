@@ -176,17 +176,26 @@
     Εφαρμογή υπολογισμού χρεώσεων για Spotify Family subscription.
     Υπολογίζει αυτόματα τι χρωστάει κάθε μέλος λαμβάνοντας υπόψη 
     αυξήσεις τιμών και στέλνει email ενημερώσεις.
+    Built with React, Vite, and Shadcn UI.
   highlights:
-    - text: "Έξυπνη αρχιτεκτονική ασφαλείας"
-      detail: "Emails σε private Google Sheet, ποσά/ονόματα σε public GitHub JSON"
-    - text: "Αυτόματο commit δεδομένων μέσω Google Apps Script"
+    - text: "Complex State Management"
+      detail: "Uses custom hooks and contexts for data fetching and state synchronization."
+    - text: "Interactive Visualizations"
+      detail: "Recharts integration for visualizing payment history."
+    - text: "Modern UI/UX"
+      detail: "Built with Shadcn UI (Radix Primitives) and Tailwind CSS."
+    - text: "Serverless Backend"
+      detail: "Google Apps Script for email notifications and data persistence."
   links:
     - url: "https://github.com/angelospk/spotifypay"
       label: "GitHub"
   technologies:
     - "React"
-    - "Google Apps Script"
-    - "GitHub API"
+    - "TypeScript"
+    - "Vite"
+    - "Shadcn UI"
+    - "Recharts"
+    - "Tailwind CSS"
   featured: true
 
 - id: "pcbasics"

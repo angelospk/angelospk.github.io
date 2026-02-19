@@ -38,9 +38,15 @@ skills:
       level: "intermediate"
     - name: "CI/CD"
       level: "intermediate"
+    - name: "Software Infrastructure"
+      level: "advanced"
+
       
   other:
     - name: "AI/LLM Integration"
       level: "intermediate"
+    - name: "Mobile Game Development"
+      level: "intermediate"
+
     - name: "Prompt Engineering"
       level: "intermediate"
