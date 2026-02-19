@@ -1,0 +1,9 @@
+<h1>{{ .Site.Params.author }}</h1>
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=7AA2F7&center=true&vCenter=true&width=435&lines=Software+Engineer;ECE+MEng+@+AUTH;AI+%26+Automation+Enthusiast;Full+Stack+Developer" alt="Typing SVG" />
+</p>
+{{ if reflect.IsSlice .Site.Params.info }}
+<h2>{{ range .Site.Params.info }}{{ . | markdownify }}<br>{{ end}}</h2>
+{{ else }}
+<h2>{{ .Site.Params.info | markdownify }} </h2>
+{{ end }}
