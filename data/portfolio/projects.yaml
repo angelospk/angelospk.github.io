@@ -80,6 +80,35 @@
 
 
 
+# ========================
+# OPEN SOURCE
+# ========================
+
+- id: "opencouncil"
+  title: "OpenCouncil"
+  subtitle: "Open Source Contributor"
+  type: "open-source"
+  category: "fullstack"
+  weight: 9
+  period:
+    start: "2026-02"
+    end: "2026-03"
+  description: |
+    Contributor to the OpenCouncil platform by Schema Labs (schemalabz/opencouncil).
+    Focused on resolving complex React/Next.js hydration mismatches, improving compile times, 
+    and optimizing UI components for unauthenticated workflows.
+  highlights:
+    - text: "Resolved severe Next.js hydration errors and improved Turbopack compile times."
+    - text: "Implemented contextual tooltips and interactive UI state management."
+  links:
+    - url: "https://github.com/schemalabz/opencouncil"
+      label: "GitHub Repo"
+  technologies:
+    - "Next.js"
+    - "React"
+    - "TypeScript"
+    - "Tailwind CSS"
+  featured: true
 
 # ========================
 # ACADEMIC / AI PROJECTS
