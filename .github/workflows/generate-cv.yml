@@ -4,9 +4,19 @@ on:
   push:
     branches: [main]
     paths:
-      - 'cv/template.typ'
-      - 'data/portfolio.yaml'
+      - 'cv/generate_tailored_cv.rb'
+      - 'data/portfolio/**'
+      - 'data/portfolio_backup.yaml'
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'Job/application context for tailoring'
+        required: false
+        default: 'General full-stack developer CV'
+      tips:
+        description: 'Extra tailoring tips'
+        required: false
+        default: ''
 
 jobs:
   build-cv:
@@ -21,7 +31,11 @@ jobs:
 
       - name: Compile CV to PDF
         run: |
-          typst compile cv/template.typ cv/angelos-papamichail-cv.pdf
+          ruby cv/generate_tailored_cv.rb \
+            --target "${{ github.event.inputs.target || 'General full-stack developer CV' }}" \
+            --tips "${{ github.event.inputs.tips || '' }}" \
+            --output-dir cv \
+            --basename angelos-papamichail-cv
 
       - name: Commit and push PDF
         run: |
