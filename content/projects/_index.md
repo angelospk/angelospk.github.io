@@ -14,6 +14,37 @@ A collection of personal and professional projects spanning full-stack developme
 
 ## Featured Projects
 
+### [FindDoctors Aggregator Server](/projects/find-doctors-server/) (2026)
+**Unified Public Health Appointment Search**
+
+Go backend that aggregates appointment availability from the Greek public health appointment system, searching hospitals and primary care centers in parallel to surface the soonest useful options.
+
+*Technologies: Go, REST API, Concurrent Workers, TypeScript Types, TDD*
+
+[GitHub →](https://github.com/angelospk/find_doctors_server)
+
+---
+
+### [UniTrip.gr](/projects/unitrip/) (2026)
+**Youth Travel Booking Platform**
+
+SvelteKit booking platform for organized youth trips, with public trip discovery, multi-step booking, Viva payments, shareable group bookings, realtime admin operations, referrals, and QR/UTM campaigns.
+
+*Technologies: SvelteKit, Svelte 5, TypeScript, PocketBase, Viva Payments, Cloudflare*
+
+[Live Site →](https://unitrip.gr)
+
+---
+
+### [SkipQ](/projects/skipq/) (Upcoming)
+**QR Ordering & Hospitality Operations Platform**
+
+Upcoming QR ordering system for restaurants, beach bars, clubs, canteens, festivals, and fast-service food businesses. Designed for self-ordering, live order tracking, local deployment, menu analytics, and future AI voice ordering.
+
+*Technologies: Go, Svelte, QR Ordering, Local-first, Analytics*
+
+---
+
 ### [Order Local](/projects/order-local/) (2025)
 **Self-Hosted Restaurant Ordering System**
 

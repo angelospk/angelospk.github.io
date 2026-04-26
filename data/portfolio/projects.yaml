@@ -6,6 +6,131 @@
 # WORK-EMBEDDED PROJECTS (Promoted from Experience)
 # ========================
 
+- id: "find-doctors-server"
+  title: "FindDoctors Aggregator Server"
+  subtitle: "Unified Public Health Appointment Search"
+  type: "personal"
+  category: "backend"
+  weight: 10
+  period:
+    start: "2026"
+    end: null
+  description: |
+    High-performance Go backend that aggregates appointment availability from 
+    finddoctors.gov.gr, making it easier to discover where and when public health 
+    appointments are available across hospitals and primary care centers.
+  context:
+    problem: |
+      The official platform makes it difficult to search across different public 
+      health entities, regions, and appointment dates at once.
+    solution: |
+      Built a concurrent aggregator API that searches multiple entities in parallel, 
+      returns the soonest available appointments, and is designed to power a future 
+      patient-facing UI for booking faster when availability exists.
+  highlights:
+    - text: "Unified Smart Search"
+      detail: "Combines nationwide, proximity, hospital, and primary care center search into a single endpoint."
+    - text: "Parallel Scanner Engine"
+      detail: "Uses a concurrent worker pool to probe health units for first available slots with low latency."
+    - text: "Actionable Capacity Reports"
+      detail: "Reports fill rates and earliest available dates per specialty for hospital departments."
+    - text: "Privacy-first Discovery"
+      detail: "Read-only, stateless search layer that does not store user cookies or appointment session data."
+  links:
+    - url: "https://github.com/angelospk/find_doctors_server"
+      label: "GitHub"
+  technologies:
+    - "Go"
+    - "REST API"
+    - "Concurrent Workers"
+    - "TypeScript Types"
+    - "TDD"
+  featured: true
+
+- id: "unitrip"
+  title: "UniTrip.gr"
+  subtitle: "Youth Travel Booking Platform"
+  type: "professional"
+  category: "fullstack"
+  weight: 10
+  period:
+    start: "2026"
+    end: null
+  description: |
+    Full-stack booking platform for organized youth trips, covering public trip 
+    discovery, multi-step bookings, payment flows, admin operations, referrals, 
+    QR/UTM campaigns, and booking sharing after the initial reservation.
+  context:
+    problem: |
+      Travel agencies need a fast booking experience that can handle group travel, 
+      delayed participant additions, campaign attribution, and operational follow-up.
+    solution: |
+      Built a SvelteKit and PocketBase application with a public booking funnel, 
+      realtime admin panel, Viva payments, Discord operations notifications, and 
+      service-worker static asset caching.
+  highlights:
+    - text: "Shareable Group Bookings"
+      detail: "A booking can be shared after creation so additional travelers can join later as third or fourth members."
+    - text: "Realtime Admin Operations"
+      detail: "Admin views for trips, bookings, travelers, payments, referrals, campaigns, exports, and trip dashboards."
+    - text: "Campaign Attribution"
+      detail: "QR links with UTM parameters persist attribution through booking and payment events."
+    - text: "Fast Cloudflare Runtime"
+      detail: "SvelteKit deployed on Cloudflare with static asset caching and no runtime caching of sensitive booking/admin data."
+  links:
+    - url: "https://unitrip.gr"
+      label: "Live Site"
+  technologies:
+    - "SvelteKit"
+    - "Svelte 5"
+    - "TypeScript"
+    - "PocketBase"
+    - "Viva Payments"
+    - "Cloudflare"
+    - "Tailwind CSS"
+  featured: true
+
+- id: "skipq"
+  title: "SkipQ"
+  subtitle: "QR Ordering & Hospitality Operations Platform"
+  type: "startup"
+  category: "fullstack"
+  weight: 10
+  period:
+    start: "2026"
+    end: null
+  description: |
+    QR ordering system for restaurants, beach bars, clubs, canteens, festivals, 
+    and fast-service food businesses. The goal is to reduce service friction, 
+    support self-ordering, and give venues live operational insights.
+  context:
+    problem: |
+      During peak hours, customers struggle to get served and staff spend too much 
+      time on order intake instead of preparation and service quality.
+    solution: |
+      Designing a configurable ordering platform with customer self-ordering, live 
+      order tracking, waiter calls, menu analytics, stock-aware availability, and 
+      both cloud and local deployment options.
+  highlights:
+    - text: "Personalized Store Experience"
+      detail: "Each venue can configure safety controls, customer-visible options, menu behavior, and ordering rules."
+    - text: "Local-first Deployment"
+      detail: "Designed to run in the cloud or locally for venues that need control or reliability during internet outages."
+    - text: "Live Menu Intelligence"
+      detail: "Future-facing menu updates based on stock, demand, queue load, and estimated preparation times."
+    - text: "Hospitality Analytics"
+      detail: "Plans for menu analytics, customer preference insights, occupancy signals, reservations, and staff operations."
+    - text: "Upcoming AI Assistant"
+      detail: "Roadmap includes AI voice dictation to help customers quickly find and order what they want."
+  technologies:
+    - "Go"
+    - "Svelte"
+    - "SPA"
+    - "Local-first"
+    - "Analytics"
+    - "QR Ordering"
+  featured: true
+
 - id: "enosi-extension"
   title: "Agronet Automation Suite"
   subtitle: "Vue.js Extension & AI Integration"

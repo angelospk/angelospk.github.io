@@ -28,6 +28,8 @@ skills:
       level: "intermediate"
     - name: "Hugo"
       level: "intermediate"
+    - name: "PocketBase"
+      level: "intermediate"
       
   devops:
     - name: "Docker"
@@ -40,10 +42,16 @@ skills:
       level: "intermediate"
     - name: "Software Infrastructure"
       level: "advanced"
+    - name: "Cloudflare Pages/Workers"
+      level: "intermediate"
 
       
   other:
     - name: "AI/LLM Integration"
+      level: "intermediate"
+    - name: "Product Analytics"
+      level: "intermediate"
+    - name: "Payment Integrations"
       level: "intermediate"
     - name: "Mobile Game Development"
       level: "intermediate"

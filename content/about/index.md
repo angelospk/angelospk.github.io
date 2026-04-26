@@ -12,16 +12,17 @@ I'm **Angelos**, a software developer from Northern Greece with a passion for bu
 
 ## The Short Version
 
-I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit** or **Vue** on the frontend.
+I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit**, **Svelte**, or **Vue** on the frontend.
 
 ## What Drives Me
 
-I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), automating tedious tasks at a [local agricultural cooperative](/projects/), or building a [self-order system](/projects/order-local/) that runs on a Raspberry Pi, I love seeing my code make someone's day a little easier.
+I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), making public health appointments easier to discover with [FindDoctors Aggregator](/projects/find-doctors-server/), building travel booking flows for [UniTrip.gr](/projects/unitrip/), or designing [SkipQ](/projects/skipq/) as a local-first QR ordering system for hospitality, I love seeing my code make someone's day a little easier.
 
 I'm a big believer in:
 - **Keep it simple** - The best solution is often the simplest one
 - **Local-first** - Build for reliability, not just connectivity
 - **Automation** - If I'm doing something twice, I'll probably script it
+- **Useful data** - Analytics should help people make better operational decisions
 
 ## Beyond Code
 
