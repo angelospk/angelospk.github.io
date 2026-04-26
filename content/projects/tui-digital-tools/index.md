@@ -2,7 +2,7 @@
 title = "TUI Digital Tools"
 description = "Hotel Map & Check-in Automation"
 date = "2024-06-01"
-tags = ["JavaScript", "Leaflet.js", "Python", "Automation"]
+tags = ["JavaScript","Leaflet.js","Python","Automation"]
 categories = ["fullstack"]
 weight = 8
 +++
@@ -13,15 +13,17 @@ weight = 8
 
 ## Overview
 
-A suite of digital tools developed to improve guest experience and operational efficiency at TUI Magic Life Plimmiri.
+A suite of digital tools developed to improve guest experience and operational efficiency 
+at TUI Magic Life Plimmiri.
 
-### Problem
-Guests struggling with navigation due to outdated PDF maps, and reception facing long queues due to manual data entry requirements.
+### The Problem
+Guests struggled with navigation due to outdated PDF maps, and reception faced long queues 
+due to manual data entry requirements.
 
-### Solution
-Developed two complementary solutions:
-1.  **Interactive Resort Map**: A mobile-first web app for guests.
-2.  **Check-in Automation**: A Python script for reception staff.
+### The Solution
+Developed two solutions: An interactive web map for guests and a Python automation script 
+for reception staff.
+
 
 ## Key Features
 

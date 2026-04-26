@@ -1,9 +1,9 @@
 +++
 title = "FindDoctors Aggregator Server"
-description = "Unified backend search for Greek public health appointments"
+description = "Unified Public Health Appointment Search"
 date = "2026-01-01"
-tags = ["Go", "REST API", "Concurrency", "Healthcare", "TypeScript", "TDD"]
-categories = ["Backend", "Healthcare"]
+tags = ["Go","REST API","Concurrent Workers","TypeScript Types","TDD"]
+categories = ["backend"]
 weight = 10
 +++
 
@@ -13,11 +13,19 @@ weight = 10
 
 ## Overview
 
-FindDoctors Aggregator Server is a Go backend that makes appointment availability easier to discover across the Greek public health appointment system.
+High-performance Go backend that aggregates appointment availability from 
+finddoctors.gov.gr, making it easier to discover where and when public health 
+appointments are available across hospitals and primary care centers.
 
-The project addresses a practical limitation of `finddoctors.gov.gr`: patients often need to search across different entities, regions, and health units manually before they can understand whether there is an available appointment. This server aggregates that discovery step into a faster API that can power a patient-facing UI.
+### The Problem
+The official platform makes it difficult to search across different public 
+health entities, regions, and appointment dates at once.
 
-The goal for the next stage is a simple interface where a patient can find whether, when, and where an appointment exists near them, or farther away if they are willing to travel, and move toward booking without fighting the public platform.
+### The Solution
+Built a concurrent aggregator API that searches multiple entities in parallel, 
+returns the soonest available appointments, and is designed to power a future 
+patient-facing UI for booking faster when availability exists.
+
 
 ## Key Features
 

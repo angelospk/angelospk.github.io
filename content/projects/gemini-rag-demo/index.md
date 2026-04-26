@@ -1,8 +1,8 @@
 +++
 title = "Gemini RAG Demo"
 description = "Greek FEK Document Q&A System"
-date = "2026-01-27"
-tags = ["Python", "LangChain", "Gemini API", "FAISS", "RAG", "NLP"]
+date = "2026-01-01"
+tags = ["Python","LangChain","Gemini API","FAISS","RAG","NLP"]
 categories = ["ai"]
 weight = 8
 +++
@@ -13,11 +13,18 @@ weight = 8
 
 ## Overview
 
-RAG (Retrieval-Augmented Generation) system that answers questions based on Greek FEK (Government Gazette) PDF documents, using Gemini for embeddings and generation.
+RAG (Retrieval-Augmented Generation) system that answers questions 
+based on Greek FEK (Government Gazette) PDF documents, using Gemini 
+for embeddings and generation.
 
-Greek legal documents (ΦΕΚ) are dense and difficult to navigate. Finding specific information requires manual reading of multiple documents.
+### The Problem
+Greek legal documents (ΦΕΚ) are dense and difficult to navigate. 
+Finding specific information requires manual reading of multiple documents.
 
-Built a RAG pipeline that indexes PDF documents, stores semantic embeddings in FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.
+### The Solution
+Built a RAG pipeline that indexes PDF documents, stores semantic embeddings 
+in FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.
+
 
 ## Key Features
 

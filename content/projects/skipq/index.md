@@ -1,9 +1,9 @@
 +++
 title = "SkipQ"
-description = "QR ordering and hospitality operations platform"
+description = "QR Ordering & Hospitality Operations Platform"
 date = "2026-01-01"
-tags = ["Go", "Svelte", "QR Ordering", "Hospitality", "Local-first", "Analytics"]
-categories = ["Full Stack", "Startup", "Hospitality"]
+tags = ["Go","Svelte","SPA","Local-first","Analytics","QR Ordering"]
+categories = ["fullstack"]
 weight = 10
 +++
 
@@ -13,11 +13,19 @@ weight = 10
 
 ## Overview
 
-SkipQ is an upcoming QR ordering platform for hospitality businesses. It is designed for restaurants, beach bars, clubs, canteens, festivals, fast-service food spots, and venues where service pressure peaks quickly.
+QR ordering system for restaurants, beach bars, clubs, canteens, festivals, 
+and fast-service food businesses. The goal is to reduce service friction, 
+support self-ordering, and give venues live operational insights.
 
-The product goal is simple: reduce friction for customers and staff. Customers should be able to scan a QR code, browse a live menu, place orders, track progress, call a waiter when needed, and get a clear sense of what is available and how long it may take.
+### The Problem
+During peak hours, customers struggle to get served and staff spend too much 
+time on order intake instead of preparation and service quality.
 
-For the business, SkipQ is also intended to become an operations layer: menu analytics, demand signals, stock-aware updates, occupancy information, reservations, and eventually staff management insights.
+### The Solution
+Designing a configurable ordering platform with customer self-ordering, live 
+order tracking, waiter calls, menu analytics, stock-aware availability, and 
+both cloud and local deployment options.
+
 
 ## Product Goals
 

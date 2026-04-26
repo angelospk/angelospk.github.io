@@ -1,9 +1,9 @@
 +++
 title = "UniTrip.gr"
-description = "SvelteKit booking platform for organized youth travel"
+description = "Youth Travel Booking Platform"
 date = "2026-01-01"
-tags = ["SvelteKit", "Svelte 5", "TypeScript", "PocketBase", "Viva Payments", "Cloudflare", "Tailwind CSS"]
-categories = ["Full Stack", "Travel"]
+tags = ["SvelteKit","Svelte 5","TypeScript","PocketBase","Viva Payments","Cloudflare","Tailwind CSS"]
+categories = ["fullstack"]
 weight = 10
 +++
 
@@ -13,9 +13,19 @@ weight = 10
 
 ## Overview
 
-UniTrip.gr is a full-stack web application for discovering and booking organized youth trips. It covers the public website, the booking funnel, booking management, payments, referrals, QR/UTM campaigns, and admin operations.
+Full-stack booking platform for organized youth trips, covering public trip 
+discovery, multi-step bookings, payment flows, admin operations, referrals, 
+QR/UTM campaigns, and booking sharing after the initial reservation.
 
-One of its key product features is shareable group booking: after a booking is created, it can be shared so another traveler can join later as an additional participant. This supports real-world group travel behavior, where not everyone commits at the same moment.
+### The Problem
+Travel agencies need a fast booking experience that can handle group travel, 
+delayed participant additions, campaign attribution, and operational follow-up.
+
+### The Solution
+Built a SvelteKit and PocketBase application with a public booking funnel, 
+realtime admin panel, Viva payments, Discord operations notifications, and 
+service-worker static asset caching.
+
 
 ## Key Features
 
