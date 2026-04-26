@@ -233,8 +233,8 @@ lines << '#set page(paper: "a4", margin: (x: 1.25cm, y: 1.15cm))'
 lines << '#set text(font: "Helvetica", size: 8.8pt, lang: "en")'
 lines << '#set par(justify: false, leading: 0.5em)'
 lines << '#show link: underline'
-lines << '#let section(title) = block(above: 0.62em, below: 0.3em)[#text(size: 10pt, weight: "bold", upper(title)) #v(0.08em) #line(length: 100%, stroke: 0.45pt)]'
-lines << '#let entry(title, meta, body) = block(above: 0.32em, below: 0.16em)[#grid(columns: (1fr, auto), gutter: 0.6em, text(weight: "bold", title), text(size: 7.9pt, fill: rgb("#444"), meta)) #v(0.06em) #body]'
+lines << '#let section(title) = block(above: 1.25em, below: 0.5em)[#text(size: 10pt, weight: "bold", upper(title)) #v(0.16em) #line(length: 100%, stroke: 0.45pt)]'
+lines << '#let entry(title, meta, body) = block(above: 0.34em, below: 0.24em)[#grid(columns: (1fr, auto), gutter: 0.6em, text(weight: "bold", title), text(size: 7.9pt, fill: rgb("#444"), meta)) #v(0.08em) #body]'
 lines << ""
 lines << "#align(center)[#text(size: 16pt, weight: \"bold\", \"#{typst_escape(profile["name"])}\")]"
 lines << "#align(center)[#text(\"#{typst_escape(profile["email"])}\") | #text(\"#{typst_escape(profile["location"])}\") | #link(\"#{profile.dig("social", "github")}\")[GitHub] | #link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]]"
