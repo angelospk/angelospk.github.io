@@ -62,6 +62,26 @@ def typst_escape(text)
       .strip
 end
 
+def ascii_text(text)
+  text.to_s.encode("ASCII", invalid: :replace, undef: :replace, replace: "")
+end
+
+def english_text(text)
+  original = text.to_s.strip.gsub(/\s+/, " ")
+  return original unless original.match?(/[α-ωΑ-Ω]/)
+
+  translations = {
+    "Configuration και optimization Docker containers" => "Configured and optimized Docker containers.",
+    "Ticket management και bug resolution" => "Handled IT tickets and software troubleshooting.",
+    "Backend services integration για mobile game development." => "Integrated backend services for mobile game development.",
+    "SvelteKit frontend με responsive design" => "Built a responsive SvelteKit frontend.",
+    "Pocketbase backend για data management" => "Used PocketBase for backend data management.",
+    "Website για τη Κτηνιατρική με ενσωματωμένο linear solver για βελτιστοποίηση διατροφής ζώων." => "Veterinary web platform with an embedded linear solver for animal diet optimization."
+  }
+
+  translations.fetch(original, ascii_text(original).squeeze(" ").strip)
+end
+
 def normalize(text)
   text.to_s.downcase.gsub(/[^[:alnum:]α-ωάέήίόύώϊϋΐΰ\+\#\.]+/i, " ")
 end
@@ -114,10 +134,23 @@ def period_text(period)
   [start, finish].reject(&:empty?).join(" - ")
 end
 
+def start_year_month(item)
+  value = item.dig("period", "start").to_s
+  parts = value.split("-").map(&:to_i)
+  (parts[0] || 0) * 100 + (parts[1] || 1)
+end
+
 def pick_highlights(item, wanted, limit)
   lines = array(item["highlights"]).map { |h| text_of(h) }.reject(&:empty?)
   lines = lines.sort_by { |line| -keywords(line).count { |kw| wanted.include?(kw) } }
   lines.first(limit)
+end
+
+def bullets_for(item, wanted, limit, language)
+  bullets = pick_highlights(item, wanted, limit)
+  bullets = [item["description"].to_s.strip.gsub(/\s+/, " ")] if bullets.empty? && item["description"]
+  bullets = bullets.map { |line| language == "en" ? english_text(line) : line }
+  bullets.reject(&:empty?).first(limit)
 end
 
 target = read_text(options[:target])
@@ -149,7 +182,7 @@ end
 ranked_experiences = experience_scores
                      .sort_by do |item, score|
                        tech_penalty = developer_target && !tech_like?(item) ? 1 : 0
-                       [-score, tech_penalty, item.dig("period", "end").nil? ? 0 : 1, item.dig("period", "start").to_s]
+                       [-score, tech_penalty, item.dig("period", "end").nil? ? 0 : 1, -start_year_month(item)]
                      end
                      .map(&:first)
 
@@ -164,7 +197,7 @@ selected_projects = ranked_projects.first(4)
 
 skill_groups = skills["skills"] || {}
 flat_skills = skill_groups.values.flatten.map { |s| s["name"] }.compact
-ordered_skills = flat_skills.sort_by { |skill| wanted.any? { |kw| normalize(skill).include?(kw) } ? 0 : 1 }.first(18)
+ordered_skills = flat_skills.sort_by { |skill| wanted.any? { |kw| normalize(skill).include?(kw) } ? 0 : 1 }.first(16)
 
 summary = if language == "el"
             "Full-stack developer με εμπειρία σε SvelteKit, Go, Python, data-driven εφαρμογές και end-to-end product delivery. Χτίζω πρακτικά web προϊόντα από τη βάση δεδομένων και το backend μέχρι το frontend, deployment και operations."
@@ -173,8 +206,8 @@ summary = if language == "el"
           end
 
 if context.strip.length.positive?
-  top_terms = wanted.first(8).join(", ")
-  summary += language == "el" ? " Relevant focus: #{top_terms}." : " Relevant focus: #{top_terms}."
+  top_terms = wanted.first(5).join(", ")
+  summary += " Focus: #{top_terms}."
 end
 
 labels = if language == "el"
@@ -182,26 +215,28 @@ labels = if language == "el"
              experience: "Experience",
              projects: "Selected Projects",
              skills: "Skills",
-             education: "Education"
+             education: "Education",
+             certifications: "Certifications"
            }
          else
            {
              experience: "Experience",
              projects: "Selected Projects",
              skills: "Skills",
-             education: "Education"
+             education: "Education",
+             certifications: "Certifications"
            }
          end
 
 lines = []
-lines << '#set page(paper: "a4", margin: (x: 1.15cm, y: 1.05cm))'
-lines << '#set text(size: 8.8pt, lang: "en")'
-lines << '#set par(justify: false, leading: 0.47em)'
+lines << '#set page(paper: "a4", margin: (x: 1.25cm, y: 1.15cm))'
+lines << '#set text(font: "Helvetica", size: 8.8pt, lang: "en")'
+lines << '#set par(justify: false, leading: 0.5em)'
 lines << '#show link: underline'
-lines << '#let section(title) = block(above: 0.55em, below: 0.25em)[#text(size: 10pt, weight: "bold", upper(title)) #line(length: 100%, stroke: 0.45pt)]'
-lines << '#let item(title, meta, body) = block(above: 0.28em, below: 0.12em)[#text(weight: "bold", title) #h(1fr) #text(size: 8pt, meta) #body]'
+lines << '#let section(title) = block(above: 0.62em, below: 0.3em)[#text(size: 10pt, weight: "bold", upper(title)) #v(0.08em) #line(length: 100%, stroke: 0.45pt)]'
+lines << '#let entry(title, meta, body) = block(above: 0.32em, below: 0.16em)[#grid(columns: (1fr, auto), gutter: 0.6em, text(weight: "bold", title), text(size: 7.9pt, fill: rgb("#444"), meta)) #v(0.06em) #body]'
 lines << ""
-lines << "#align(center)[#text(size: 17pt, weight: \"bold\", \"#{typst_escape(profile["name"])}\")]"
+lines << "#align(center)[#text(size: 16pt, weight: \"bold\", \"#{typst_escape(profile["name"])}\")]"
 lines << "#align(center)[#text(\"#{typst_escape(profile["email"])}\") | #text(\"#{typst_escape(profile["location"])}\") | #link(\"#{profile.dig("social", "github")}\")[GitHub] | #link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]]"
 lines << ""
 lines << typst_escape(summary)
@@ -212,10 +247,9 @@ selected_experiences.each do |item|
   title = item["title_en"] || item["title"]
   org = item["organization_en"] || item["organization"]
   meta = [org, period_text(item["period"])].reject(&:empty?).join(" | ")
-  bullets = pick_highlights(item, wanted, 3)
-  bullets = [item["description"].to_s.strip.gsub(/\s+/, " ")] if bullets.empty? && item["description"]
-  body = bullets.first(3).map { |b| "- #{typst_escape(b)}" }.join("\n")
-  lines << "#item(\"#{typst_escape(title)}\", \"#{typst_escape(meta)}\")["
+  bullets = bullets_for(item, wanted, 3, language)
+  body = bullets.map { |b| "- #{typst_escape(b)}" }.join("\n")
+  lines << "#entry(\"#{typst_escape(title)}\", \"#{typst_escape(meta)}\")["
   lines << body
   lines << "]"
 end
@@ -225,14 +259,14 @@ lines << "#section(\"#{labels[:projects]}\")"
 selected_projects.each do |item|
   title = item["title"]
   meta = array(item["technologies"]).first(6).join(", ")
-  desc = item["description"].to_s.strip.gsub(/\s+/, " ")
-  highlights = pick_highlights(item, wanted, 2)
+  desc = language == "en" ? english_text(item["description"].to_s.strip.gsub(/\s+/, " ")) : item["description"].to_s.strip.gsub(/\s+/, " ")
+  highlights = bullets_for(item, wanted, 1, language)
   project_lines = [desc]
   project_lines.concat(highlights)
-  body = project_lines.first(3).map { |b| "- #{typst_escape(b)}" }.join("\n")
+  body = project_lines.reject(&:empty?).first(2).map { |b| "- #{typst_escape(b)}" }.join("\n")
   link = array(item["links"]).first
   title_text = link ? "#{title} (#{link["label"]})" : title
-  lines << "#item(\"#{typst_escape(title_text)}\", \"#{typst_escape(meta)}\")["
+  lines << "#entry(\"#{typst_escape(title_text)}\", \"#{typst_escape(meta)}\")["
   lines << body
   lines << "]"
 end
@@ -248,7 +282,15 @@ array(education["education"]).first(2).each do |item|
   institution = item["institution_en"] || item["institution"]
   meta = [institution, period_text(item["period"])].reject(&:empty?).join(" | ")
   extra = item["gpa"] ? "GPA: #{item["gpa"]}" : ""
-  lines << "#item(\"#{typst_escape(degree)}\", \"#{typst_escape(meta)}\")[#{typst_escape(extra)}]"
+  lines << "#entry(\"#{typst_escape(degree)}\", \"#{typst_escape(meta)}\")[#{typst_escape(extra)}]"
+end
+
+certifications = array(education["certifications"]).first(4)
+unless certifications.empty?
+  lines << ""
+  lines << "#section(\"#{labels[:certifications]}\")"
+  cert_line = certifications.map { |cert| "#{cert["name"]} (#{cert["issuer"]})" }.join(" | ")
+  lines << typst_escape(cert_line)
 end
 
 FileUtils.mkdir_p(options[:output_dir])
