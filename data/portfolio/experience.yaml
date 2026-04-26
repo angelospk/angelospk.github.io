@@ -4,6 +4,44 @@
 
 experiences:
   # Current Positions
+  - id: "unitrip-fullstack"
+    title: "Full-Stack Developer"
+    organization: "UniTrip.gr"
+    organization_type: "Travel Agency"
+    type: "work"
+    period:
+      start: "2026-03"
+      end: null
+    description: |
+      Built the UniTrip.gr booking website and backend data model from the ground up.
+      Developed the public trip discovery and booking experience, admin operations, 
+      payment flows, referrals, QR/UTM campaigns, and Cloudflare deployment.
+    highlights:
+      - text: "Built the public SvelteKit booking platform and PocketBase data model from scratch."
+        link: "https://unitrip.gr"
+      - text: "Implemented shareable group booking flows so additional travelers can join after the initial reservation."
+        link: "#unitrip"
+      - text: "Integrated Viva Payments and payment verification flows for online bookings."
+        link: "#unitrip"
+      - text: "Created admin workflows for trips, bookings, travelers, payments, referrals, campaigns, exports, and live trip dashboards."
+        link: "#unitrip"
+      - text: "Configured Cloudflare deployment and service-worker static asset caching for fast production delivery."
+        link: "#unitrip"
+    technologies:
+      - "SvelteKit"
+      - "Svelte 5"
+      - "TypeScript"
+      - "PocketBase"
+      - "Viva Payments"
+      - "Cloudflare"
+      - "Tailwind CSS"
+    skills:
+      - "Full Stack Development"
+      - "Database Design"
+      - "Payment Integration"
+      - "Admin Tooling"
+      - "Product Development"
+
   - id: "social-inov-trainer"
     title: "Εκπαιδευτής Ψηφιακών Δεξιοτήτων"
     title_en: "Digital Skills Trainer"

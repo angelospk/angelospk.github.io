@@ -14,13 +14,20 @@ author = "Angelos Papamichail"
 
 ## Summary
 
-Full-Stack Developer & Digital Skills Trainer with a passion for technology that makes a positive impact. MEng in Electrical & Computer Engineering with expertise in **Go**, **Python**, **SvelteKit**, and **DevOps**. Experienced in the full project lifecycle, from conception to deployment. 
+Full-Stack Developer & Digital Skills Trainer with a passion for technology that makes a positive impact. MEng in Electrical & Computer Engineering with expertise in **Go**, **Python**, **SvelteKit**, **Svelte**, and **DevOps**. Experienced in the full project lifecycle, from product definition and database design to deployment and operations.
 
-Active educator and community member, teaching digital skills to adults and seniors.
+Currently building practical products in travel booking, public healthcare appointment discovery, and hospitality operations.
 
 ---
 
 ## Work Experience
+
+### Full-Stack Developer | UniTrip.gr *(Mar 2026 - Present)*
+- Built the booking website and backend data model from the ground up using **SvelteKit**, **Svelte 5**, **TypeScript**, and **PocketBase**
+- Developed public trip discovery, multi-step booking, booking detail pages, PDF confirmations, and shareable group booking flows
+- Integrated **Viva Payments** and payment verification flows for online bookings
+- Built admin workflows for trips, bookings, travelers, payments, referrals, QR/UTM campaigns, exports, and live trip dashboards
+- Added service-worker static asset caching and Cloudflare deployment setup for fast production delivery
 
 ### Digital Skills Trainer | Social Inov *(Nov 2025 - Present)*
 - Conducting digital literacy workshops for adults in partnership with NGO Social Inov
@@ -64,9 +71,17 @@ Active educator and community member, teaching digital skills to adults and seni
 
 ## Featured Projects
 
-### [Order Local](/projects/order-local/) - Self-Hosted Restaurant System
-Go-based ordering system for Raspberry Pi. Single binary, no dependencies, real-time updates via SSE.
-*Technologies: Go, SQLite, HTMX, Alpine.js*
+### [UniTrip.gr](/projects/unitrip/) - Youth Travel Booking Platform
+Full-stack booking platform for organized youth trips, built from scratch with public booking flows, Viva payments, realtime admin operations, referrals, QR/UTM campaigns, and shareable group bookings.
+*Technologies: SvelteKit, Svelte 5, TypeScript, PocketBase, Viva Payments, Cloudflare*
+
+### [FindDoctors Aggregator Server](/projects/find-doctors-server/) - Public Health Appointment Search
+Go backend that searches Greek public health appointment availability across hospitals and primary care centers, surfacing the soonest useful options by specialty, region, and distance.
+*Technologies: Go, REST API, Concurrent Workers, TypeScript Types, TDD*
+
+### [SkipQ](/projects/skipq/) - QR Ordering & Hospitality Operations
+Upcoming QR ordering platform for restaurants, beach bars, clubs, canteens, and fast-service venues, designed for self-ordering, live order tracking, local deployment, and operational analytics.
+*Technologies: Go, Svelte, QR Ordering, Local-first, Analytics*
 
 ### [Diesi Analytics](/projects/diesi-analytics/) - Radio Station Platform
 Analytics platform analyzing 337K records with ML predictions for song selection.
@@ -76,14 +91,6 @@ Analytics platform analyzing 337K records with ML predictions for song selection
 Educational platform teaching Windows 11 skills to elderly users with interactive lessons.
 *Technologies: SvelteKit, Svelte 5, SQLite/Turso*
 
-### [SubtitleKit](/projects/subtitlekit/) - Subtitle Processing Toolkit
-PyPI package for subtitle processing, synchronization, and AI-powered corrections.
-*Technologies: Python, LLM Integration*
-
-### [Emotion Recognition](/projects/emotion-recognition/) - Real-time Emotion Detection
-Machine learning model for emotion recognition from streaming video using SVM and LBP.
-*Technologies: Python, OpenCV, scikit-learn, SVM*
-
 → [View all projects](/projects/)
 
 ---
@@ -91,11 +98,11 @@ Machine learning model for emotion recognition from streaming video using SVM an
 ## Technical Skills
 
 **Languages:** Go, Python, JavaScript/TypeScript, SQL, PHP  
-**Frontend:** SvelteKit, Vue.js, HTMX, Tailwind CSS  
-**Backend:** FastAPI, Chi Router, Pocketbase  
-**Databases:** SQLite, PostgreSQL, Redis  
-**DevOps:** Docker, Git, Linux, CI/CD  
-**Other:** AI/LLM Integration, Prompt Engineering, TDD
+**Frontend:** SvelteKit, Svelte 5, Vue.js, HTMX, Tailwind CSS  
+**Backend:** FastAPI, Chi Router, SvelteKit server routes, PocketBase  
+**Databases:** SQLite, PostgreSQL, Redis, PocketBase  
+**DevOps:** Docker, Git, Linux, CI/CD, Cloudflare Pages/Workers  
+**Other:** AI/LLM Integration, Payment Integrations, Product Analytics, Prompt Engineering, TDD
 
 ---
 
@@ -126,4 +133,4 @@ Machine learning model for emotion recognition from streaming video using SVM an
 
 ---
 
-*Last updated: January 2026*
+*Last updated: April 2026*
