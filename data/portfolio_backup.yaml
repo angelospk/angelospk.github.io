@@ -1,822 +1,943 @@
-# =============================================================================
-# PORTFOLIO DATA - Angelos Papamichail
-# =============================================================================
-# This file contains all structured data for the personal portfolio website
-# and serves as the source for generating tailored CVs.
-# =============================================================================
-
-# -----------------------------------------------------------------------------
-# PROFILE
-# -----------------------------------------------------------------------------
+---
 profile:
-  name: "Angelos Papamichail"
-  email: "angelos.papamichail@gmail.com"
-  tagline: "Full-Stack Developer & Digital Educator"
-  location: "Orestiada, Greece"
-  
-  # Short summary - will be used for CV headers
-  summary: |
-    Software Developer με πάθος για τεχνολογία που έχει θετικό αντίκτυπο. 
-    MEng Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών με εξειδίκευση σε 
-    SvelteKit, Python, Go και DevOps. Εκπαιδευτής ψηφιακών δεξιοτήτων και 
-    ενεργό μέλος της τοπικής κοινότητας.
-  
-  # Longer about text - for the website
-  about: |
-    Είμαι developer που πιστεύει ότι η τεχνολογία πρέπει να κάνει τη ζωή 
-    ευκολότερη - όχι πιο περίπλοκη. Μου αρέσει να βρίσκω επαναλαμβανόμενες 
-    διαδικασίες και να τις αυτοματοποιώ, να λύνω πραγματικά προβλήματα, 
-    και να βλέπω τη δουλειά μου να βοηθάει ανθρώπους.
-    
-    Εκτός από τον κώδικα, ασχολούμαι με τη μουσική, τον εθελοντισμό, 
-    και την εκπαίδευση. Πιστεύω ότι η τεχνολογία έχει τεράστιες δυνατότητες 
-    για καλό, αλλά πρέπει να την προσεγγίζουμε κριτικά.
-
+  name: Angelos Papamichail
+  email: angelos.papamichail@gmail.com
+  tagline: Full-Stack Developer & Digital Educator
+  location: Orestiada, Greece
+  summary: "Software Developer με πάθος για τεχνολογία που έχει θετικό αντίκτυπο.
+    \nMEng Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών με εξειδίκευση σε \nSvelteKit,
+    Python, Go και DevOps. Εκπαιδευτής ψηφιακών δεξιοτήτων και \nενεργό μέλος της
+    τοπικής κοινότητας.\n"
+  about: "Είμαι developer που πιστεύει ότι η τεχνολογία πρέπει να κάνει τη ζωή \nευκολότερη
+    - όχι πιο περίπλοκη. Μου αρέσει να βρίσκω επαναλαμβανόμενες \nδιαδικασίες και
+    να τις αυτοματοποιώ, να λύνω πραγματικά προβλήματα, \nκαι να βλέπω τη δουλειά
+    μου να βοηθάει ανθρώπους.\n\nΕκτός από τον κώδικα, ασχολούμαι με τη μουσική, τον
+    εθελοντισμό, \nκαι την εκπαίδευση. Πιστεύω ότι η τεχνολογία έχει τεράστιες δυνατότητες
+    \nγια καλό, αλλά πρέπει να την προσεγγίζουμε κριτικά.\n"
   social:
-    github: "https://github.com/angelospk"
-    linkedin: "https://www.linkedin.com/in/angelos-papamichail/-"
-
-# -----------------------------------------------------------------------------
-# EDUCATION
-# -----------------------------------------------------------------------------
+    github: https://github.com/angelospk
+    linkedin: https://www.linkedin.com/in/angelos-papamichail/-
 education:
-  - id: "auth-meng"
-    institution: "Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης"
-    institution_en: "Aristotle University of Thessaloniki"
-    degree: "Master of Engineering, Ηλεκτρολόγων Μηχανικών & Μηχανικών Υπολογιστών"
-    degree_en: "Master of Engineering, Electrical and Computer Engineering"
-    period:
-      start: "2014"
-      end: "2023"
-    gpa: "7.33"
-    highlights: []
-    
-  - id: "idea-smart-building"
-    institution: "IDEA Lifelong Learning Center"
-    degree: "Smart Building Programming Technician (Level 1)"
-    period:
-      start: "2024"
-      end: "2024"
-    highlights: []
-
-# -----------------------------------------------------------------------------
-# WORK EXPERIENCE
-# -----------------------------------------------------------------------------
+- id: auth-meng
+  institution: Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
+  institution_en: Aristotle University of Thessaloniki
+  degree: Master of Engineering, Ηλεκτρολόγων Μηχανικών & Μηχανικών Υπολογιστών
+  degree_en: Master of Engineering, Electrical and Computer Engineering
+  period:
+    start: '2014'
+    end: '2023'
+  gpa: '7.33'
+  highlights: []
+- id: idea-smart-building
+  institution: IDEA Lifelong Learning Center
+  degree: Smart Building Programming Technician (Level 1)
+  period:
+    start: '2024'
+    end: '2024'
+  highlights: []
 experiences:
-  # Current Positions
-  - id: "social-inov-trainer"
-    title: "Εκπαιδευτής Ψηφιακών Δεξιοτήτων"
-    title_en: "Digital Skills Trainer"
-    organization: "Social Inov"
-    organization_type: "NGO"
-    type: "work"
-    period:
-      start: "2025-11"
-      end: null  # ongoing
-    description: |
-      Σεμινάρια ψηφιακών δεξιοτήτων για ενήλικες σε συνεργασία με την ΜΚΟ Social Inov.
-    highlights: []
-    technologies: []
-    skills:
-      - "Teaching"
-      - "Digital Literacy"
-      - "Communication"
-    
-  - id: "saek-trainer"
-    title: "Εκπαιδευτής Digital Marketing & Social Media"
-    title_en: "Digital Marketing & Social Media Trainer"
-    organization: "ΣΑΕΚ ΔΥΠΑ Ορεστιάδας"
-    organization_type: "Public"
-    type: "work"
-    period:
-      start: "2025-10"
-      end: null  # ongoing
-    description: |
-      Διδασκαλία κατεύθυνσης ψηφιακού marketing και κοινωνικών δικτύων.
-    highlights: []
-    technologies:
-      - "Social Media Marketing"
-      - "Digital Marketing"
-    skills:
-      - "Teaching"
-      - "Curriculum Development"
-      - "Communication"
+- id: social-inov-trainer
+  title: Εκπαιδευτής Ψηφιακών Δεξιοτήτων
+  title_en: Digital Skills Trainer
+  organization: Social Inov
+  organization_type: NGO
+  type: work
+  period:
+    start: 2025-11
+    end: 
+  description: 'Σεμινάρια ψηφιακών δεξιοτήτων για ενήλικες σε συνεργασία με την ΜΚΟ
+    Social Inov.
 
-  - id: "enosi-2025"
-    title: "Data Entry & Process Automation"
-    organization: "Αγροτικός Συνεταιρισμός Διδυμοτείχου"
-    organization_en: "Agricultural Cooperative of Didymoteicho"
-    type: "work"
-    period:
-      start: "2025-05"
-      end: "2025-10"
-    description: |
-      Βελτίωση ροών εργασίας μέσω τεχνολογίας και δημιουργία 
-      βάσης γνώσης για νέους εργαζόμενους.
-    highlights:
-      - text: "Vue.js browser extension για αυτοματοποίηση εισαγωγής δεδομένων"
-        metric: "40% μείωση χρόνου εργασίας"
-        link: "https://github.com/angelospk/enosi-ext"
-      - text: "Δημιουργία internal wiki για εκπαίδευση νέου προσωπικού"
-        metric: null
-        link: "https://angelospk.github.io/enosi"
-    technologies:
-      - "Vue.js"
-      - "Chrome Extensions"
-      - "JavaScript"
-      - "Wiki/Documentation"
-    skills:
-      - "Process Automation"
-      - "Documentation"
-      - "Knowledge Management"
-    takeaways:
-      - "Η παρατήρηση της καθημερινής ρουτίνας αποκαλύπτει ευκαιρίες αυτοματοποίησης"
-      - "Η τεκμηρίωση είναι επένδυση, όχι κόστος"
+'
+  highlights: []
+  technologies: []
+  skills:
+  - Teaching
+  - Digital Literacy
+  - Communication
+- id: saek-trainer
+  title: Εκπαιδευτής Digital Marketing & Social Media
+  title_en: Digital Marketing & Social Media Trainer
+  organization: ΣΑΕΚ ΔΥΠΑ Ορεστιάδας
+  organization_type: Public
+  type: work
+  period:
+    start: 2025-10
+    end: 
+  description: 'Διδασκαλία κατεύθυνσης ψηφιακού marketing και κοινωνικών δικτύων.
 
-  - id: "tui-magic-life"
-    title: "Night Auditor"
-    organization: "TUI Magic Life Plimmiri by Atlantica"
-    type: "work"
-    period:
-      start: "2024-05"
-      end: "2024-11"
-    description: |
-      Διαχείριση νυχτερινής βάρδιας και βελτίωση διαδικασιών 
-      με τεχνολογικές λύσεις.
-    highlights:
-      - text: "Semi-αυτοματοποίηση σκαναρίσματος καρτών δωματίων"
-        metric: "3x ταχύτερη διαδικασία"
-      - text: "Δημιουργία demo website για χάρτη ξενοδοχείου"
-        link: "https://qr-map.vercel.app/"
-      - text: "Documentation για Protel ξενοδοχειακό σύστημα"
-        detail: "Obsidian knowledge base για χρήση του λογισμικού"
-        link: "https://github.com/angelospk/protel-vault"
-    technologies:
-      - "JavaScript"
-      - "Web Development"
-      - "Obsidian"
-      - "Protel PMS"
-    skills:
-      - "Problem Solving"
-      - "Initiative"
-      - "Documentation"
+'
+  highlights: []
+  technologies:
+  - Social Media Marketing
+  - Digital Marketing
+  skills:
+  - Teaching
+  - Curriculum Development
+  - Communication
+- id: enosi-2025
+  title: Data Entry & Process Automation
+  organization: Αγροτικός Συνεταιρισμός Διδυμοτείχου
+  organization_en: Agricultural Cooperative of Didymoteicho
+  type: work
+  period:
+    start: 2025-05
+    end: 2025-10
+  description: "Βελτίωση ροών εργασίας μέσω τεχνολογίας και δημιουργία \nβάσης γνώσης
+    για νέους εργαζόμενους.\n"
+  highlights:
+  - text: Vue.js browser extension για αυτοματοποίηση εισαγωγής δεδομένων
+    metric: 40% μείωση χρόνου εργασίας
+    link: https://github.com/angelospk/enosi-ext
+  - text: Δημιουργία internal wiki για εκπαίδευση νέου προσωπικού
+    metric: 
+    link: https://angelospk.github.io/enosi
+  technologies:
+  - Vue.js
+  - Chrome Extensions
+  - JavaScript
+  - Wiki/Documentation
+  skills:
+  - Process Automation
+  - Documentation
+  - Knowledge Management
+  takeaways:
+  - Η παρατήρηση της καθημερινής ρουτίνας αποκαλύπτει ευκαιρίες αυτοματοποίησης
+  - Η τεκμηρίωση είναι επένδυση, όχι κόστος
+- id: tui-magic-life
+  title: Night Auditor
+  organization: TUI Magic Life Plimmiri by Atlantica
+  type: work
+  period:
+    start: 2024-05
+    end: 2024-11
+  description: "Διαχείριση νυχτερινής βάρδιας και βελτίωση διαδικασιών \nμε τεχνολογικές
+    λύσεις.\n"
+  highlights:
+  - text: Semi-αυτοματοποίηση σκαναρίσματος καρτών δωματίων
+    metric: 3x ταχύτερη διαδικασία
+  - text: Δημιουργία demo website για χάρτη ξενοδοχείου
+    link: https://qr-map.vercel.app/
+  - text: Documentation για Protel ξενοδοχειακό σύστημα
+    detail: Obsidian knowledge base για χρήση του λογισμικού
+    link: https://github.com/angelospk/protel-vault
+  technologies:
+  - JavaScript
+  - Web Development
+  - Obsidian
+  - Protel PMS
+  skills:
+  - Problem Solving
+  - Initiative
+  - Documentation
+- id: koukas-iason
+  title: Python Developer
+  organization: Koukas Iason Software
+  type: work
+  period:
+    start: 2024-02
+    end: 2024-06
+  description: 'Backend services integration για mobile game development.
 
-  - id: "koukas-iason"
-    title: "Python Developer"
-    organization: "Koukas Iason Software"
-    type: "work"
-    period:
-      start: "2024-02"
-      end: "2024-06"
-    description: |
-      Backend services integration για mobile game development.
-    highlights: []
-    technologies:
-      - "Python"
-      - "Backend Development"
-      - "Mobile Gaming"
-    skills:
-      - "Backend Development"
-      - "API Integration"
+'
+  highlights: []
+  technologies:
+  - Python
+  - Backend Development
+  - Mobile Gaming
+  skills:
+  - Backend Development
+  - API Integration
+- id: veltio
+  title: Software Developer
+  organization: VELTIO
+  type: work
+  period:
+    start: 2020-08
+    end: 2020-10
+  description: 'Docker configuration, IT operations και ticket management.
 
-  - id: "veltio"
-    title: "Software Developer"
-    organization: "VELTIO"
-    type: "work"
-    period:
-      start: "2020-08"
-      end: "2020-10"
-    description: |
-      Docker configuration, IT operations και ticket management.
-    highlights:
-      - text: "Configuration και optimization Docker containers"
-      - text: "Ticket management και bug resolution"
-    technologies:
-      - "Docker"
-      - "DevOps"
-    skills:
-      - "Docker"
-      - "IT Operations"
-      - "Troubleshooting"
-
-# -----------------------------------------------------------------------------
-# PROJECTS
-# -----------------------------------------------------------------------------
+'
+  highlights:
+  - text: Configuration και optimization Docker containers
+  - text: Ticket management και bug resolution
+  technologies:
+  - Docker
+  - DevOps
+  skills:
+  - Docker
+  - IT Operations
+  - Troubleshooting
 projects:
-  # ========================
-  # OPEN SOURCE
-  # ========================
+- id: find-doctors-server
+  title: FindDoctors Aggregator Server
+  subtitle: Unified Public Health Appointment Search
+  type: personal
+  category: backend
+  weight: 10
+  period:
+    start: '2026'
+    end: 
+  description: "High-performance Go backend that aggregates appointment availability
+    from \nfinddoctors.gov.gr, making it easier to discover where and when public
+    health \nappointments are available across hospitals and primary care centers.\n"
+  context:
+    problem: "The official platform makes it difficult to search across different
+      public \nhealth entities, regions, and appointment dates at once.\n"
+    solution: "Built a concurrent aggregator API that searches multiple entities in
+      parallel, \nreturns the soonest available appointments, and is designed to power
+      a future \npatient-facing UI for booking faster when availability exists.\n"
+  highlights:
+  - text: Unified Smart Search
+    detail: Combines nationwide, proximity, hospital, and primary care center search
+      into a single endpoint.
+  - text: Parallel Scanner Engine
+    detail: Uses a concurrent worker pool to probe health units for first available
+      slots with low latency.
+  - text: Actionable Capacity Reports
+    detail: Reports fill rates and earliest available dates per specialty for hospital
+      departments.
+  - text: Privacy-first Discovery
+    detail: Read-only, stateless search layer that does not store user cookies or
+      appointment session data.
+  links:
+  - url: https://github.com/angelospk/find_doctors_server
+    label: GitHub
+  technologies:
+  - Go
+  - REST API
+  - Concurrent Workers
+  - TypeScript Types
+  - TDD
+  featured: true
+- id: unitrip
+  title: UniTrip.gr
+  subtitle: Youth Travel Booking Platform
+  type: professional
+  category: fullstack
+  weight: 10
+  period:
+    start: '2026'
+    end: 
+  description: "Full-stack booking platform for organized youth trips, covering public
+    trip \ndiscovery, multi-step bookings, payment flows, admin operations, referrals,
+    \nQR/UTM campaigns, and booking sharing after the initial reservation.\n"
+  context:
+    problem: "Travel agencies need a fast booking experience that can handle group
+      travel, \ndelayed participant additions, campaign attribution, and operational
+      follow-up.\n"
+    solution: "Built a SvelteKit and PocketBase application with a public booking
+      funnel, \nrealtime admin panel, Viva payments, Discord operations notifications,
+      and \nservice-worker static asset caching.\n"
+  highlights:
+  - text: Shareable Group Bookings
+    detail: A booking can be shared after creation so additional travelers can join
+      later as third or fourth members.
+  - text: Realtime Admin Operations
+    detail: Admin views for trips, bookings, travelers, payments, referrals, campaigns,
+      exports, and trip dashboards.
+  - text: Campaign Attribution
+    detail: QR links with UTM parameters persist attribution through booking and payment
+      events.
+  - text: Fast Cloudflare Runtime
+    detail: SvelteKit deployed on Cloudflare with static asset caching and no runtime
+      caching of sensitive booking/admin data.
+  links:
+  - url: https://unitrip.gr
+    label: Live Site
+  technologies:
+  - SvelteKit
+  - Svelte 5
+  - TypeScript
+  - PocketBase
+  - Viva Payments
+  - Cloudflare
+  - Tailwind CSS
+  featured: true
+- id: skipq
+  title: SkipQ
+  subtitle: QR Ordering & Hospitality Operations Platform
+  type: startup
+  category: fullstack
+  weight: 10
+  period:
+    start: '2026'
+    end: 
+  description: "QR ordering system for restaurants, beach bars, clubs, canteens, festivals,
+    \nand fast-service food businesses. The goal is to reduce service friction, \nsupport
+    self-ordering, and give venues live operational insights.\n"
+  context:
+    problem: "During peak hours, customers struggle to get served and staff spend
+      too much \ntime on order intake instead of preparation and service quality.\n"
+    solution: "Designing a configurable ordering platform with customer self-ordering,
+      live \norder tracking, waiter calls, menu analytics, stock-aware availability,
+      and \nboth cloud and local deployment options.\n"
+  highlights:
+  - text: Personalized Store Experience
+    detail: Each venue can configure safety controls, customer-visible options, menu
+      behavior, and ordering rules.
+  - text: Local-first Deployment
+    detail: Designed to run in the cloud or locally for venues that need control or
+      reliability during internet outages.
+  - text: Live Menu Intelligence
+    detail: Future-facing menu updates based on stock, demand, queue load, and estimated
+      preparation times.
+  - text: Hospitality Analytics
+    detail: Plans for menu analytics, customer preference insights, occupancy signals,
+      reservations, and staff operations.
+  - text: Upcoming AI Assistant
+    detail: Roadmap includes AI voice dictation to help customers quickly find and
+      order what they want.
+  technologies:
+  - Go
+  - Svelte
+  - SPA
+  - Local-first
+  - Analytics
+  - QR Ordering
+  featured: true
+- id: enosi-extension
+  title: Agronet Automation Suite
+  subtitle: Vue.js Extension & AI Integration
+  type: work-embedded
+  category: automation
+  weight: 10
+  period:
+    start: 2025-05
+    end: 2025-10
+  description: "A sophisticated browser extension and automation suite built to solve
+    critical inefficiencies \nin the agricultural cooperative's ERP data entry platform.\n"
+  context:
+    problem: "Employees were manually copying data between hundreds of land plots
+      on a legacy web ERP. \nThe process was error-prone, repetitive, and led to missed
+      deadlines.\n"
+    solution: "I reverse-engineered the ERP's frontend and built a Vue.js overlay
+      that injected \nautomation controls directly into the UI.\n"
+  highlights:
+  - text: Batch Data Injection
+    detail: Enabled copying data from one plot to multiple others instantly, eliminating
+      hours of repetitive clicks.
+  - text: Background Validator
+    detail: Automated manual checks in the background, showing a non-intrusive floating
+      status window with required fixes.
+  - text: AI Error Analysis
+    detail: Integrated an LLM to parse error messages and automatically generate simple,
+      copy-paste instructions for producers.
+  - text: Year-over-Year Data Porting
+    detail: Automated the migration of declaration data from previous years, saving
+      ~5 minutes per application.
+  technologies:
+  - Vue.js
+  - Chrome Extensions API
+  - LLM Integration
+  - DOM Manipulation
+  featured: true
+- id: tui-digital-tools
+  title: TUI Digital Tools
+  subtitle: Hotel Map & Check-in Automation
+  type: work-embedded
+  category: fullstack
+  weight: 8
+  period:
+    start: 2024-06
+    end: 2024-08
+  description: "A suite of digital tools developed to improve guest experience and
+    operational efficiency \nat TUI Magic Life Plimmiri.\n"
+  context:
+    problem: "Guests struggled with navigation due to outdated PDF maps, and reception
+      faced long queues \ndue to manual data entry requirements.\n"
+    solution: "Developed two solutions: An interactive web map for guests and a Python
+      automation script \nfor reception staff.\n"
+  highlights:
+  - text: Interactive Resort Map
+    detail: Mobile-first PWA with pin-drop navigation and Google Maps integration.
+  - text: Check-in Automation
+    metric: 3x Faster Processing
+    detail: Python script to pre-populate guest data from backend systems.
+  - text: Google Maps Deep-Linking
+    detail: One-tap navigation instructions.
+  links:
+  - url: https://qr-map.vercel.app/
+    label: Live Map
+  technologies:
+  - JavaScript
+  - Leaflet.js
+  - Python
+  - Automation
+  featured: true
+- id: opencouncil
+  title: OpenCouncil
+  subtitle: Open Source Contributor
+  type: open-source
+  category: fullstack
+  weight: 9
+  period:
+    start: 2026-02
+    end: 2026-03
+  description: "Contributor to the OpenCouncil platform by Schema Labs (schemalabz/opencouncil).\nFocused
+    on resolving complex React/Next.js hydration mismatches, improving compile times,
+    \nand optimizing UI components for unauthenticated workflows.\n"
+  highlights:
+  - text: Resolved severe Next.js hydration errors and improved Turbopack compile
+      times.
+  - text: Implemented contextual tooltips and interactive UI state management.
+  links:
+  - url: https://github.com/schemalabz/opencouncil
+    label: GitHub Repo
+  technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  featured: true
+- id: emotion-recognition
+  title: Emotion Recognition Addon
+  subtitle: Real-time Emotion Detection
+  type: academic
+  category: ai
+  weight: 9
+  period:
+    start: '2021'
+    end: '2021'
+  description: "Μοντέλο μηχανικής μάθησης για αναγνώριση ανθρωπίνων συναισθημάτων
+    \nαπό βίντεο συνεχούς ροής, με στόχο τη χρήση σε πλατφόρμες τηλεδιάσκεψης.\n"
+  highlights:
+  - text: Face detection με Cascade Classifier
+  - text: 'Emotion classification: Positive, Neutral, Negative'
+  - text: Local Binary Patterns (LBP) για feature extraction
+  - text: SVM/LinearSVC για classification με Grid Search CV
+  - text: Real-time integration με IRC protocol
+  links:
+  - url: https://github.com/beyondTheMyth/Emotion-Recognition-Addon
+    label: GitHub
+  technologies:
+  - Python
+  - OpenCV
+  - scikit-learn
+  - SVM
+  - Machine Learning
+  featured: true
+- id: gemini-rag-demo
+  title: Gemini RAG Demo
+  subtitle: Greek FEK Document Q&A System
+  type: personal
+  category: ai
+  weight: 8
+  period:
+    start: 2026-01
+    end: 2026-01
+  description: "RAG (Retrieval-Augmented Generation) system that answers questions
+    \nbased on Greek FEK (Government Gazette) PDF documents, using Gemini \nfor embeddings
+    and generation.\n"
+  context:
+    problem: "Greek legal documents (ΦΕΚ) are dense and difficult to navigate. \nFinding
+      specific information requires manual reading of multiple documents.\n"
+    solution: "Built a RAG pipeline that indexes PDF documents, stores semantic embeddings
+      \nin FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.\n"
+  highlights:
+  - text: PDF Ingestion Pipeline
+    detail: Reads and chunks PDF documents using LangChain, optimized for Greek text.
+  - text: Gemini Embeddings
+    detail: Uses text-embedding-004 with native Greek language support.
+  - text: FAISS Vector Store
+    detail: Local vector database for fast similarity search.
+  - text: Source Citations
+    detail: Returns answers with references to specific documents and pages.
+  - text: Google Colab Support
+    detail: Includes notebook for easy cloud-based experimentation.
+  links:
+  - url: https://github.com/angelospk/gemini-rag-demo
+    label: GitHub
+  - url: https://colab.research.google.com/github/angelospk/gemini-rag-demo/blob/main/rag_demo.ipynb
+    label: Open in Colab
+  technologies:
+  - Python
+  - LangChain
+  - Gemini API
+  - FAISS
+  - RAG
+  - NLP
+  featured: true
+- id: spot-cash
+  title: SpotifyPay
+  subtitle: Spotify Family Cost Splitter
+  type: personal
+  category: fullstack
+  weight: 8
+  period:
+    start: '2024'
+    end: '2024'
+  description: "Εφαρμογή υπολογισμού χρεώσεων για Spotify Family subscription.\nΥπολογίζει
+    αυτόματα τι χρωστάει κάθε μέλος λαμβάνοντας υπόψη \nαυξήσεις τιμών και στέλνει
+    email ενημερώσεις.\nBuilt with React, Vite, and Shadcn UI.\n"
+  highlights:
+  - text: Complex State Management
+    detail: Uses custom hooks and contexts for data fetching and state synchronization.
+  - text: Interactive Visualizations
+    detail: Recharts integration for visualizing payment history.
+  - text: Modern UI/UX
+    detail: Built with Shadcn UI (Radix Primitives) and Tailwind CSS.
+  - text: Serverless Backend
+    detail: Google Apps Script for email notifications and data persistence.
+  links:
+  - url: https://github.com/angelospk/spotifypay
+    label: GitHub
+  technologies:
+  - React
+  - TypeScript
+  - Vite
+  - Shadcn UI
+  - Recharts
+  - Tailwind CSS
+  featured: true
+- id: pcbasics
+  title: PC Basics
+  subtitle: Digital Literacy Training Platform
+  type: personal
+  category: fullstack
+  weight: 9
+  period:
+    start: '2025'
+    end: 
+  description: |
+    Educational platform for teaching elderly users Windows 11 skills.
+    Interactive lessons with progress tracking and bilingual support.
+  highlights:
+  - text: Dynamic lesson system with drag & drop, click, hover exercises
+  - text: Multi-level difficulty (Beginner/Intermediate/Advanced)
+  - text: Bilingual support (English/Greek) via inlang
+  - text: Admin panel for content management
+  - text: Per-user progress tracking
+  links:
+  - url: https://pcbasics.vercel.app/
+    label: Live Demo
+  technologies:
+  - SvelteKit
+  - Svelte 5
+  - SQLite/Turso
+  - Drizzle ORM
+  - shadcn-svelte
+  - Tailwind CSS
+  featured: true
+- id: aimovie
+  title: AiMovie
+  subtitle: AI-powered Movie Recommendations
+  type: personal
+  weight: 9
+  category: fullstack
+  period:
+    start: '2025'
+    end: '2025'
+  description: "Εφαρμογή προτάσεων ταινιών/σειρών με AI, που λαμβάνει υπόψη \nτο ιστορικό
+    του χρήστη για personalized recommendations.\n"
+  highlights:
+  - text: AI integration με Gemini/OpenRouter
+  - text: Ιστορικό χρήστη για αποφυγή επαναλήψεων
+  - text: Modern dark design
+  links:
+  - url: https://github.com/angelospk/aimovie
+    label: GitHub
+  technologies:
+  - Svelte
+  - AI/LLM (Gemini)
+  - Modern UI
+  featured: true
+- id: diesi-analytics
+  title: Diesi Analytics
+  subtitle: Radio Station Analytics Platform
+  type: personal
+  category: fullstack
+  weight: 9
+  period:
+    start: '2026'
+    end: 
+  description: "Analytics platform for Diesi FM radio station. Analyzes 3 years of
+    \nsong play history (~337K records) with ML predictions and real-time dashboards.\n"
+  highlights:
+  - text: Analytics dashboards for top artists, songs, time patterns
+  - text: Markov Chain + time-aware ML predictions for next song
+  - text: Real-time Now Playing with persistent audio player
+  - text: Docker deployment with Redis caching
+  - text: Interactive ECharts visualizations
+  links:
+  - url: https://diesi.haroldpoi.click
+    label: Live Demo
+  technologies:
+  - Python
+  - FastAPI
+  - Vue.js 3
+  - SQLite
+  - Redis
+  - Docker
+  - ECharts
+  featured: true
+- id: rationvet
+  title: RationVet
+  subtitle: Veterinary Medicine Platform
+  type: thesis
+  category: fullstack
+  weight: 9
+  description: "Website για τη Κτηνιατρική με ενσωματωμένο linear solver \nγια βελτιστοποίηση
+    διατροφής ζώων.\n"
+  highlights:
+  - text: SvelteKit frontend με responsive design
+  - text: Pocketbase backend για data management
+  - text: WebAssembly GLPK solver για linear optimization
+  links:
+  - url: https://rationvetauth.vercel.app/
+    label: Live Demo
+  technologies:
+  - SvelteKit
+  - Pocketbase
+  - WebAssembly
+  - GLPK
+  featured: true
+- id: skroutz-vanced
+  title: Skroutz Vanced
+  subtitle: Chrome Extension
+  type: personal
+  category: tools
+  weight: 8
+  description: "Chrome extension που βελτιώνει την εμπειρία χρήσης του Skroutz \nμε
+    ιστορικό τιμών και χρήσιμες πληροφορίες.\n"
+  highlights:
+  - text: Dynamic historical price wheel
+  - text: Εμφάνιση χαμηλότερης ιστορικής τιμής
+  links:
+  - url: https://github.com/angelospk/skroutz-vanced
+    label: GitHub
+  - url: https://chromewebstore.google.com/detail/skroutz-vanced/aamggoaflfffjgpcbccmopohkgppgkdm?hl=el
+    label: Chrome Store
+  technologies:
+  - JavaScript
+  - Chrome Extensions
+  - Web Scraping
+  featured: true
+- id: order-local
+  title: Order Local
+  subtitle: Self-Hosted Restaurant Ordering System
+  type: personal
+  category: fullstack
+  weight: 9
+  period:
+    start: '2025'
+    end: 
+  description: "Self-hosted restaurant ordering system designed for Raspberry Pi.
+    \nCustomers scan QR codes to browse menu and place orders from their phones.\n"
+  highlights:
+  - text: Single binary deployment - no runtime dependencies
+  - text: Optimized for Raspberry Pi hardware (< 1GB RAM)
+  - text: SSE-based real-time order tracking
+  - text: Mobile-first responsive web UI
+  - text: Clean architecture with TDD (95%+ coverage)
+  - text: JWT auth with HTTP-only cookies
+  technologies:
+  - Go
+  - SQLite
+  - templ
+  - HTMX
+  - Alpine.js
+  - Tailwind CSS
+  - Chi Router
+  featured: true
+- id: trading-toolkit
+  title: Trading Automation Toolkit
+  subtitle: Portfolio Management Server
+  type: personal
+  category: backend
+  weight: 7
+  period:
+    start: '2026'
+    end: 
+  description: "Go-based trading automation toolkit and authenticated HTTP API server
+    \nfor programmatic stock trading (market, limit, stop orders).\n"
+  highlights:
+  - text: Authenticated HTTP API with Chi router
+  - text: Market, Limit, Stop, Stop-Limit order support
+  - text: Mimics browser behavior for reliability
+  - text: Real-time market data via WebSocket
+  technologies:
+  - Go
+  - Chi Router
+  - WebSocket
+  - REST API
+  featured: true
+- id: subtitlekit
+  title: SubtitleKit
+  subtitle: AI-Enhanced Subtitle Tool
+  type: personal
+  category: data
+  weight: 7
+  period:
+    start: '2025'
+    end: '2025'
+  description: "Εργαλείο επεξεργασίας υποτίτλων. Κόβει \"filler words\", \nβελτιώνει
+    το reading speed (CPS) και χρησιμοποιεί AI για διορθώσεις.\n"
+  highlights:
+  - text: Αφαίρεση filler words
+  - text: Βελτίωση CPS (Characters Per Second)
+  - text: AI-powered διορθώσεις με LLM
+  links:
+  - url: https://github.com/angelospk/SubtitleKit
+    label: GitHub
+  technologies:
+  - Python
+  - AI/LLM
+  - Subtitle Processing
+  featured: true
+- id: Diesi-stat
+  title: Diesi-stat
+  subtitle: Music Stats Visualizer
+  type: personal
+  category: data
+  weight: 7
+  description: "Visualization και στατιστική ανάλυση 3 ετών ραδιοφωνικών δεδομένων
+    \nμε χρήση machine learning για προβλέψεις.\n"
+  highlights:
+  - text: Ανάλυση 3 ετών ραδιοφωνικών δεδομένων
+  - text: KNN model για κατηγοριοποίηση
+  - text: Interactive visualizations
+  technologies:
+  - Vue.js
+  - Machine Learning (KNN)
+  - Data Visualization
+  featured: true
+- id: church-showcase
+  title: AthosCy
+  subtitle: Church Products Showcase
+  type: personal
+  category: fullstack
+  weight: 6
+  period:
+    start: '2023'
+    end: '2023'
+  description: "Showcase website για εταιρεία εκκλησιαστικών ειδών με \nGoogle Sheets
+    ως database.\n"
+  highlights:
+  - text: SvelteKit για modern UX
+  - text: Google Sheets integration αντί παραδοσιακής database
+  links:
+  - url: https://athoscy.vercel.app/
+    label: Live Demo
+  technologies:
+  - SvelteKit
+  - Google Sheets API
+  featured: false
+- id: testrss
+  title: TestRSS
+  subtitle: Custom RSS Feed Creator
+  type: legacy
+  category: data
+  period:
+    start: '2023'
+    end: '2023'
+  description: "Python-based RSS feed generator με data gathering \nαπό διάφορες πηγές.
+    Ένα από τα πρώτα projects.\n"
+  highlights:
+  - text: Customizable search criteria
+  - text: Multi-source data gathering
+  links:
+  - url: https://github.com/angelospk/testrss
+    label: GitHub
+  technologies:
+  - Python
+  - Web Scraping
+  - RSS
+  featured: false
+- id: school-management
+  title: PHP School
+  subtitle: School Management System
+  type: legacy
+  category: fullstack
+  weight: 8
+  description: "School management system with staff, library, and \nstudent attendance
+    management.\n"
+  links:
+  - url: https://github.com/angelospk/php-school
+    label: GitHub
+  technologies:
+  - PHP
+  - MySQL
+  featured: false
+- id: cinema-booking
+  title: CinemaPHP
+  subtitle: Cinema Booking System
+  type: legacy
+  category: fullstack
+  period:
+    start: '2024'
+    end: '2024'
+  description: 'Σύστημα κρατήσεων σινεμά με διαχείριση θέσεων και εισιτηρίων.
 
-  - id: "opencouncil"
-    title: "OpenCouncil"
-    subtitle: "Open Source Contributor"
-    type: "open-source"
-    category: "fullstack"
-    weight: 9
-    period:
-      start: "2026-02"
-      end: "2026-03"
-    description: |
-      Contributor to the OpenCouncil platform by Schema Labs (schemalabz/opencouncil).
-      Focused on resolving complex React/Next.js hydration mismatches, improving compile times, 
-      and optimizing UI components for unauthenticated workflows.
-    highlights:
-      - text: "Resolved severe Next.js hydration errors and improved Turbopack compile times."
-      - text: "Implemented contextual tooltips and interactive UI state management."
-    links:
-      - url: "https://github.com/schemalabz/opencouncil"
-        label: "GitHub Repo"
-    technologies:
-      - "Next.js"
-      - "React"
-      - "TypeScript"
-      - "Tailwind CSS"
-    featured: true
+'
+  links:
+  - url: https://github.com/angelospk/cinemaphp
+    label: GitHub
+  technologies:
+  - PHP
+  - MySQL
+  featured: false
+- id: carpooling-app
+  title: Carpooling App
+  subtitle: Mobile App Concept
+  type: concept
+  weight: 7
+  category: mobile
+  description: 'Mobile εφαρμογή carpooling (proof of concept).
 
-  # ========================
-  # ACADEMIC / AI PROJECTS
-  # ========================
-
-  - id: "emotion-recognition"
-    title: "Emotion Recognition Addon"
-    subtitle: "Real-time Emotion Detection"
-    type: "academic"
-    category: "ai"
-    weight: 9
-    period:
-      start: "2021"
-      end: "2021"
-    description: |
-      Μοντέλο μηχανικής μάθησης για αναγνώριση ανθρωπίνων συναισθημάτων 
-      από βίντεο συνεχούς ροής, με στόχο τη χρήση σε πλατφόρμες τηλεδιάσκεψης.
-    highlights:
-      - text: "Face detection με Cascade Classifier"
-      - text: "Emotion classification: Positive, Neutral, Negative"
-      - text: "Local Binary Patterns (LBP) για feature extraction"
-      - text: "SVM/LinearSVC για classification με Grid Search CV"
-      - text: "Real-time integration με IRC protocol"
-    links:
-      - url: "https://github.com/beyondTheMyth/Emotion-Recognition-Addon"
-        label: "GitHub"
-    technologies:
-      - "Python"
-      - "OpenCV"
-      - "scikit-learn"
-      - "SVM"
-      - "Machine Learning"
-    featured: true
-
-  # ========================
-  # FULL STACK & WEB APPS
-  # ========================
-  
-  - id: "spot-cash"
-    title: "SpotifyPay"
-    subtitle: "Spotify Family Cost Splitter"
-    type: "personal"
-    category: "fullstack"
-    weight: 8
-    period:
-      start: "2024"
-      end: "2024"
-    description: |
-      Εφαρμογή υπολογισμού χρεώσεων για Spotify Family subscription.
-      Υπολογίζει αυτόματα τι χρωστάει κάθε μέλος λαμβάνοντας υπόψη 
-      αυξήσεις τιμών και στέλνει email ενημερώσεις.
-    highlights:
-      - text: "Έξυπνη αρχιτεκτονική ασφαλείας"
-        detail: "Emails σε private Google Sheet, ποσά/ονόματα σε public GitHub JSON"
-      - text: "Αυτόματο commit δεδομένων μέσω Google Apps Script"
-    links:
-      - url: "https://github.com/angelospk/spotifypay"
-        label: "GitHub"
-    technologies:
-      - "React"
-      - "Google Apps Script"
-      - "GitHub API"
-    featured: true
-
-  - id: "pcbasics"
-    title: "PC Basics"
-    subtitle: "Digital Literacy Training Platform"
-    type: "personal"
-    category: "fullstack"
-    weight: 9
-    period:
-      start: "2025"
-      end: null
-    description: |
-      Educational platform for teaching elderly users Windows 11 skills.
-      Interactive lessons with progress tracking and bilingual support.
-    highlights:
-      - text: "Dynamic lesson system with drag & drop, click, hover exercises"
-      - text: "Multi-level difficulty (Beginner/Intermediate/Advanced)"
-      - text: "Bilingual support (English/Greek) via inlang"
-      - text: "Admin panel for content management"
-      - text: "Per-user progress tracking"
-    links:
-      - url: "https://pcbasics.vercel.app/"
-        label: "Live Demo"
-    technologies:
-      - "SvelteKit"
-      - "Svelte 5"
-      - "SQLite/Turso"
-      - "Drizzle ORM"
-      - "shadcn-svelte"
-      - "Tailwind CSS"
-    featured: true
-
-  - id: "aimovie"
-    title: "AiMovie"
-    subtitle: "AI-powered Movie Recommendations"
-    type: "personal"
-    weight: 9
-    category: "fullstack"
-    period:
-      start: "2025"
-      end: "2025"
-    description: |
-      Εφαρμογή προτάσεων ταινιών/σειρών με AI, που λαμβάνει υπόψη 
-      το ιστορικό του χρήστη για personalized recommendations.
-    highlights:
-      - text: "AI integration με Gemini/OpenRouter"
-      - text: "Ιστορικό χρήστη για αποφυγή επαναλήψεων"
-      - text: "Modern dark design"
-    links:
-      - url: "https://github.com/angelospk/aimovie"
-        label: "GitHub"
-    technologies:
-      - "Svelte"
-      - "AI/LLM (Gemini)"
-      - "Modern UI"
-    featured: true
-
-  - id: "diesi-analytics"
-    title: "Diesi Analytics"
-    subtitle: "Radio Station Analytics Platform"
-    type: "personal"
-    category: "fullstack"
-    weight: 9
-    period:
-      start: "2026"
-      end: null
-    description: |
-      Analytics platform for Diesi FM radio station. Analyzes 3 years of 
-      song play history (~337K records) with ML predictions and real-time dashboards.
-    highlights:
-      - text: "Analytics dashboards for top artists, songs, time patterns"
-      - text: "Markov Chain + time-aware ML predictions for next song"
-      - text: "Real-time Now Playing with persistent audio player"
-      - text: "Docker deployment with Redis caching"
-      - text: "Interactive ECharts visualizations"
-    links:
-      - url: "https://diesi.haroldpoi.click"
-        label: "Live Demo"
-    technologies:
-      - "Python"
-      - "FastAPI"
-      - "Vue.js 3"
-      - "SQLite"
-      - "Redis"
-      - "Docker"
-      - "ECharts"
-    featured: true
-
-  - id: "rationvet"
-    title: "RationVet"
-    subtitle: "Veterinary Medicine Platform"
-    type: "thesis"
-    category: "fullstack"
-    weight: 9
-    description: |
-      Website για τη Κτηνιατρική με ενσωματωμένο linear solver 
-      για βελτιστοποίηση διατροφής ζώων.
-    highlights:
-      - text: "SvelteKit frontend με responsive design"
-      - text: "Pocketbase backend για data management"
-      - text: "WebAssembly GLPK solver για linear optimization"
-    links:
-      - url: "https://rationvetauth.vercel.app/"
-        label: "Live Demo"
-    technologies:
-      - "SvelteKit"
-      - "Pocketbase"
-      - "WebAssembly"
-      - "GLPK"
-    featured: true
-
-  - id: "skroutz-vanced"
-    title: "Skroutz Vanced"
-    subtitle: "Chrome Extension"
-    type: "personal"
-    category: "tools"
-    weight: 8
-    description: |
-      Chrome extension που βελτιώνει την εμπειρία χρήσης του Skroutz 
-      με ιστορικό τιμών και χρήσιμες πληροφορίες.
-    highlights:
-      - text: "Dynamic historical price wheel"
-      - text: "Εμφάνιση χαμηλότερης ιστορικής τιμής"
-    links:
-      - url: "https://github.com/angelospk/skroutz-vanced"
-        label: "GitHub"
-      - url: "https://chromewebstore.google.com/detail/skroutz-vanced/aamggoaflfffjgpcbccmopohkgppgkdm?hl=el"
-        label: "Chrome Store"
-    technologies:
-      - "JavaScript"
-      - "Chrome Extensions"
-      - "Web Scraping"
-    featured: true
-
-  # ========================
-  # BACKEND & SYSTEMS (Go)
-  # ========================
-
-  - id: "order-local"
-    title: "Order Local"
-    subtitle: "Self-Hosted Restaurant Ordering System"
-    type: "personal"
-    category: "fullstack"
-    weight: 9
-    period:
-      start: "2025"
-      end: null
-    description: |
-      Self-hosted restaurant ordering system designed for Raspberry Pi. 
-      Customers scan QR codes to browse menu and place orders from their phones.
-    highlights:
-      - text: "Single binary deployment - no runtime dependencies"
-      - text: "Optimized for Raspberry Pi hardware (< 1GB RAM)"
-      - text: "SSE-based real-time order tracking"
-      - text: "Mobile-first responsive web UI"
-      - text: "Clean architecture with TDD (95%+ coverage)"
-      - text: "JWT auth with HTTP-only cookies"
-    technologies:
-      - "Go"
-      - "SQLite"
-      - "templ"
-      - "HTMX"
-      - "Alpine.js"
-      - "Tailwind CSS"
-      - "Chi Router"
-    featured: true
-
-  - id: "trading-toolkit"
-    title: "Trading Automation Toolkit"
-    subtitle: "Portfolio Management Server"
-    type: "personal"
-    category: "backend"
-    weight: 7
-    period:
-      start: "2026"
-      end: null
-    description: |
-      Go-based trading automation toolkit and authenticated HTTP API server 
-      for programmatic stock trading (market, limit, stop orders).
-    highlights:
-      - text: "Authenticated HTTP API with Chi router"
-      - text: "Market, Limit, Stop, Stop-Limit order support"
-      - text: "Mimics browser behavior for reliability"
-      - text: "Real-time market data via WebSocket"
-    technologies:
-      - "Go"
-      - "Chi Router"
-      - "WebSocket"
-      - "REST API"
-    featured: true
-
-  # ========================
-  # DATA & UTILITIES
-  # ========================
-
-  - id: "subtitlekit"
-    title: "SubtitleKit"
-    subtitle: "AI-Enhanced Subtitle Tool"
-    type: "personal"
-    category: "data"
-    weight: 7
-    period:
-      start: "2025"
-      end: "2025"
-    description: |
-      Εργαλείο επεξεργασίας υποτίτλων. Κόβει "filler words", 
-      βελτιώνει το reading speed (CPS) και χρησιμοποιεί AI για διορθώσεις.
-    highlights:
-      - text: "Αφαίρεση filler words"
-      - text: "Βελτίωση CPS (Characters Per Second)"
-      - text: "AI-powered διορθώσεις με LLM"
-    links:
-      - url: "https://github.com/angelospk/SubtitleKit"
-        label: "GitHub"
-    technologies:
-      - "Python"
-      - "AI/LLM"
-      - "Subtitle Processing"
-    featured: true
-
-  - id: "Diesi-stat"
-    title: "Diesi-stat"
-    subtitle: "Music Stats Visualizer"
-    type: "personal"
-    category: "data"
-    weight: 7
-    description: |
-      Visualization και στατιστική ανάλυση 3 ετών ραδιοφωνικών δεδομένων 
-      με χρήση machine learning για προβλέψεις.
-    highlights:
-      - text: "Ανάλυση 3 ετών ραδιοφωνικών δεδομένων"
-      - text: "KNN model για κατηγοριοποίηση"
-      - text: "Interactive visualizations"
-    technologies:
-      - "Vue.js"
-      - "Machine Learning (KNN)"
-      - "Data Visualization"
-    featured: true
-
-  - id: "church-showcase"
-    title: "AthosCy"
-    subtitle: "Church Products Showcase"
-    type: "personal"
-    category: "fullstack"
-    weight: 6
-    period:
-      start: "2023"
-      end: "2023"
-    description: |
-      Showcase website για εταιρεία εκκλησιαστικών ειδών με 
-      Google Sheets ως database.
-    highlights:
-      - text: "SvelteKit για modern UX"
-      - text: "Google Sheets integration αντί παραδοσιακής database"
-    links:
-      - url: "https://athoscy.vercel.app/"
-        label: "Live Demo"
-    technologies:
-      - "SvelteKit"
-      - "Google Sheets API"
-    featured: false
-
-  - id: "testrss"
-    title: "TestRSS"
-    subtitle: "Custom RSS Feed Creator"
-    type: "legacy"
-    category: "data"
-    period:
-      start: "2023"
-      end: "2023"
-    description: |
-      Python-based RSS feed generator με data gathering 
-      από διάφορες πηγές. Ένα από τα πρώτα projects.
-    highlights:
-      - text: "Customizable search criteria"
-      - text: "Multi-source data gathering"
-    links:
-      - url: "https://github.com/angelospk/testrss"
-        label: "GitHub"
-    technologies:
-      - "Python"
-      - "Web Scraping"
-      - "RSS"
-    featured: false
-
-  # ========================
-  # LEGACY PROJECTS
-  # ========================
-
-  - id: "school-management"
-    title: "PHP School"
-    subtitle: "School Management System"
-    type: "legacy"
-    category: "fullstack"
-    weight: 8
-    description: |
-      School management system with staff, library, and 
-      student attendance management.
-    links:
-      - url: "https://github.com/angelospk/php-school"
-        label: "GitHub"
-    technologies:
-      - "PHP"
-      - "MySQL"
-    featured: false
-
-  - id: "cinema-booking"
-    title: "CinemaPHP"
-    subtitle: "Cinema Booking System"
-    type: "legacy"
-    category: "fullstack"
-    period:
-      start: "2024"
-      end: "2024"
-    description: |
-      Σύστημα κρατήσεων σινεμά με διαχείριση θέσεων και εισιτηρίων.
-    links:
-      - url: "https://github.com/angelospk/cinemaphp"
-        label: "GitHub"
-    technologies:
-      - "PHP"
-      - "MySQL"
-    featured: false
-
-  # ========================
-  # CONCEPTS / MENTIONS
-  # ========================
-
-  - id: "carpooling-app"
-    title: "Carpooling App"
-    subtitle: "Mobile App Concept"
-    type: "concept"
-    weight: 7
-    category: "mobile"
-    description: |
-      Mobile εφαρμογή carpooling (proof of concept).
-    period:
-      start: "2025"
-      end: "2025"
-    technologies:
-      - "React Native"
-      - "Expo"
-    featured: false
-
-# -----------------------------------------------------------------------------
-# PERSONAL INTERESTS
-# -----------------------------------------------------------------------------
+'
+  period:
+    start: '2025'
+    end: '2025'
+  technologies:
+  - React Native
+  - Expo
+  featured: false
 interests:
-  - name: "Σκάκι"
-    icon: "♟️"
-  - name: "Υποτιτλισμός"
-    icon: "🎬"
-  - name: "Πιάνο"
-    icon: "🎹"
-  - name: "Κολύμβηση"
-    icon: "🏊"
-
-# -----------------------------------------------------------------------------
-# VOLUNTEERING
-# -----------------------------------------------------------------------------
+- name: Σκάκι
+  icon: "♟️"
+- name: Υποτιτλισμός
+  icon: "\U0001F3AC"
+- name: Πιάνο
+  icon: "\U0001F3B9"
+- name: Κολύμβηση
+  icon: "\U0001F3CA"
 volunteering:
-  - id: "youth-council"
-    title: "Μέλος Διοικητικού Συμβουλίου"
-    organization: "Δημοτικό Συμβούλιο Νέων Ορεστιάδας"
-    period:
-      start: null
-      end: null  # ongoing
-    description: |
-      Ενεργή συμμετοχή στη διαμόρφωση πολιτικών για νέους στον δήμο.
-    highlights:
-      - text: "Δημιουργία demo website για το ΔΣΝ"
-        link: "https://angelospk.github.io/dsn-ore/"
-    
-  - id: "tedx-thessaloniki"
-    title: "Εθελοντής"
-    organization: "TEDx Thessaloniki"
-    period:
-      start: null
-      end: null
-    description: |
-      Εθελοντική συμμετοχή σε διοργάνωση TEDx Thessaloniki.
-    
-  - id: "ardas-festival"
-    title: "Εθελοντής"
-    organization: "Ardas Music Festival"
-    period:
-      start: null
-      end: null
-    description: |
-      Εθελοντική υποστήριξη σε μουσικό φεστιβάλ για νέους.
+- id: youth-council
+  title: Μέλος Διοικητικού Συμβουλίου
+  organization: Δημοτικό Συμβούλιο Νέων Ορεστιάδας
+  period:
+    start: 
+    end: 
+  description: 'Ενεργή συμμετοχή στη διαμόρφωση πολιτικών για νέους στον δήμο.
 
-# -----------------------------------------------------------------------------
-# SKILLS
-# -----------------------------------------------------------------------------
+'
+  highlights:
+  - text: Δημιουργία demo website για το ΔΣΝ
+    link: https://angelospk.github.io/dsn-ore/
+- id: tedx-thessaloniki
+  title: Εθελοντής
+  organization: TEDx Thessaloniki
+  period:
+    start: 
+    end: 
+  description: 'Εθελοντική συμμετοχή σε διοργάνωση TEDx Thessaloniki.
+
+'
+- id: ardas-festival
+  title: Εθελοντής
+  organization: Ardas Music Festival
+  period:
+    start: 
+    end: 
+  description: 'Εθελοντική υποστήριξη σε μουσικό φεστιβάλ για νέους.
+
+'
 skills:
   programming:
-    - name: "Python"
-      level: "advanced"
-    - name: "JavaScript/TypeScript"
-      level: "advanced"
-    - name: "Go"
-      level: "intermediate"
-    - name: "C/C++"
-      level: "intermediate"
-    - name: "SQL"
-      level: "intermediate"
-      
+  - name: Python
+    level: advanced
+  - name: JavaScript/TypeScript
+    level: advanced
+  - name: Go
+    level: intermediate
+  - name: C/C++
+    level: intermediate
+  - name: SQL
+    level: intermediate
   frameworks:
-    - name: "SvelteKit"
-      level: "advanced"
-    - name: "Vue.js"
-      level: "intermediate"
-    - name: "React"
-      level: "intermediate"
-    - name: "React Native"
-      level: "beginner"
-    - name: "Astro"
-      level: "intermediate"
-    - name: "Hugo"
-      level: "intermediate"
-      
+  - name: SvelteKit
+    level: advanced
+  - name: Vue.js
+    level: intermediate
+  - name: React
+    level: intermediate
+  - name: React Native
+    level: beginner
+  - name: Astro
+    level: intermediate
+  - name: Hugo
+    level: intermediate
   devops:
-    - name: "Docker"
-      level: "intermediate"
-    - name: "Git"
-      level: "advanced"
-    - name: "Linux"
-      level: "intermediate"
-    - name: "CI/CD"
-      level: "intermediate"
-      
+  - name: Docker
+    level: intermediate
+  - name: Git
+    level: advanced
+  - name: Linux
+    level: intermediate
+  - name: CI/CD
+    level: intermediate
   other:
-    - name: "AI/LLM Integration"
-      level: "intermediate"
-    - name: "Prompt Engineering"
-      level: "intermediate"
-
-# -----------------------------------------------------------------------------
-# LANGUAGES
-# -----------------------------------------------------------------------------
+  - name: AI/LLM Integration
+    level: intermediate
+  - name: Prompt Engineering
+    level: intermediate
 languages:
-  - name: "Greek"
-    level: "Native"
-  - name: "English"
-    level: "C2"
-  - name: "German"
-    level: "B2"
-
-# -----------------------------------------------------------------------------
-# CERTIFICATIONS
-# -----------------------------------------------------------------------------
+- name: Greek
+  level: Native
+- name: English
+  level: C2
+- name: German
+  level: B2
 certifications:
-  - name: "Back End Development and APIs"
-    issuer: "freeCodeCamp"
-    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/back-end-development-and-apis"
-    
-  - name: "Data Analysis with Python"
-    issuer: "freeCodeCamp"
-    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/data-analysis-with-python-v7"
-    
-  - name: "JavaScript Algorithms and Data Structures"
-    issuer: "freeCodeCamp"
-    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/javascript-algorithms-and-data-structures"
-    
-  - name: "Scientific Computing with Python"
-    issuer: "freeCodeCamp"
-    url: "https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/scientific-computing-with-python-v7"
-    
-  - name: "Data Scientist Professional Certification"
-    issuer: "Codecademy"
-    url: "https://www.codecademy.com/profiles/angelospk/certificates/7dec503730a448c8b22bb251ada403f3"
-    
-  - name: "Front-End Engineer Professional Certification"
-    issuer: "Codecademy"
-    url: "https://www.codecademy.com/profiles/angelospk/certificates/2682884a0719474f96407efe432fdd87"
-
-# -----------------------------------------------------------------------------
-# CV GENERATION TAGS
-# -----------------------------------------------------------------------------
-# Tags to help filter content for targeted CVs
+- name: Back End Development and APIs
+  issuer: freeCodeCamp
+  url: https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/back-end-development-and-apis
+- name: Data Analysis with Python
+  issuer: freeCodeCamp
+  url: https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/data-analysis-with-python-v7
+- name: JavaScript Algorithms and Data Structures
+  issuer: freeCodeCamp
+  url: https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/javascript-algorithms-and-data-structures
+- name: Scientific Computing with Python
+  issuer: freeCodeCamp
+  url: https://www.freecodecamp.org/certification/fcc9b8f8ac1-2559-429e-9ec5-7ba6d0a58c65/scientific-computing-with-python-v7
+- name: Data Scientist Professional Certification
+  issuer: Codecademy
+  url: https://www.codecademy.com/profiles/angelospk/certificates/7dec503730a448c8b22bb251ada403f3
+- name: Front-End Engineer Professional Certification
+  issuer: Codecademy
+  url: https://www.codecademy.com/profiles/angelospk/certificates/2682884a0719474f96407efe432fdd87
 tags:
   fullstack:
-    - "rationvet"
-    - "church-showcase"
-    - "enosi-2025"
-    - "spot-cash"
-    - "pcbasics"
-    - "aimovie"
-    - "diesi-analytics"
-    - "order-local"
-    - "school-management"
-    - "cinema-booking"
+  - rationvet
+  - church-showcase
+  - enosi-2025
+  - spot-cash
+  - pcbasics
+  - aimovie
+  - diesi-analytics
+  - order-local
+  - school-management
+  - cinema-booking
   backend:
-    - "koukas-iason"
-    - "order-local"
-    - "trading-toolkit"
+  - koukas-iason
+  - order-local
+  - trading-toolkit
   devops:
-    - "veltio"
-    - "diesi-analytics"
+  - veltio
+  - diesi-analytics
   ai:
-    - "emotion-recognition"
-    - "aimovie"
-    - "subtitlekit"
-    - "diesi-stat"
-    - "diesi-analytics"
+  - emotion-recognition
+  - aimovie
+  - subtitlekit
+  - diesi-stat
+  - diesi-analytics
   data:
-    - "diesi-stat"
-    - "subtitlekit"
-    - "testrss"
-    - "diesi-analytics"
+  - diesi-stat
+  - subtitlekit
+  - testrss
+  - diesi-analytics
   automation:
-    - "enosi-2025"
-    - "skroutz-vanced"
-    - "tui-magic-life"
-    - "spot-cash"
-    - "trading-toolkit"
-    - "subtitlekit"
+  - enosi-2025
+  - skroutz-vanced
+  - tui-magic-life
+  - spot-cash
+  - trading-toolkit
+  - subtitlekit
   teaching:
-    - "social-inov-trainer"
-    - "saek-trainer"
-    - "pcbasics"
+  - social-inov-trainer
+  - saek-trainer
+  - pcbasics
   mobile:
-    - "carpooling-app"
-
-
-
+  - carpooling-app
