@@ -12,12 +12,14 @@ categories = ["Full Stack", "Education"]
 
 ## Overview
 
-PC Basics is an educational platform designed to teach elderly users and complete beginners essential Windows 11 skills. The application runs in the browser and provides interactive lessons with progress tracking, making it easy for users to learn at their own pace.
+PC Basics is an educational platform designed to teach elderly users and complete beginners essential digital skills. The application runs in the browser and provides interactive lessons with progress tracking, making it easy for users to learn at their own pace.
 
-Originally developed to support digital skills training workshops, the platform features a user-friendly interface with bilingual support (English/Greek).
+It has since grown into a detailed digital-skills curriculum based on the Greek ministry's guide, with extra challenges focused on internet safety and fraud prevention — the parts that matter most for people who are easy targets for online scams. Originally built to support digital skills training workshops, the platform has bilingual support (English/Greek).
 
 ## Key Features
 
+- **Ministry-aligned curriculum** - Structured, level-based digital skills guide
+- **Internet safety & anti-fraud challenges** - Practice spotting scams and staying safe online
 - **Interactive Lessons** - Drag & drop, click, hover, and typing exercises
 - **Multi-level Difficulty** - Beginner, Intermediate, and Advanced tracks
 - **Progress Tracking** - Per-user progress saved and resumable

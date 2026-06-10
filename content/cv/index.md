@@ -14,13 +14,18 @@ author = "Angelos Papamichail"
 
 ## Summary
 
-Full-Stack Developer & Digital Skills Trainer with a passion for technology that makes a positive impact. MEng in Electrical & Computer Engineering with expertise in **Go**, **Python**, **SvelteKit**, **Svelte**, and **DevOps**. Experienced in the full project lifecycle, from product definition and database design to deployment and operations.
+Full-Stack Developer & Digital Skills Trainer with a passion for technology that makes a positive impact. MEng in Electrical & Computer Engineering with expertise in **Go**, **Python**, **SvelteKit**, **Svelte**, **AI/LLM**, and **DevOps**. Experienced in the full project lifecycle, from product definition and database design to deployment and operations.
 
-Currently building practical products in travel booking, public healthcare appointment discovery, and hospitality operations.
+**Google Summer of Code 2026** contributor and active **open-source maintainer** on OpenCouncil, and **founder** of two startups (PulseCheck, SkipQ). Currently building practical products in travel booking, public healthcare appointment discovery, and hospitality operations.
 
 ---
 
 ## Work Experience
+
+### GSoC Contributor & Active Maintainer | OpenCouncil (Schema Labs / GFOSS) *(May 2026 - Present)*
+- **Google Summer of Code 2026**: fine-tuning an open-source Greek speech-to-text model ([Whisper](https://github.com/eellak/gsoc2026-opencouncil-stt)) on municipal council speech with LLM post-correction, to cut the errors human reviewers fix by hand
+- Active maintainer on the [OpenCouncil platform](https://github.com/schemalabz/opencouncil): resolved severe Next.js hydration errors, improved Turbopack compile times, shipped UI for unauthenticated workflows
+- Building a dataset-exploration and review-UI prototype to measure transcription error rates before and after fine-tuning
 
 ### Full-Stack Developer | UniTrip.gr *(Mar 2026 - Present)*
 - Built the booking website and backend data model from the ground up using **SvelteKit**, **Svelte 5**, **TypeScript**, and **PocketBase**
@@ -79,17 +84,29 @@ Full-stack booking platform for organized youth trips, built from scratch with p
 Go backend that searches Greek public health appointment availability across hospitals and primary care centers, surfacing the soonest useful options by specialty, region, and distance.
 *Technologies: Go, REST API, Concurrent Workers, TypeScript Types, TDD*
 
-### [SkipQ](/projects/skipq/) - QR Ordering & Hospitality Operations
-Upcoming QR ordering platform for restaurants, beach bars, clubs, canteens, and fast-service venues, designed for self-ordering, live order tracking, local deployment, and operational analytics.
+### [PulseCheck](/projects/pulsecheck/) - Anonymous Employee Pulse Surveys *(Founder)*
+Startup measuring the real pulse of a company's workforce through genuinely anonymous surveys and actionable insights, aimed at EU mid-market HR teams.
+*Technologies: Full Stack, Product Analytics, Startup*
+
+### [SkipQ](/projects/skipq/) - QR Ordering & Hospitality Operations *(Founder)*
+QR ordering platform for restaurants, beach bars, clubs, canteens, and fast-service venues, designed for self-ordering, live order tracking, local deployment, and operational analytics.
 *Technologies: Go, Svelte, QR Ordering, Local-first, Analytics*
+
+### [Project Secretary](https://github.com/angelospk/project_secretary) - Smart Secretary for a GitHub Backlog
+Library that syncs issues, PRs, comments, and Project items into a graph store, links related work across repo boundaries, suggests labels via embeddings, and writes grounded, contextual issue comments.
+*Technologies: Python, SurrealDB, Embeddings, GitHub API, Vector Search*
+
+### [WhyPride.gr](https://whypride.gr) - Interactive Guide on Why Pride Matters
+A calm, well-documented interactive site that uses small challenges and an "how much of an ally are you" quiz to bring the LGBTQ+ community closer to people who do not know it from the inside.
+*Technologies: Astro, React, Tailwind CSS, Motion, TypeScript*
+
+### [PC Basics](/projects/pcbasics/) - Digital Literacy Platform
+Educational platform teaching digital skills to elderly and less tech-confident users, expanded with a ministry-aligned curriculum and internet-safety / anti-fraud challenges.
+*Technologies: SvelteKit, Svelte 5, SQLite/Turso*
 
 ### [Diesi Analytics](/projects/diesi-analytics/) - Radio Station Platform
 Analytics platform analyzing 337K records with ML predictions for song selection.
 *Technologies: Python, FastAPI, Vue.js, Redis, Docker*
-
-### [PC Basics](/projects/pcbasics/) - Digital Literacy Platform
-Educational platform teaching Windows 11 skills to elderly users with interactive lessons.
-*Technologies: SvelteKit, Svelte 5, SQLite/Turso*
 
 → [View all projects](/projects/)
 
@@ -128,9 +145,9 @@ Educational platform teaching Windows 11 skills to elderly users with interactiv
 ## Volunteering
 
 - **Youth Council of Orestiada** - Board Member & Developer *(2025-)*
+- **Ardas Music Festival 2026 (Evros)** - Volunteer & Technology Advisor: sites, automations, engagement ideas, social media team *(2026)*
 - **TEXAuth** - Tech Volunteer *(2016)*
-- **Ardas Music Festival** - Volunteer *(2017)*
 
 ---
 
-*Last updated: April 2026*
+*Last updated: June 2026*

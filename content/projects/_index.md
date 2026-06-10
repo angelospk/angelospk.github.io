@@ -14,6 +14,30 @@ A collection of personal and professional projects spanning full-stack developme
 
 ## Featured Projects
 
+### [OpenCouncil](/projects/opencouncil/) (2026)
+**Active Maintainer & Google Summer of Code 2026 Contributor**
+
+Active maintainer on the open-source OpenCouncil platform, and a GSoC 2026 contributor
+fine-tuning a Greek speech-to-text model (Whisper, with LLM post-correction) so reviewers
+have fewer transcript errors to fix by hand.
+
+*Technologies: Python, Whisper / ASR, PyTorch, Next.js, React, TypeScript*
+
+[GSoC Repo →](https://github.com/eellak/gsoc2026-opencouncil-stt) | [Platform Repo →](https://github.com/schemalabz/opencouncil)
+
+---
+
+### [PulseCheck](/projects/pulsecheck/) (2026)
+**Anonymous Employee Pulse Surveys & Insights — Founder**
+
+Startup measuring the real pulse of a company's workforce through genuinely anonymous
+surveys and actionable insights, built for EU mid-market HR teams tired of low-participation
+engagement tools.
+
+*Technologies: Full Stack, Product Analytics, Startup*
+
+---
+
 ### [FindDoctors Aggregator Server](/projects/find-doctors-server/) (2026)
 **Unified Public Health Appointment Search**
 
@@ -36,10 +60,10 @@ SvelteKit booking platform for organized youth trips, with public trip discovery
 
 ---
 
-### [SkipQ](/projects/skipq/) (Upcoming)
+### [SkipQ](/projects/skipq/) (Upcoming) — Founder
 **QR Ordering & Hospitality Operations Platform**
 
-Upcoming QR ordering system for restaurants, beach bars, clubs, canteens, festivals, and fast-service food businesses. Designed for self-ordering, live order tracking, local deployment, menu analytics, and future AI voice ordering.
+QR ordering system for restaurants, beach bars, clubs, canteens, festivals, and fast-service food businesses. Designed for self-ordering, live order tracking, local deployment, menu analytics, and future AI voice ordering.
 
 *Technologies: Go, Svelte, QR Ordering, Local-first, Analytics*
 
@@ -68,7 +92,7 @@ Analytics platform analyzing 3 years of radio play data (~337K records) with ML 
 ### [PC Basics](/projects/pcbasics/) (2025)
 **Digital Literacy Training Platform**
 
-Educational platform teaching elderly users Windows 11 skills through interactive lessons with progress tracking.
+Educational platform teaching digital skills to elderly and less tech-confident users, expanded with a ministry-aligned curriculum and extra internet-safety and anti-fraud challenges.
 
 *Technologies: SvelteKit, Svelte 5, SQLite/Turso, Drizzle ORM*
 
@@ -100,6 +124,11 @@ Machine learning model for emotion recognition from streaming video using SVM/Li
 
 ## AI & Machine Learning
 
+### [Project Secretary](/projects/project-secretary/) (2026)
+Smart secretary for a GitHub backlog: syncs issues, PRs, and comments into a SurrealDB graph store, links related work across repos with local embeddings, suggests labels, and writes grounded issue comments.
+
+[GitHub →](https://github.com/angelospk/project_secretary)
+
 ### [Gemini RAG Demo](https://github.com/angelospk/gemini-rag-demo) (2026)
 RAG system for Greek FEK documents using LangChain, FAISS, and Gemini for embeddings/generation.
 
@@ -125,6 +154,11 @@ Automated cost splitting for Spotify Family subscriptions with email notificatio
 Church products showcase using Google Sheets as database.
 
 [Live Demo →](https://athoscy.vercel.app/)
+
+### [WhyPride.gr](/projects/whypride/) (2026)
+Calm, interactive site explaining why Pride matters, using small challenges and an "how much of an ally are you" quiz instead of walls of text.
+
+[Live Site →](https://whypride.gr)
 
 ---
 

@@ -4,6 +4,39 @@
 
 experiences:
   # Current Positions
+  - id: "gsoc-opencouncil"
+    title: "GSoC Contributor & Active Maintainer"
+    title_en: "GSoC Contributor & Active Maintainer"
+    organization: "OpenCouncil (Schema Labs / GFOSS)"
+    organization_type: "Open Source"
+    type: "work"
+    period:
+      start: "2026-05"
+      end: null  # GSoC 2026 program ends Sep 2026; currently active
+    description: |
+      Google Summer of Code 2026 contributor and active maintainer on OpenCouncil,
+      an open-source platform that makes Greek municipal council meetings searchable
+      and accountable. The GSoC project fine-tunes an open-source speech-to-text model
+      on council speech to cut the errors that human reviewers have to fix by hand.
+    highlights:
+      - text: "Fine-tuning an open-source Greek ASR model (Whisper) on municipal council speech, with LLM post-correction, to reduce manual review effort."
+        link: "https://github.com/eellak/gsoc2026-opencouncil-stt"
+      - text: "Active maintainer on the OpenCouncil platform: fixed severe Next.js hydration errors, improved Turbopack compile times, and shipped UI for unauthenticated workflows."
+        link: "https://github.com/schemalabz/opencouncil"
+      - text: "Building a dataset-exploration and review-UI prototype to measure transcription error rates before and after fine-tuning."
+    technologies:
+      - "Python"
+      - "Whisper / ASR"
+      - "PyTorch"
+      - "LLM Post-Correction"
+      - "Next.js"
+      - "TypeScript"
+    skills:
+      - "Machine Learning"
+      - "Open Source Maintenance"
+      - "Speech-to-Text"
+      - "Data Curation"
+
   - id: "unitrip-fullstack"
     title: "Full-Stack Developer"
     organization: "UniTrip.gr"

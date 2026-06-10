@@ -12,11 +12,13 @@ I'm **Angelos**, a software developer from Northern Greece with a passion for bu
 
 ## The Short Version
 
-I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit**, **Svelte**, or **Vue** on the frontend.
+I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit**, **Svelte**, or **Vue** on the frontend, and increasingly with **AI/LLM** in the mix.
+
+Right now I'm a **Google Summer of Code 2026** contributor and active maintainer on [OpenCouncil](https://github.com/schemalabz/opencouncil) — fine-tuning an open-source Greek speech-to-text model so the people who review council transcripts have fewer errors to fix by hand. On the side, I'm founder of two startups: [PulseCheck](/projects/pulsecheck/) (genuinely anonymous employee surveys) and [SkipQ](/projects/skipq/) (QR ordering for hospitality).
 
 ## What Drives Me
 
-I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer](/projects/pcbasics/), making public health appointments easier to discover with [FindDoctors Aggregator](/projects/find-doctors-server/), building travel booking flows for [UniTrip.gr](/projects/unitrip/), or designing [SkipQ](/projects/skipq/) as a local-first QR ordering system for hospitality, I love seeing my code make someone's day a little easier.
+I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer safely](/projects/pcbasics/) and spot online scams, making public health appointments easier to discover with [FindDoctors Aggregator](/projects/find-doctors-server/), building travel booking flows for [UniTrip.gr](/projects/unitrip/), or designing [SkipQ](/projects/skipq/) as a local-first QR ordering system for hospitality, I love seeing my code make someone's day a little easier.
 
 I'm a big believer in:
 - **Keep it simple** - The best solution is often the simplest one

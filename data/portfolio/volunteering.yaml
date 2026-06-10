@@ -25,10 +25,19 @@ volunteering:
       Τεχνική υποστήριξη σε εκδήλωση TEXAuth.
     
   - id: "ardas-festival"
-    title: "Εθελοντής"
-    organization: "Ardas Music Festival"
+    title: "Εθελοντής & Σύμβουλος Τεχνολογίας"
+    title_en: "Volunteer & Technology Advisor"
+    organization: "Φεστιβάλ Άρδα 2026 (Έβρος)"
+    organization_en: "Ardas Music Festival 2026 (Evros)"
     period:
-      start: null
-      end: null
+      start: "2026"
+      end: "2026"
     description: |
-      Εθελοντική υποστήριξη σε μουσικό φεστιβάλ για νέους.
+      Εθελοντής και σύμβουλος τεχνολογίας στο φεστιβάλ νεολαίας του Άρδα στον Έβρο.
+      Φτιάχνω sites και αυτοματοποιήσεις για την οργάνωση και προτείνω καινοτόμους
+      τρόπους engagement με τον κόσμο. Μέλος της ομάδας social media (όχι αποκλειστική
+      διαχείριση).
+    highlights:
+      - text: "Δημιουργία sites και αυτοματοποιήσεων για τις ανάγκες της διοργάνωσης."
+      - text: "Καινοτόμες ιδέες για engagement και συμμετοχή του κοινού."
+      - text: "Μέλος ομάδας social media (community management)."

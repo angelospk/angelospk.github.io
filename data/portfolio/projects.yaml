@@ -100,9 +100,9 @@
     start: "2026"
     end: null
   description: |
-    QR ordering system for restaurants, beach bars, clubs, canteens, festivals, 
-    and fast-service food businesses. The goal is to reduce service friction, 
-    support self-ordering, and give venues live operational insights.
+    Founder of SkipQ, a QR ordering system for restaurants, beach bars, clubs,
+    canteens, festivals, and fast-service food businesses. The goal is to reduce
+    service friction, support self-ordering, and give venues live operational insights.
   context:
     problem: |
       During peak hours, customers struggle to get served and staff spend too much 
@@ -211,28 +211,155 @@
 
 - id: "opencouncil"
   title: "OpenCouncil"
-  subtitle: "Open Source Contributor"
+  subtitle: "Active Maintainer & GSoC Contributor"
   type: "open-source"
   category: "fullstack"
-  weight: 9
+  weight: 10
   period:
     start: "2026-02"
-    end: "2026-03"
+    end: null
   description: |
-    Contributor to the OpenCouncil platform by Schema Labs (schemalabz/opencouncil).
-    Focused on resolving complex React/Next.js hydration mismatches, improving compile times, 
-    and optimizing UI components for unauthenticated workflows.
+    Active maintainer on OpenCouncil by Schema Labs (schemalabz/opencouncil), the
+    open-source platform that makes Greek municipal council meetings searchable and
+    accountable. Also a Google Summer of Code 2026 contributor, fine-tuning an
+    open-source Greek speech-to-text model to reduce the corrections human reviewers
+    make by hand.
+  context:
+    problem: |
+      Council meeting transcripts are produced by automatic speech recognition, and
+      reviewers spend a lot of time fixing the same recurring errors before the text
+      is usable.
+    solution: |
+      GSoC 2026 project to fine-tune an open-source ASR model (Whisper) on municipal
+      council speech with LLM post-correction, plus ongoing maintenance work on the
+      Next.js platform itself.
   highlights:
-    - text: "Resolved severe Next.js hydration errors and improved Turbopack compile times."
-    - text: "Implemented contextual tooltips and interactive UI state management."
+    - text: "GSoC 2026: Greek ASR Fine-Tuning"
+      detail: "Fine-tuning Whisper on council speech with LLM post-correction to lower transcription error rates and manual review effort."
+    - text: "Platform Maintenance"
+      detail: "Resolved severe Next.js hydration errors, improved Turbopack compile times, and shipped UI for unauthenticated workflows."
+    - text: "Review Tooling"
+      detail: "Built a dataset-exploration and review-UI prototype to measure error rates before and after fine-tuning."
   links:
+    - url: "https://github.com/eellak/gsoc2026-opencouncil-stt"
+      label: "GSoC Repo"
     - url: "https://github.com/schemalabz/opencouncil"
-      label: "GitHub Repo"
+      label: "Platform Repo"
   technologies:
+    - "Python"
+    - "Whisper / ASR"
+    - "PyTorch"
     - "Next.js"
     - "React"
     - "TypeScript"
+  featured: true
+
+- id: "pulsecheck"
+  title: "PulseCheck"
+  subtitle: "Anonymous Employee Pulse Surveys & Insights"
+  type: "startup"
+  category: "fullstack"
+  weight: 10
+  period:
+    start: "2026"
+    end: null
+  description: |
+    Founder of PulseCheck, a startup that measures the real pulse of a company's
+    workforce through genuinely anonymous surveys and actionable insights, aimed at
+    EU mid-market HR teams who are tired of low-participation engagement tools.
+  context:
+    problem: |
+      Employees do not trust that engagement surveys are anonymous, so participation
+      and honesty stay low and HR ends up with data it cannot act on.
+    solution: |
+      Building a survey product designed around credible anonymity and clear insights,
+      so HR can see what is actually going on and act on it before people leave.
+  highlights:
+    - text: "Credible Anonymity"
+      detail: "Anonymity is treated as the core product promise, not a checkbox, so employees answer honestly."
+    - text: "Actionable Insights"
+      detail: "Turns survey responses into signals HR can act on, instead of dashboards nobody reads."
+    - text: "Founder & Builder"
+      detail: "Leading product, positioning, and engineering for an EU mid-market HR audience."
+  technologies:
+    - "Full Stack"
+    - "Product Analytics"
+    - "Startup"
+  featured: true
+
+- id: "project-secretary"
+  title: "Project Secretary"
+  subtitle: "Smart Secretary for a GitHub Backlog"
+  type: "personal"
+  category: "ai"
+  weight: 9
+  period:
+    start: "2026"
+    end: null
+  description: |
+    A library and tool that acts as a smart secretary for one or more GitHub repos.
+    It remembers every issue, PR, comment, and Project item, connects related work
+    even across repo boundaries, and enriches new issues with relevant history plus
+    grounded codebase context.
+  context:
+    problem: |
+      In a busy backlog the same idea gets filed twice, the issue describing a feature
+      lives in one repo while the code that implements it lives in another, and nobody
+      has time to wire those connections by hand.
+    solution: |
+      Built a memory backbone over SurrealDB that syncs issues, PRs, comments, and
+      Project v2 items, with a local-embeddings semantic layer and a reranker that
+      classifies items as duplicate, overlap, prior context, or noise.
+  highlights:
+    - text: "Cross-Repo Memory"
+      detail: "Indexes several repos in one graph store so a frontend issue can surface the backend PR that implements it."
+    - text: "Semantic Related Work"
+      detail: "Local embeddings (fastembed/ONNX, no torch) plus a heuristic reranker using labels, edges, and milestones."
+    - text: "Grounded Issue Comments"
+      detail: "Writes an idempotent, sticky comment with related history and DeepWiki file-level context to help resolve an issue."
+    - text: "Auto-Labels & Backlog Help"
+      detail: "Embeddings-based categorization to suggest labels and surface related issues/PRs across the project backlog."
+  links:
+    - url: "https://github.com/angelospk/project_secretary"
+      label: "GitHub"
+  technologies:
+    - "Python"
+    - "SurrealDB"
+    - "Embeddings / fastembed"
+    - "GitHub API"
+    - "Vector Search"
+  featured: true
+
+- id: "whypride"
+  title: "WhyPride.gr"
+  subtitle: "Interactive Guide on Why Pride Matters"
+  type: "personal"
+  category: "fullstack"
+  weight: 8
+  period:
+    start: "2026"
+    end: null
+  description: |
+    A calm, well-documented interactive site that brings the LGBTQ+ community closer
+    to people who do not know it from the inside. Instead of walls of text, it uses
+    small interactive challenges and a quiz that make you think and check how much of
+    an ally you really are.
+  highlights:
+    - text: "Interactive Challenges"
+      detail: "Flip a card, answer a scenario, play with a switch — prompts that make newcomers think and tell allies something new."
+    - text: "Ally Quiz"
+      detail: "A short quiz that reflects back how much of an ally you actually are, and answers questions people rarely ask out loud."
+    - text: "Calm, Documented Tone"
+      detail: "Avoids argument-by-shouting; explains why Pride exists in a grounded, accessible way."
+  links:
+    - url: "https://whypride.gr"
+      label: "Live Site"
+  technologies:
+    - "Astro"
+    - "React"
     - "Tailwind CSS"
+    - "Motion"
+    - "TypeScript"
   featured: true
 
 # ========================
@@ -362,14 +489,17 @@
     start: "2025"
     end: null
   description: |
-    Educational platform for teaching elderly users Windows 11 skills.
-    Interactive lessons with progress tracking and bilingual support.
+    Educational platform for teaching elderly and less tech-confident users essential
+    digital skills. Now expanded with a detailed digital-skills curriculum based on the
+    Greek ministry's guide, plus extra challenges focused on internet safety and fraud
+    prevention. Interactive lessons with progress tracking and bilingual support.
   highlights:
+    - text: "Ministry-aligned digital skills guide with structured, level-based lessons"
+    - text: "Internet safety & anti-fraud challenges to protect vulnerable users from scams"
     - text: "Dynamic lesson system with drag & drop, click, hover exercises"
     - text: "Multi-level difficulty (Beginner/Intermediate/Advanced)"
     - text: "Bilingual support (English/Greek) via inlang"
-    - text: "Admin panel for content management"
-    - text: "Per-user progress tracking"
+    - text: "Admin panel for content management and per-user progress tracking"
   links:
     - url: "https://pcbasics.vercel.app/"
       label: "Live Demo"
