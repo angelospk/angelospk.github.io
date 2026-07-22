@@ -11,41 +11,41 @@ author = "Angelos Papamichail"
 
 ---
 
-OpenCouncil transcribes Greek municipal council meetings with ASR (Automatic Speech Recognition), and then someone fixes the AI's mistakes by hand. The team spends several hours per council to get those corrections right, so the final transcript actually matches the audio. That's where the question comes from: can we fine-tune, meaning take an open ASR model and let it learn from OpenCouncil's own data, so the correction step gets shorter? I'm Angelos, and this is the problem I'm working on for my Google Summer of Code project.
+OpenCouncil transcribes Greek municipal council meetings with ASR (Automatic Speech Recognition), and then someone fixes the AI's mistakes by hand. The team spends several hours on each meeting to get those corrections right, so the final transcript matches the audio. That led us to a question: can we fine-tune an open ASR model on OpenCouncil's own data and cut down the time spent on manual corrections? I'm Angelos, and this is the problem I'm working on for my Google Summer of Code project.
 
-[Google Summer of Code](https://summerofcode.withgoogle.com/) lets students and early-career developers spend a summer working on an open-source project. You pick up to three organizations from the list of partners and send a written proposal for how you'd solve one of their problems. The org decides which candidates it wants to work with, and Google approves the final projects. Mine got accepted, so I have a three-month remote internship, with the OpenCouncil maintainers as my mentors.
+[Google Summer of Code](https://summerofcode.withgoogle.com/) lets students and early-career developers spend a summer working on an open-source project. Applicants choose up to three participating organizations and submit a project proposal explaining what they want to build and how they'll approach it. The org decides which candidates it wants to work with, and Google approves the final projects. My proposal was accepted, so I'm spending three months working remotely on OpenCouncil, with the project's maintainers as my mentors.
 
 ## What already exists
 
-There are open and closed models you can use for ASR. After benchmarking them on older council meetings, ones where we already have the corrected, audio-faithful text, the OpenCouncil team settled on a closed model, Scribe v2 from ElevenLabs. It did best: fewest transcription errors on OpenCouncil's real data. I'll explain further down how that error rate is measured.
+There are open and closed models you can use for ASR. We benchmarked several of them on older council meetings for which we already had carefully corrected, audio-aligned transcripts. The team settled on a closed model, Scribe v2 from ElevenLabs. It performed best, producing the fewest transcription errors on real OpenCouncil data. I'll explain further down how that error rate is measured.
 
 {{< figure src="01-benchmark-wer.png" alt="Benchmarking results on OpenCouncil data" caption="Benchmarking results on OpenCouncil data" >}}
 
-The best open ASR model is called Whisper, from OpenAI. Out of the box, with no special Greek training, it gives a middling result. One Greek fine-tune we tried didn't cope with our audio at all. It did 3x worse than plain Whisper.
+The best open ASR model is called Whisper, from OpenAI. Out of the box, with no special Greek training, it gives a middling result. One Whisper model fine-tuned for Greek performed particularly poorly on our recordings: its error rate was roughly three times as high as the original Whisper model's.
 
-On the test we ran, Whisper got 15 words wrong out of 100; the best closed model, 13. That's the small gap we want to close. It isn't that Whisper doesn't know Greek. What it's missing is tolerance for the room's noise, for people talking over each other, for legal jargon, names, decision numbers, and gazette references. That's where every general-purpose system trips, and that's where my project comes in: fine-tuning an open model on real speech from Greek municipal councils.
+In our benchmark, Whisper got roughly 15 words wrong out of every 100, compared with 13 for the best closed model. That's the small gap we want to close. It isn't that Whisper doesn't know Greek. What it struggles with is the reality of council meetings: background noise, overlapping speech, legal terminology, names, decision numbers, and references to the Government Gazette. That's where every general-purpose system trips, and that's where my project comes in: fine-tuning an open model on real speech from Greek municipal councils.
 
 ## How OpenCouncil transcribes
 
 {{< figure src="02-pipeline.png" alt="How the project works" caption="How the project works" >}}
 
-OpenCouncil takes the audio of a meeting and produces a transcript, speakers, and topics, so you can search what was said and who said it. It goes through three stages:
+OpenCouncil takes a meeting recording and produces a transcript, identifies the speakers, and organizes the discussion by topic, so you can search what was said and who said it. It goes through three stages:
 
-1. **ASR speech recognition model:** writes the first draft of the text.
+1. **ASR model:** produces the initial transcript.
 
-2. **Cleanup with a language model (LLM, like ChatGPT):** catches common grammar, syntax, and punctuation mistakes, fixes homophones, and corrects council members' names when the previous model got them wrong, all without changing the meaning.
+2. **Cleanup with a language model (LLM, like ChatGPT):** catches common grammar, syntax, and punctuation mistakes, fixes homophones, and corrects council members' names when the previous model got them wrong, while preserving the original meaning.
 
 3. **Human correction:** at the end, a person listens to the whole meeting and fixes whatever slipped through.
 
-The LLM cleanup helps, but it has a limit that bothered me from the start: it doesn't hear the audio, it sees the text the ASR produced and edits that. If the ASR misheard a name and wrote something unrelated, the LLM has nothing to go on. The real win is improving the "ear" itself.
+The LLM cleanup helps, but it has a limit that bothered me from the start: it never hears the recording; it only sees the ASR output. If the ASR misheard a name and wrote something unrelated, the LLM has nothing to go on. The real win is improving the "ear" itself.
 
-And here's the nice part: all those changes, from the LLM and from people, get saved. About 300,000 corrections have piled up. We decided to try training the existing open model on them, so it learns to get them right on its own. That's why we're building our own dataset.
+And here's the nice part: all those changes, from the LLM and from people, get saved. Over time, OpenCouncil has accumulated around 300,000 corrections. We decided to try training the existing open model on them, so it learns to get them right on its own. That's why we're building our own dataset.
 
 ## How the models are scored
 
 To know whether anything actually improved, we want a single number we can compare. That's WER (Word Error Rate): the share of words that come out wrong, where lower is better.
 
-It's a blunt instrument. It counts writing "and" for "an" as heavily as a wrong surname. But it's used everywhere in the literature, so we can compare any model or provider directly. And since each run tests the model on newer councils it hasn't seen, the raw number is expected to shift every time. So the honest metric isn't a bare score. It's how much the fine-tuned model improves over the original.
+It's a blunt instrument. It treats a minor function-word slip as seriously as getting someone's surname wrong. But it's used everywhere in the literature, so we can compare any model or provider directly. And since each evaluation uses newer council meetings the model hasn't seen before, the raw score naturally shifts from one test set to the next. So the honest metric isn't a bare score. It's how much the fine-tuned model improves over the original.
 
 {{< figure src="04-review-tool.png" alt="Review tool" caption="The tool for picking corrections to train on" >}}
 
@@ -53,7 +53,7 @@ It's a blunt instrument. It counts writing "and" for "an" as heavily as a wrong 
 
 To train, you need lots of clean audio-text pairs: a clip of audio and the text that tells the model "this is how I want you to write it." We already have those inside OpenCouncil, just mixed together.
 
-Along the way, the team and I built a small tool: a web app where we listen to a few seconds of audio while the before and after of a correction sit side by side. For each audio-text pair we choose Include or Exclude, filtering the hundreds of thousands of pairs OpenCouncil keeps down to a smaller set we think is more "instructive" for fine-tuning.
+Along the way, the team and I built a small tool: a web app where we listen to a short audio clip while viewing the original transcription and the corrected version side by side. For each audio-text pair, we mark it Include or Exclude. This lets us narrow hundreds of thousands of stored corrections down to a smaller set that's genuinely useful for fine-tuning.
 
 {{< figure src="03-error-distribution.png" alt="Error distribution" caption="The error distribution: selected utterances vs. the whole dataset" >}}
 
@@ -61,41 +61,41 @@ Rather than treat every correction as the same, we sorted them into groups:
 
 * **Pure acoustic errors:** the model heard one word as another, dropped a word, or wrote one that was never said.
 
-* **Names:** people, places, bodies, acronyms like DEYA. For a council these matter and repeat.
+* **Names:** people, places, bodies, acronyms like DEYA. These matter especially in council meetings, where the same names and terms come up again and again.
 
 * **"Cosmetic" corrections:** punctuation, capitalization, small style tweaks that don't change what was said.
 
 **Note:** the first two groups teach the model to hear better. The cosmetic ones don't, and about a third of the corrections were punctuation or capitalization, so we weighted them down. They teach the "ear" nothing.
 
-Some corrections were slightly out of sync, so we also did small manual fixes to the timing, so the audio lines up exactly with the text. That's how we turned up various pronunciation cases that will definitely help the model.
+Some corrections were slightly out of sync, so we also did small manual fixes to the timing, so the audio lines up exactly with the text. While fixing the alignment, we also found several tricky pronunciation cases that should help the model.
 
 ### What we gathered in the first month
 
-* The review ran daily for a month. More than 10,000 corrections have gone through human judgment.
+* For a month, we reviewed corrections every day. More than 10,000 corrections were manually reviewed.
 
 * We kept the best, around 5,000.
 
-* The material covers 544 speakers across 10 different cities.
+* The dataset includes speech from 544 speakers across ten cities.
 
-The dataset has something you don't often find open: real human corrections, not crowd-sourced studio readings. We'd love to have published it on Hugging Face, but for privacy reasons we're still working out the right way to do that.
+Unlike many speech datasets built from scripted or crowdsourced recordings, ours comes from real municipal meetings and includes corrections made by people who listened to the original audio. We'd love to publish it on Hugging Face, but we're still working out how to do that responsibly, given the privacy constraints.
 
 ## Spoiler: a first, early fine-tune
 
-We already ran a first fine-tune, early and rough: whisper-large-v3 with LoRA (which trains just 0.5% of the weights and fits on a single GPU), on the selected corrections, with two whole cities held out for testing.
+We've already run a first, deliberately rough fine-tuning experiment: Whisper large-v3 with LoRA, which updates only around 0.5% of the model's parameters and lets us train on a single GPU, on the selected corrections, with two whole cities held out for testing.
 
 The early signs were encouraging enough to keep going. I won't share numbers yet, since the sample was small, but the first signal is positive. In July I'm focused on the fine-tuning process itself.
 
 ## What's next
 
-* **Data split:** the final test will be the recent councils (from June on, while the project started in May). That keeps the test clean, with no risk of the model seeing something it already saw in training.
+* **Data split:** the final test set will be recent council meetings (from June onward, while the project started in May). That keeps the test clean, with no risk of the model seeing something it already saw in training.
 
-* **Dataset balance:** to the 5,000 selected hard corrections we'll add as many again drawn from across the sample, plus around 20,000 ordinary utterances that had no errors, so the model doesn't "forget" everyday speech.
+* **Dataset balance:** to the 5,000 selected difficult corrections we'll add another 5,000 examples sampled from the broader dataset, plus around 20,000 correctly transcribed utterances that needed no correction, so the model doesn't "forget" everyday speech.
 
 * **Diarization ("who speaks when"):** we're looking into whether better speaker separation also helps the transcription itself.
 
-* **Overlapping speech:** we're adding a field for the moments when a second person is heard in the background. How do you train Whisper for that? It's an open question.
+* **Overlapping speech:** we're adding a label for segments where another person can be heard speaking in the background. How do you train Whisper for that? It's an open question.
 
-* **Alternatives:** if there's time left, we want Whisper to keep two or three alternative versions of what it heard on a hard word, along with a confidence score, so the next stage (the LLM) knows where to look.
+* **Alternatives:** if there's time left, we want Whisper to generate two or three alternative transcriptions for uncertain words, each with a confidence score, so the next stage (the LLM) knows where to look.
 
 ---
 
