@@ -4,9 +4,61 @@
 
 experiences:
   # Current Positions
+  - id: "skipq-founder"
+    title: "Founder"
+    organization: "SkipQ"
+    organization_type: "Startup"
+    type: "work"
+    period:
+      start: "2026-01"
+      end: null
+    description: |
+      Founder of SkipQ, a QR ordering and operations platform for restaurants,
+      beach bars, and fast-service venues. I own product, positioning, and
+      engineering.
+    highlights:
+      - text: "Built a working full-stack demo: customer self-ordering, staff order claims, open tabs, and an admin menu editor."
+        link: "#skipq"
+      - text: "Migrating the demo to a Go backend and Svelte SPA over ConnectRPC, with shared proto contracts and SSE live updates."
+        link: "#skipq"
+      - text: "Designed for cloud or local deployment, so a venue keeps taking orders when the internet drops."
+    technologies:
+      - "Go"
+      - "SvelteKit"
+      - "TypeScript"
+      - "ConnectRPC"
+    skills:
+      - "Product Development"
+      - "Full Stack Development"
+      - "Founder"
+
+  - id: "pulsecheck-founder"
+    title: "Founder"
+    organization: "PulseCheck"
+    organization_type: "Startup"
+    type: "work"
+    period:
+      start: "2026-01"
+      end: null
+    description: |
+      Founder of PulseCheck, an anonymous employee pulse-survey product for EU
+      mid-market HR teams. Anonymity is the core product promise, so employees
+      answer honestly and HR gets data it can act on.
+    highlights:
+      - text: "Leading product, positioning, and engineering for an EU mid-market HR audience."
+        link: "#pulsecheck"
+    technologies:
+      - "Full Stack"
+      - "Product Analytics"
+    skills:
+      - "Product Development"
+      - "Founder"
+
   - id: "gsoc-opencouncil"
-    title: "GSoC Contributor & Active Maintainer"
-    title_en: "GSoC Contributor & Active Maintainer"
+    # Matches the LinkedIn headline so a recruiter reading both sees one role, while
+    # keeping the GSoC credential (competitive selection) in the title itself.
+    title: "AI Engineer (GSoC 2026)"
+    title_en: "AI Engineer (GSoC 2026)"
     organization: "OpenCouncil (Schema Labs / GFOSS)"
     organization_type: "Open Source"
     type: "work"
@@ -204,6 +256,10 @@ experiences:
     title: "Military Service, Fire Rescue"
     organization: "Hellenic Air Force (HAF)"
     type: "work"
+    # Greek postings routinely require "εκπληρωμένες στρατιωτικές υποχρεώσεις", but this
+    # entry never survives the top-4 experience cut on a developer CV. The flag renders
+    # it as a one-line section instead of spending a slot.
+    military: true
     period:
       start: "2021-09"
       end: "2022-06"
