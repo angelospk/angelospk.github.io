@@ -5,6 +5,7 @@ require "date"
 require "fileutils"
 require "optparse"
 require "yaml"
+require_relative "ranking"
 
 ROOT = File.expand_path("..", __dir__)
 
@@ -14,7 +15,9 @@ options = {
   language: "auto",
   output_dir: File.join(ROOT, "generated-cvs"),
   basename: nil,
-  compile: true
+  compile: true,
+  pin_projects: nil,
+  explain: false
 }
 
 OptionParser.new do |parser|
@@ -26,6 +29,11 @@ OptionParser.new do |parser|
   parser.on("--output-dir DIR", "Output directory, default generated-cvs") { |v| options[:output_dir] = File.expand_path(v, ROOT) }
   parser.on("--basename NAME", "Output filename without extension") { |v| options[:basename] = v }
   parser.on("--no-compile", "Write .typ only, do not run typst") { options[:compile] = false }
+  parser.on("--pin-projects IDS", "Comma-separated project ids to force into Selected Projects, in order") { |v| options[:pin_projects] = v }
+  parser.on("--pin-experience IDS", "Comma-separated experience ids to force into Experience, in order") { |v| options[:pin_experience] = v }
+  parser.on("--location LOC", "Override the contact-line location (e.g. the target city)") { |v| options[:location] = v }
+  parser.on("--phone PHONE", "Override the contact-line phone number") { |v| options[:phone] = v }
+  parser.on("--explain-ranking", "Print project scores and matched terms to stderr") { options[:explain] = true }
 end.parse!
 
 def read_text(value)
@@ -62,6 +70,14 @@ def typst_escape(text)
       .strip
 end
 
+# Escapes for Typst *content* mode (inside [...]), where markup chars are live.
+def typst_escape_content(text)
+  text.to_s
+      .gsub("\u00A0", " ")
+      .gsub(/[\\#\[\]*_@$`<>~]/) { |c| "\\#{c}" }
+      .strip
+end
+
 def ascii_text(text)
   text.to_s.encode("ASCII", invalid: :replace, undef: :replace, replace: "")
 end
@@ -76,16 +92,24 @@ def english_text(text)
     "Backend services integration για mobile game development." => "Integrated backend services for mobile game development.",
     "SvelteKit frontend με responsive design" => "Built a responsive SvelteKit frontend.",
     "Pocketbase backend για data management" => "Used PocketBase for backend data management.",
-    "Website για τη Κτηνιατρική με ενσωματωμένο linear solver για βελτιστοποίηση διατροφής ζώων." => "Veterinary web platform with an embedded linear solver for animal diet optimization."
+    "Website για τη Κτηνιατρική με ενσωματωμένο linear solver για βελτιστοποίηση διατροφής ζώων." => "Veterinary web platform with an embedded linear solver for animal diet optimization.",
+    "Εφαρμογή προτάσεων ταινιών/σειρών με AI, που λαμβάνει υπόψη το ιστορικό του χρήστη για personalized recommendations." => "A movie and series recommendation app that uses AI and a user's history for personalized suggestions."
   }
 
-  translations.fetch(original, ascii_text(original).squeeze(" ").strip)
+  # Fallback for un-translated Greek: strip non-ASCII, then drop any leading
+  # punctuation/whitespace the stripping leaves behind (e.g. "ταινιών/σειρών" ->
+  # a dangling "/") so the result never starts with markup that breaks Typst.
+  translations.fetch(original,
+    ascii_text(original).squeeze(" ").strip.sub(/\A[[:punct:][:space:]]+/, ""))
 end
 
 def normalize(text)
-  text.to_s.downcase.gsub(/[^[:alnum:]α-ωάέήίόύώϊϋΐΰ\+\#\.]+/i, " ")
+  Ranking.normalize(text)
 end
 
+# The original list, kept deliberately: `keywords` feeds experience ranking, highlight
+# ordering and the developer-target check, none of which were the problem. Ranking has
+# its own, much longer list, which only makes sense alongside its rarity weighting.
 STOPWORDS = %w[
   and the for with from this that your you are will have has into using use role
   developer engineer software full stack backend frontend senior junior mid experience
@@ -96,6 +120,40 @@ def keywords(text)
   normalize(text).split.uniq.reject { |w| w.length < 3 || STOPWORDS.include?(w) }
 end
 
+# "JavaScript/TypeScript" has to match a posting that only says TypeScript, and
+# "Swift (macOS)" one that only says Swift — so a skill matches on any of its
+# slash/ampersand-separated parts as well as on the whole phrase.
+def skill_needles(name)
+  base = name.to_s.gsub(/\([^)]*\)/, " ")
+  (base.split(%r{[/&]}) << base)
+    .map(&:strip)
+    .reject { |part| normalize(part).strip.length < 2 }
+    .uniq
+end
+
+# Names this short double as ordinary English words ("Go", "R", "C"), so they only
+# count when the posting spells them with the skill's own capitalisation — otherwise
+# "go above and beyond" puts Go on the CV of someone the team never asked it of.
+AMBIGUOUS_MAX_LEN = 3
+
+# Boundary-anchored so "Go" doesn't match "Google", "SQL" doesn't match
+# "PostgreSQL", and "Git" doesn't match "GitHub".
+def skill_hits(needles, ctx_norm, ctx_raw)
+  needles.sum do |needle|
+    normalized = normalize(needle).strip
+    if normalized.length <= AMBIGUOUS_MAX_LEN
+      ctx_raw.scan(/(?<![[:alnum:]])#{Regexp.escape(needle)}(?![[:alnum:]])/).size
+    else
+      ctx_norm.scan(/(?<![[:alnum:]])#{Regexp.escape(normalized)}(?![[:alnum:]])/).size
+    end
+  end
+end
+
+# Experiences keep the original keyword count on purpose. The rarity-weighted scorer
+# is tuned for the 25 projects, which have deep technology/skill lists; the 11
+# experiences are thin by comparison, so their scores collapse to near-ties and the
+# order falls to tie-breaks — which put "Military Service, Fire Rescue" on a
+# full-stack CV. Ranking the work history was never the problem being solved here.
 def score_item(item, wanted)
   haystack = normalize([
     item["title"],
@@ -124,6 +182,13 @@ def tech_like?(item)
     developer software backend frontend full stack automation svelte go python
     javascript typescript database cloudflare docker api payment product
   ].any? { |term| terms.include?(term) }
+end
+
+# Shared by both pin flags. Duplicates collapse rather than abort: a repeated id is
+# unambiguous about what was wanted, unlike an unknown id or an over-long list, and
+# pin_projects_test.rb pins that behaviour down deliberately.
+def parse_pin_ids(raw)
+  raw.to_s.split(",").map { |id| id.strip.downcase }.reject(&:empty?).uniq
 end
 
 def period_text(period)
@@ -168,8 +233,24 @@ projects = load_yaml("data/portfolio/projects.yaml")
 skills = load_yaml("data/portfolio/skills.yaml")
 
 profile = personal["profile"]
+# Per-application contact overrides (e.g. present the target city / a local number).
+# dup so we never mutate the loaded YAML across a batch run.
+profile = profile.dup
+profile["location"] = options[:location] if options[:location] && !options[:location].strip.empty?
+profile["phone"] = options[:phone] if options[:phone] && !options[:phone].strip.empty?
 experiences = array(experience["experiences"])
 project_items = array(projects)
+
+# Ranked terms are stemmed/aliased; `wanted` stays raw for the keyword checks below
+# and for highlight ordering, which compare against literal word lists.
+ranked_terms = Ranking.wanted_weights(context)
+
+eligible_projects = project_items.select { |item| item["featured"] != false }
+
+# Rarity only means something relative to the items competing for the slot, so the
+# corpus is exactly the pool a pick comes from — no experiences, no unfeatured
+# projects diluting a term's rarity.
+project_scorer = Ranking::Scorer.new(eligible_projects)
 
 experience_scores = experiences.map { |item| [item, score_item(item, wanted)] }
 developer_target = wanted.any? do |word|
@@ -186,14 +267,70 @@ ranked_experiences = experience_scores
                      end
                      .map(&:first)
 
-ranked_projects = project_items
-                  .select { |item| item["featured"] != false }
-                  .map { |item| [item, score_item(item, wanted)] }
-                  .sort_by { |item, score| [-score, -(item["weight"] || 0), item["title"].to_s] }
+ranked_projects = eligible_projects
+                  .map { |item| [item, project_scorer.score(item, ranked_terms)] }
+                  .sort_by do |item, score|
+                    # Prose breaks ties before the curated weight does. Items with no
+                    # structured match all score 0, and the last slot often falls to
+                    # them; ordering those by static weight ignores the posting
+                    # entirely, so the prose it did match decides instead.
+                    _, prose = project_scorer.split_score(item, ranked_terms)
+                    [-score, -prose, -(item["weight"] || 0), item["title"].to_s]
+                  end
                   .map(&:first)
 
-selected_experiences = ranked_experiences.first(4)
-selected_projects = ranked_projects.first(4)
+# A pinned selection is a deliberate override of the ranking, so it wins over the
+# `featured` filter too, and an id that does not exist is an error rather than a
+# silently dropped pin — the whole point is that the pick survives regeneration.
+pinned_ids = parse_pin_ids(options[:pin_projects])
+projects_by_id = {}
+project_items.each do |item|
+  id = item["id"].to_s.downcase
+  # Two projects under one id would make a pin resolve to whichever came last.
+  abort("Duplicate project id in projects.yaml: #{id}") if projects_by_id.key?(id)
+  projects_by_id[id] = item
+end
+
+unknown = pinned_ids.reject { |id| projects_by_id.key?(id) }
+abort("Unknown --pin-projects id(s): #{unknown.join(", ")}") unless unknown.empty?
+if pinned_ids.length > Ranking::PROJECT_LIMIT
+  abort("--pin-projects takes at most #{Ranking::PROJECT_LIMIT} ids, got #{pinned_ids.length}")
+end
+
+pinned_projects = pinned_ids.map { |id| projects_by_id[id] }
+
+# Same override for experience. The ranker scores an entry on the posting's own
+# vocabulary, so a role whose terms the posting never uses (open source ML work
+# against a generic web-dev ad) sinks below weaker but better-matching entries.
+pinned_exp_ids = parse_pin_ids(options[:pin_experience])
+experiences_by_id = {}
+experiences.each do |item|
+  id = item["id"].to_s.downcase
+  abort("Duplicate experience id in experience.yaml: #{id}") if experiences_by_id.key?(id)
+  experiences_by_id[id] = item
+end
+
+unknown_exp = pinned_exp_ids.reject { |id| experiences_by_id.key?(id) }
+abort("Unknown --pin-experience id(s): #{unknown_exp.join(", ")}") unless unknown_exp.empty?
+if pinned_exp_ids.length > Ranking::EXPERIENCE_LIMIT
+  abort("--pin-experience takes at most #{Ranking::EXPERIENCE_LIMIT} ids, got #{pinned_exp_ids.length}")
+end
+
+pinned_experiences = pinned_exp_ids.map { |id| experiences_by_id[id] }
+selected_experiences = (pinned_experiences + (ranked_experiences - pinned_experiences)).first(Ranking::EXPERIENCE_LIMIT)
+selected_projects = (pinned_projects + (ranked_projects - pinned_projects)).first(Ranking::PROJECT_LIMIT)
+
+if options[:explain]
+  warn "\n# project ranking (#{eligible_projects.length} eligible, top #{Ranking::PROJECT_LIMIT} selected)"
+  warn "# pinned: #{pinned_ids.empty? ? "(none)" : pinned_ids.join(", ")}"
+  ranked_projects.each_with_index do |item, index|
+    score = project_scorer.score(item, ranked_terms)
+    top = project_scorer.matches(item, ranked_terms).first(6)
+                        .map { |term, weight, points| "#{term}(x#{weight}=#{points.round(2)})" }
+    marker = selected_projects.include?(item) ? "*" : " "
+    warn format("%s %2d. %-34s %6.2f  %s", marker, index + 1, item["title"], score, top.join(" "))
+  end
+end
 
 skill_groups = skills["skills"] || {}
 flat_skills = skill_groups.values.flatten.map { |s| s["name"] }.compact
@@ -206,8 +343,18 @@ summary = if language == "el"
           end
 
 if context.strip.length.positive?
-  top_terms = wanted.first(5).join(", ")
-  summary += " Focus: #{top_terms}."
+  # Focus terms are the candidate's own skills that the posting actually asks for,
+  # ranked by how often the posting mentions them. Ranking raw posting words instead
+  # surfaces whatever the ad happens to open with ("Focus: exness, not, just").
+  ctx_norm = normalize(context)
+  top_terms = flat_skills
+              .map { |skill| [skill, skill_hits(skill_needles(skill), ctx_norm, context)] }
+              .select { |_, hits| hits.positive? }
+              .sort_by { |skill, hits| [-hits, skill.length] }
+              .map(&:first)
+              .first(5)
+              .join(", ")
+  summary += " Focus: #{top_terms}." if top_terms.length.positive?
 end
 
 labels = if language == "el"
@@ -237,7 +384,14 @@ lines << '#let section(title) = block(above: 1.25em, below: 0.5em)[#text(size: 1
 lines << '#let entry(title, meta, body) = block(above: 0.34em, below: 0.24em)[#grid(columns: (1fr, auto), gutter: 0.6em, text(weight: "bold", title), text(size: 7.9pt, fill: rgb("#444"), meta)) #v(0.08em) #body]'
 lines << ""
 lines << "#align(center)[#text(size: 16pt, weight: \"bold\", \"#{typst_escape(profile["name"])}\")]"
-lines << "#align(center)[#text(\"#{typst_escape(profile["email"])}\") | #text(\"#{typst_escape(profile["location"])}\") | #link(\"#{profile.dig("social", "github")}\")[GitHub] | #link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]]"
+contact_bits = [
+  "#link(\"mailto:#{typst_escape(profile["email"])}\")[#{typst_escape_content(profile["email"])}]",
+  profile["phone"] ? "#link(\"tel:#{typst_escape(profile["phone"].to_s.gsub(/[^+\d]/, ""))}\")[#{typst_escape_content(profile["phone"])}]" : nil,
+  "#text(\"#{typst_escape(profile["location"])}\")",
+  "#link(\"#{profile.dig("social", "github")}\")[GitHub]",
+  "#link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]",
+].compact
+lines << "#align(center)[#{contact_bits.join(" | ")}]"
 lines << ""
 lines << typst_escape(summary)
 lines << ""
@@ -265,8 +419,13 @@ selected_projects.each do |item|
   project_lines.concat(highlights)
   body = project_lines.reject(&:empty?).first(2).map { |b| "- #{typst_escape(b)}" }.join("\n")
   link = array(item["links"]).first
-  title_text = link ? "#{title} (#{link["label"]})" : title
-  lines << "#entry(\"#{typst_escape(title_text)}\", \"#{typst_escape(meta)}\")["
+  title_arg = if link && !link["url"].to_s.strip.empty?
+                label = typst_escape_content(link["label"] || "Link")
+                "[#link(\"#{typst_escape(link["url"])}\")[#{typst_escape_content(title)} (#{label})]]"
+              else
+                "\"#{typst_escape(title)}\""
+              end
+  lines << "#entry(#{title_arg}, \"#{typst_escape(meta)}\")["
   lines << body
   lines << "]"
 end
@@ -285,11 +444,31 @@ array(education["education"]).first(2).each do |item|
   lines << "#entry(\"#{typst_escape(degree)}\", \"#{typst_escape(meta)}\")[#{typst_escape(extra)}]"
 end
 
+# Greek postings routinely list completed service as a hard requirement, and the
+# service entry loses the top-4 experience cut on any developer CV. It is folded into
+# the certifications line rather than given a #section or even an #entry of its own:
+# measured, both spill this one-page CV onto a second page, because the template runs
+# within a line of the page limit. A clause on an existing paragraph costs no block.
+military = experiences.find { |item| item["military"] }
+military_note = if military
+                  years = [military.dig("period", "start"), military.dig("period", "end")]
+                          .compact.map { |v| v.to_s[0, 4] }.uniq.join(" - ")
+                  status = language == "el" ? "Εκπληρωμένες" : "Completed"
+                  # Prefer the org's own abbreviation ("Hellenic Air Force (HAF)" -> HAF):
+                  # the full name inside a parenthetical nests brackets and costs the
+                  # characters that decide whether this line wraps.
+                  org = (military["organization_en"] || military["organization"]).to_s
+                  org = org[/\(([^)]+)\)/, 1] || org
+                  label = language == "el" ? "Στρατιωτικά" : "Military service"
+                  "#{label}: #{status} (#{[org, years.delete(" ")].reject(&:empty?).join(", ")})"
+                end
+
 certifications = array(education["certifications"]).first(4)
-unless certifications.empty?
+unless certifications.empty? && military_note.nil?
   lines << ""
   lines << "#section(\"#{labels[:certifications]}\")"
-  cert_line = certifications.map { |cert| "#{cert["name"]} (#{cert["issuer"]})" }.join(" | ")
+  cert_line = certifications.map { |cert| "#{cert["name"]} (#{cert["issuer"]})" }
+                            .push(military_note).compact.join(" | ")
   lines << typst_escape(cert_line)
 end
 
