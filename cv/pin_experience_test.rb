@@ -148,3 +148,32 @@ class DuplicatePinTest < Minitest::Test
     assert_equal titles.uniq, titles
   end
 end
+
+class DescriptionTrimTest < Minitest::Test
+  # Portfolio descriptions run to four lines; the CV has room for about one per
+  # project. Untrimmed, they pushed real CVs onto a second page.
+  def project_bullets(typ)
+    typ.split('#section("Selected Projects")').last.to_s
+       .split('#section("Skills")').first.to_s
+       .lines.select { |l| l.start_with?("- ") }.map(&:strip)
+  end
+
+  def test_no_project_bullet_runs_past_a_couple_of_lines
+    _, typ, = generate_exp
+    long = project_bullets(typ).select { |b| b.length > 240 }
+    assert_empty long, "over-long bullets: #{long.map { |b| b[0, 60] }}"
+  end
+
+  def test_a_trimmed_description_still_ends_on_a_whole_word
+    _, typ, = generate_exp
+    project_bullets(typ).each { |b| refute_match(/\s\z/, b) }
+  end
+
+  def test_a_dotted_domain_does_not_end_the_sentence
+    # "finddoctors.gov.gr" must not be read as three sentence breaks.
+    _, typ, = generate_exp(target: "Go backend, REST APIs, concurrent workers, aggregation.")
+    bullet = project_bullets(typ).find { |b| b.include?("finddoctors") }
+    refute_nil bullet, "expected the FindDoctors project to be selected"
+    assert_match(/finddoctors\.gov\.gr/, bullet)
+  end
+end

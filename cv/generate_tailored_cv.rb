@@ -191,6 +191,18 @@ def parse_pin_ids(raw)
   raw.to_s.split(",").map { |id| id.strip.downcase }.reject(&:empty?).uniq
 end
 
+# Project descriptions are portfolio prose written for the website, where four lines
+# are fine; on the CV each one gets about one. The first sentence is where every entry
+# states what the thing is, so it survives and the rest goes. Abbreviations keep their
+# dot because the split needs whitespace after it ("gov.gr" stays intact).
+def first_sentence(text, limit = 200)
+  s = text.to_s.strip.gsub(/\s+/, " ")
+  s = s[/\A.*?[.!?](?=\s|\z)/] || s
+  return s if s.length <= limit
+
+  s[0, limit].sub(/\s+\S*\z/, "")
+end
+
 def period_text(period)
   return "" unless period.is_a?(Hash)
 
@@ -414,6 +426,7 @@ selected_projects.each do |item|
   title = item["title"]
   meta = array(item["technologies"]).first(6).join(", ")
   desc = language == "en" ? english_text(item["description"].to_s.strip.gsub(/\s+/, " ")) : item["description"].to_s.strip.gsub(/\s+/, " ")
+  desc = first_sentence(desc)
   highlights = bullets_for(item, wanted, 1, language)
   project_lines = [desc]
   project_lines.concat(highlights)
