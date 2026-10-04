@@ -1,49 +1,17 @@
 +++
-title = "About Me"
-description = "About Angelos Papamichail"
-date = "2024-03-02"
+title = "About me"
+description = "Software engineering, applied AI and practical automation"
 aliases = ["about-me", "about-angelos"]
-author = "Angelos Papamichail"
 +++
 
-# Hey there! 👋
+I'm Angelos Papamichail, an Electrical and Computer Engineer who builds software for the people running a service or doing a job.
 
-I'm **Angelos**, a software developer from Northern Greece with a passion for building things that make a difference.
+At an agricultural cooperative, I worked on repetitive ERP data entry and wrote a browser extension to automate it. For [UniTrip](/projects/unitrip/), I built booking and payment workflows and the back office behind them. At [Ardas Youth Festival](/projects/eventlens/), the problem was getting approved photos onto the venue screen despite unreliable Wi-Fi.
 
-## The Short Version
+Through Google Summer of Code 2026, I built [Greek speech-recognition training and evaluation tools](/projects/greek-council-asr/) for OpenCouncil. The work included checking whether an apparent improvement survives a fair comparison, and recording why a model should stay out of production when it fails that test.
 
-I'm an Electrical and Computer Engineer (MEng, AUTH) who fell in love with web development somewhere along the way. These days, I spend most of my time writing **Go**, **Python**, and **TypeScript**, usually with **SvelteKit**, **Svelte**, or **Vue** on the frontend, and increasingly with **AI/LLM** in the mix.
+Recent projects include [photo2stitch](/projects/photo2stitch/), which turns photos into embroidery files with a thread-colour job sheet, and [interactive digital-skills lessons](/projects/digital-skills-platform/) for older adults. Teaching helps me notice the steps that seem obvious to a developer but leave a user stuck.
 
-Right now I'm a **Google Summer of Code 2026** contributor and active maintainer on [OpenCouncil](https://github.com/schemalabz/opencouncil) — fine-tuning an open-source Greek speech-to-text model so the people who review council transcripts have fewer errors to fix by hand. On the side, I'm founder of two startups: [PulseCheck](/projects/pulsecheck/) (genuinely anonymous employee surveys) and [SkipQ](/projects/skipq/) (QR ordering for hospitality).
+I work mainly in Python, Go and TypeScript. I'm interested in software engineering, applied AI and automation roles where I can understand the problem, build the system and help people use it. Outside work, I subtitle films, play piano, swim and volunteer.
 
-## What Drives Me
-
-I get excited about projects where technology solves real problems. Whether it's helping an elderly person [learn to use a computer safely](/projects/pcbasics/) and spot online scams, making public health appointments easier to discover with [FindDoctors Aggregator](/projects/find-doctors-server/), building travel booking flows for [UniTrip.gr](/projects/unitrip/), or designing [SkipQ](/projects/skipq/) as a local-first QR ordering system for hospitality, I love seeing my code make someone's day a little easier.
-
-I'm a big believer in:
-- **Keep it simple** - The best solution is often the simplest one
-- **Local-first** - Build for reliability, not just connectivity
-- **Automation** - If I'm doing something twice, I'll probably script it
-- **Useful data** - Analytics should help people make better operational decisions
-
-## Beyond Code
-
-When I'm not coding, you'll find me:
-- ♟️ Playing chess
-- 🎹 Learning piano
-- 🎬 Subtitling films (yes, I built [a tool for that](/projects/subtitlekit/))
-- 🏊 Swimming when the weather allows
-
-## What I'm Looking For
-
-I'm open to opportunities in **Full-Stack**, **Backend**, or **DevOps** roles. I work well in startups and smaller teams where I can wear multiple hats. Remote or hybrid works best for me, and I'm open to both Greek and international companies.
-
-## Let's Connect
-
-I'm always happy to chat about interesting projects, potential collaborations, or just to geek out about tech.
-
-- 📧 [angelos.papamichail@gmail.com](mailto:angelos.papamichail@gmail.com)
-- 💼 [LinkedIn](https://www.linkedin.com/in/angelos-papamichail/-)
-- 🐙 [GitHub](https://github.com/angelospk)
-
-For the formal stuff, check out my [CV](/cv/).
+[CV](/cv/) · [GitHub](https://github.com/angelospk) · [LinkedIn](https://www.linkedin.com/in/angelos-papamichail/) · [Email](mailto:angelos.papamichail@gmail.com)

@@ -12,16 +12,22 @@ experiences:
     period:
       start: "2026-01"
       end: null
-    description: |
-      Founder of SkipQ, a QR ordering and operations platform for restaurants,
-      beach bars, and fast-service venues. I own product, positioning, and
-      engineering.
+    description: >-
+      Founder of SkipQ, a QR ordering and operations platform so restaurants, beach bars
+      and fast-service venues can take orders without a queue at the counter. I own
+      product, positioning and engineering.
     highlights:
-      - text: "Built a working full-stack demo: customer self-ordering, staff order claims, open tabs, and an admin menu editor."
-        link: "#skipq"
-      - text: "Migrating the demo to a Go backend and Svelte SPA over ConnectRPC, with shared proto contracts and SSE live updates."
-        link: "#skipq"
-      - text: "Designed for cloud or local deployment, so a venue keeps taking orders when the internet drops."
+    - text: >-
+        Built a working full-stack demo: customer self-ordering, staff order claims,
+        open tabs and an admin menu editor.
+      link: "#skipq"
+    - text: >-
+        Designed for cloud or local deployment, so a venue keeps taking orders when the
+        internet drops.
+    - text: >-
+        Migrating the demo to a Go backend and Svelte SPA over ConnectRPC, with shared
+        proto contracts and SSE live updates.
+      link: "#skipq"
     technologies:
       - "Go"
       - "SvelteKit"
@@ -40,10 +46,10 @@ experiences:
     period:
       start: "2026-01"
       end: null
-    description: |
-      Founder of PulseCheck, an anonymous employee pulse-survey product for EU
-      mid-market HR teams. Anonymity is the core product promise, so employees
-      answer honestly and HR gets data it can act on.
+    description: >-
+      Founder of PulseCheck, anonymous employee pulse surveys for EU mid-market HR
+      teams. Anonymity is the core product promise, so employees answer honestly and HR
+      gets data it can act on.
     highlights:
       - text: "Leading product, positioning, and engineering for an EU mid-market HR audience."
         link: "#pulsecheck"
@@ -54,152 +60,161 @@ experiences:
       - "Product Development"
       - "Founder"
 
-  - id: "gsoc-opencouncil"
-    # Matches the LinkedIn headline so a recruiter reading both sees one role, while
-    # keeping the GSoC credential (competitive selection) in the title itself.
-    title: "AI Engineer (GSoC 2026)"
-    title_en: "AI Engineer (GSoC 2026)"
-    organization: "OpenCouncil (Schema Labs / GFOSS)"
-    organization_type: "Open Source"
-    type: "work"
+  - id: gsoc-opencouncil
+    title: AI Engineer (GSoC 2026)
+    title_en: AI Engineer (GSoC 2026)
+    organization: OpenCouncil (Schema Labs / GFOSS)
+    organization_type: Open Source
+    type: work
     period:
-      start: "2026-05"
-      end: null  # GSoC 2026 program ends Sep 2026; currently active
-    description: |
-      Google Summer of Code 2026 contributor and active maintainer on OpenCouncil,
-      an open-source platform that makes Greek municipal council meetings searchable
-      and accountable. The GSoC project fine-tunes an open-source speech-to-text model
-      on council speech to cut the errors that human reviewers have to fix by hand.
+      start: 2026-05
+      end: 
+    description: >-
+      Google Summer of Code 2026 contributor and OpenCouncil maintainer. Built the
+      datasets, training and evaluation tooling that decide how Greek council
+      transcripts are produced, so the volunteers who review them fix fewer errors by
+      hand. GSoC deliverable submitted in August 2026; platform maintenance and research
+      continue.
     highlights:
-      - text: "Fine-tuning an open-source Greek ASR model (Whisper) on municipal council speech, with LLM post-correction, to reduce manual review effort."
-        link: "https://github.com/eellak/gsoc2026-opencouncil-stt"
-      - text: "Active maintainer on the OpenCouncil platform: fixed severe Next.js hydration errors, improved Turbopack compile times, and shipped UI for unauthenticated workflows."
-        link: "https://github.com/schemalabz/opencouncil"
-      - text: "Building a dataset-exploration and review-UI prototype to measure transcription error rates before and after fine-tuning."
+    - text: >-
+        Trained and published a Greek Whisper LoRA model (Hugging Face) with dataset
+        review and reproducible evaluation tooling.
+    - text: >-
+        Cut deletion rate from 5.25% to 3.13% on 391 held-out windows (117 meetings);
+        overall WER change reported as inconclusive.
+    - text: >-
+        Kept the Next.js platform healthy: fixed hydration failures, sped up Turbopack
+        builds, shipped unauthenticated workflows.
     technologies:
-      - "Python"
-      - "Whisper / ASR"
-      - "PyTorch"
-      - "LLM Post-Correction"
-      - "Next.js"
-      - "TypeScript"
+    - Python
+    - Whisper / ASR
+    - PyTorch
+    - LLM Post-Correction
+    - Next.js
+    - TypeScript
     skills:
-      - "Machine Learning"
-      - "Open Source Maintenance"
-      - "Speech-to-Text"
-      - "Data Curation"
+    - Machine Learning
+    - Open Source Maintenance
+    - Speech-to-Text
+    - Data Curation
 
-  - id: "unitrip-fullstack"
-    title: "Full-Stack Developer"
-    organization: "UniTrip.gr"
-    organization_type: "Travel Agency"
-    type: "work"
+  - id: unitrip-fullstack
+    title: Freelance Software Engineer
+    organization: 'Independent: UniTrip.gr, Ardas Youth Festival'
+    organization_type: Freelance
+    type: work
     period:
-      start: "2026-03"
-      end: null
-    description: |
-      Built the UniTrip.gr booking website and backend data model from the ground up.
-      Developed the public trip discovery and booking experience, admin operations, 
-      payment flows, referrals, QR/UTM campaigns, and Cloudflare deployment.
+      start: 2026-03
+      end: 
+    description: >-
+      Deliver software end to end for small organisations that have an operational
+      problem and no engineering team: scoping with the people who will run it, building
+      it, deploying it, and handing over something they can operate themselves.
     highlights:
-      - text: "Built the public SvelteKit booking platform and PocketBase data model from scratch."
-        link: "https://unitrip.gr"
-      - text: "Implemented shareable group booking flows so additional travelers can join after the initial reservation."
-        link: "#unitrip"
-      - text: "Integrated Viva Payments and payment verification flows for online bookings."
-        link: "#unitrip"
-      - text: "Created admin workflows for trips, bookings, travelers, payments, referrals, campaigns, exports, and live trip dashboards."
-        link: "#unitrip"
-      - text: "Configured Cloudflare deployment and service-worker static asset caching for fast production delivery."
-        link: "#unitrip"
+    - text: >-
+        Put UniTrip.gr's group bookings and card payments online: trip discovery,
+        reservations, Viva payments and a back office.
+    - text: >-
+        Let extra travellers join a paid booking and kept QR/UTM attribution through
+        checkout, so campaigns can be measured.
+    - text: >-
+        Prototyped EventLens for Ardas Youth Festival: in-browser image conversion,
+        resilient uploads and a manager-approved slideshow.
     technologies:
-      - "SvelteKit"
-      - "Svelte 5"
-      - "TypeScript"
-      - "PocketBase"
-      - "Viva Payments"
-      - "Cloudflare"
-      - "Tailwind CSS"
+    - SvelteKit
+    - Svelte 5
+    - TypeScript
+    - PocketBase
+    - Viva Payments
+    - Cloudflare Workers / D1 / R2
+    - Tailwind CSS
     skills:
-      - "Full Stack Development"
-      - "Database Design"
-      - "Payment Integration"
-      - "Admin Tooling"
-      - "Product Development"
+    - Client Delivery
+    - Full Stack Development
+    - Database Design
+    - Payment Integration
+    - Admin Tooling
+    - Requirements & Scoping
 
-  - id: "social-inov-trainer"
-    title: "Εκπαιδευτής Ψηφιακών Δεξιοτήτων"
-    title_en: "Digital Skills Trainer"
-    organization: "Social Inov"
-    organization_type: "NGO"
-    type: "work"
+
+  - id: social-inov-trainer
+    title: Εκπαιδευτής Ψηφιακών Δεξιοτήτων
+    title_en: Digital Skills Trainer
+    organization: Social Inov
+    organization_type: NGO
+    type: work
     period:
-      start: "2025-11"
-      end: null  # ongoing
-    description: |
-      Σεμινάρια ψηφιακών δεξιοτήτων για ενήλικες σε συνεργασία με την ΜΚΟ Social Inov.
-    highlights: []
+      start: 2025-11
+      end: 
+    description: Teach digital skills to adults through Social Inov, using practical
+      exercises for everyday computer use and online safety.
+    highlights:
+    - text: >-
+        Teach older adults everyday computer and phone use and online safety through
+        guided, hands-on practice.
     technologies: []
     skills:
-      - "Teaching"
-      - "Digital Literacy"
-      - "Communication"
-    
-  - id: "saek-trainer"
-    title: "Εκπαιδευτής Digital Marketing & Social Media"
-    title_en: "Digital Marketing & Social Media Trainer"
-    organization: "ΣΑΕΚ ΔΥΠΑ Ορεστιάδας"
-    organization_type: "Public"
-    type: "work"
-    period:
-      start: "2025-10"
-      end: null  # ongoing
-    description: |
-      Διδασκαλία κατεύθυνσης ψηφιακού marketing και κοινωνικών δικτύων.
-    highlights: []
-    technologies:
-      - "Social Media Marketing"
-      - "Digital Marketing"
-    skills:
-      - "Teaching"
-      - "Curriculum Development"
-      - "Communication"
+    - Teaching
+    - Digital Literacy
+    - Communication
 
-  - id: "enosi-2025"
-    title: "Data Entry & Process Automation"
-    organization: "Αγροτικός Συνεταιρισμός Διδυμοτείχου"
-    organization_en: "Agricultural Cooperative of Didymoteicho"
-    type: "work"
+    
+  - id: saek-trainer
+    title: Εκπαιδευτής Digital Marketing & Social Media
+    title_en: Digital Marketing & Social Media Trainer
+    organization: ΣΑΕΚ ΔΥΠΑ Ορεστιάδας
+    organization_type: Public
+    type: work
     period:
-      start: "2025-05"
-      end: "2025-10"
-    description: |
-      Developed 'Agronet Automation Suite', a comprehensive browser extension to modernize legacy ERP workflows.
-      Streamlined agricultural data entry and validation processes.
-      Established knowledge management systems for staff training.
-    # NOTE: See projects.yaml (enosi-extension) for detailed technical contribution
+      start: 2025-10
+      end: 
+    description: Teach digital marketing and social media at SAEK DYPA Orestiadas.
     highlights:
-      - text: "Engineered 'Agronet Automation Suite' (Vue.js/Chrome Ext), reducing data entry time by ~40% and eliminating manual errors."
-        link: "#enosi-extension"
-      - text: "Integrated AI/LLM for automated error analysis, translating complex system logs into actionable user instructions."
-        link: "#enosi-extension"
-      - text: "Automated Year-over-Year data migration, saving ~5 minutes per application."
-        link: "#enosi-extension"
-      - text: "Created internal wiki/knowledge base to accelerate new staff onboarding."
-        link: "https://angelospk.github.io/enosi"
+    - text: Develop practical teaching materials for digital marketing and social media
+        classes.
     technologies:
-      - "Vue.js"
-      - "Chrome Extensions"
-      - "JavaScript"
-      - "AI/LLM Integration"
-      - "DOM Manipulation"
-      - "Wiki/Documentation"
+    - Social Media Marketing
+    - Digital Marketing
     skills:
-      - "Process Automation"
-      - "Full Stack Development"
-      - "Problem Solving"
-      - "Documentation"
-      - "Knowledge Management"
+    - Teaching
+    - Curriculum Development
+    - Communication
+
+
+  - id: enosi-2025
+    title: Data Entry & Process Automation
+    organization: Αγροτικός Συνεταιρισμός Διδυμοτείχου
+    organization_en: Agricultural Cooperative of Didymoteicho
+    type: work
+    period:
+      start: 2025-05
+      end: 2025-10
+    description: >-
+      Cut repetitive declaration data entry at an agricultural cooperative with a
+      browser extension over its existing ERP: batch entry, validation guidance and
+      year-over-year data transfer, with written procedures so staff could keep using it
+      without me.
+    highlights:
+    - text: Built a Vue.js browser extension for batch entry and validation, with an
+        estimated 40% reduction in data-entry time on frequently used workflows.
+    - text: Automated year-over-year data transfer, saving approximately five minutes
+        per application.
+    - text: Translated ERP validation errors into practical instructions with an LLM
+        and documented workflows in an internal wiki.
+    technologies:
+    - Vue.js
+    - Chrome Extensions
+    - JavaScript
+    - AI/LLM Integration
+    - DOM Manipulation
+    - Wiki/Documentation
+    skills:
+    - Process Automation
+    - Full Stack Development
+    - Problem Solving
+    - Documentation
+    - Knowledge Management
+
 
   - id: "tui-magic-life"
     title: "Night Auditor"
@@ -208,17 +223,24 @@ experiences:
     period:
       start: "2024-05"
       end: "2024-11"
-    description: |
-      Combined Night Auditor responsibilities with custom software development to optimize hotel operations.
-      Developed digital tools to enhance guest experience and streamline front-desk workflows.
+    description: >-
+      Night auditor who also built the tools the front desk was missing: a guest
+      navigation map, a check-in automation and a knowledge base that standardised PMS
+      procedures.
     # NOTE: See projects.yaml (tui-qr-map, tui-scanner-automation)
     highlights:
-      - text: "Developed 'Magic Life Hotel Map', a mobile-first PWA for guest navigation using Leaflet.js."
-        link: "#tui-digital-tools"
-      - text: "Created Python automation scripts to speed up check-in data entry by 3x."
-        link: "#tui-digital-tools"
-      - text: "Maintained 'Protel Vault', an Obsidian-based knowledge base for standardizing PMS procedures."
-        link: "https://github.com/angelospk/protel-vault"
+    - text: >-
+        Sped up check-in data entry about 3x with Python automation scripts for the
+        Protel PMS.
+      link: "#tui-digital-tools"
+    - text: >-
+        Built the Magic Life Hotel Map, a mobile-first PWA for guest navigation on
+        Leaflet.js.
+      link: "#tui-digital-tools"
+    - text: >-
+        Maintained Protel Vault, an Obsidian knowledge base that standardised PMS
+        procedures for the front desk.
+      link: "https://github.com/angelospk/protel-vault"
     technologies:
       - "Python"
       - "JavaScript"
@@ -241,8 +263,8 @@ experiences:
     period:
       start: "2024-02"
       end: "2024-06"
-    description: |
-      Backend services integration για mobile game development.
+    description: >-
+      Integrated backend services for a mobile game.
     highlights: []
     technologies:
       - "Python"
@@ -279,11 +301,13 @@ experiences:
     period:
       start: "2020-08"
       end: "2020-10"
-    description: |
-      Docker configuration, IT operations και ticket management.
+    description: >-
+      Docker configuration, IT operations and ticket management.
     highlights:
-      - text: "Configuration και optimization Docker containers"
-      - text: "Ticket management και bug resolution"
+    - text: >-
+        Configured and optimised Docker containers.
+    - text: >-
+        Ticket management and bug resolution.
     technologies:
       - "Docker"
       - "DevOps"

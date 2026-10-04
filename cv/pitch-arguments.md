@@ -9,7 +9,9 @@ A few facts I lean on across all of them:
 - Google Summer of Code 2026 contributor and active maintainer on OpenCouncil (open source).
 - Founder of two products: PulseCheck and SkipQ.
 - I ship full products end to end, not just features: UniTrip.gr (booking + payments),
-  FindDoctors aggregator (Go), a self-hosted ordering system that runs on a Raspberry Pi.
+  FindDoctors aggregator (Go), a self-hosted ordering system that runs on a Raspberry Pi,
+  Aloud (a voice assistant that books doctor appointments by voice), and a macOS
+  dictation tool I use every day (Swift menu bar + Go server + LLM cleanup).
 - Competitive chess background. It's where I learned to sit with a hard problem instead of
   guessing, and to think a few moves ahead.
 
@@ -43,11 +45,25 @@ where the error shows up. If something is done by hand twice, I'll usually autom
 I'm currently fine-tuning an open-source Greek speech-to-text model (Whisper, with LLM
 post-correction) for Google Summer of Code, with a concrete goal: fewer errors for the
 people who review municipal council transcripts by hand. I've also built a RAG system over
-Greek legal PDFs with source citations, an emotion-recognition model from my engineering
-studies, and Project Secretary, which uses local embeddings to link related issues and PRs
+Greek legal PDFs with source citations, a voice assistant that books public-health
+appointments by voice (deterministic engine in TypeScript, ported to Go with golden-parity
+tests), and Project Secretary, which uses local embeddings to link related issues and PRs
 across GitHub repos. I care about whether the model actually reduces someone's workload,
 not just the benchmark number. I'm comfortable with the full loop: data, training,
 evaluation, and the boring glue around it.
+
+---
+
+## Voice / speech AI
+
+Most of what I built this year has a microphone in it. For Google Summer of Code I'm
+fine-tuning Whisper on Greek municipal council speech with an LLM post-correction pass.
+Aloud is my voice-to-action assistant: you say "find me a cardiologist next week" in Greek
+and it actually runs the search, on top of a Go aggregator I wrote for public-health
+appointments. The engine is deterministic and testable; the Go port is verified
+byte-for-byte against the TypeScript reference with a 32-scenario golden harness. And I
+dictate daily through my own stack, a Swift menu-bar app streaming to a Go server with
+tunable LLM cleanup. I know where voice UIs break, because I live with mine.
 
 ---
 

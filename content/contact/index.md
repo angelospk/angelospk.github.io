@@ -13,7 +13,7 @@ I'm always open to discussing new projects, opportunities, or just having a chat
 ## Contact Information
 
 - **Email**: [angelos.papamichail@gmail.com](mailto:angelos.papamichail@gmail.com)
-- **Phone**: (+30) 694 657 0728
+- **Phone**: (+30) 697 024 6137
 - **LinkedIn**: [angelos-papamichail](https://www.linkedin.com/in/angelos-papamichail/-)
 - **GitHub**: [angelospk](https://github.com/angelospk)
 

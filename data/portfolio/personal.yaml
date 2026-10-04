@@ -5,41 +5,30 @@
 profile:
   name: "Angelos Papamichail"
   email: "angelos.papamichail@gmail.com"
-  tagline: "Full-Stack Developer & Digital Educator"
-  location: "Thessaloniki, Greece"
+  tagline: "Software Engineer | Applied AI & Business Automation"
+  location: "Nicosia, Cyprus"
   
   # Short summary - will be used for CV headers
   summary: |
-    Software Developer με πάθος για τεχνολογία που έχει θετικό αντίκτυπο.
-    MEng Ηλεκτρολόγος Μηχανικός & Μηχανικός Υπολογιστών με εξειδίκευση σε
-    SvelteKit, Python, Go, AI/LLM και DevOps. GSoC 2026 contributor και active
-    maintainer στο open-source OpenCouncil, founder σε δύο startups (PulseCheck,
-    SkipQ). Χτίζω πρακτικά προϊόντα για healthcare, travel booking, hospitality
-    operations και automation, με έμφαση σε γρήγορες, αξιόπιστες και χρήσιμες εμπειρίες.
-  
+    Software engineer (MEng Electrical and Computer Engineering) who builds tools for everyday operations: online bookings and payments, appointment search, ERP data entry, transcript review and digital-skills training. Python, Go and TypeScript, from requirements to deployment. Google Summer of Code 2026 contributor and OpenCouncil maintainer.
+
   # Longer about text - for the website
   about: |
-    Είμαι developer που πιστεύει ότι η τεχνολογία πρέπει να κάνει τη ζωή 
-    ευκολότερη - όχι πιο περίπλοκη. Μου αρέσει να βρίσκω επαναλαμβανόμενες 
-    διαδικασίες και να τις αυτοματοποιώ, να λύνω πραγματικά προβλήματα, 
-    και να βλέπω τη δουλειά μου να βοηθάει ανθρώπους.
+    I build software around the work people need to get done. At an agricultural
+    cooperative, that meant automating repeated ERP data entry and documenting
+    procedures for staff. For UniTrip, it meant booking, payment and back-office
+    workflows that a travel business could operate.
 
-    Τον τελευταίο καιρό εστιάζω σε προϊόντα που μειώνουν τριβές σε καθημερινές
-    διαδικασίες: αναζήτηση διαθέσιμων δημόσιων ραντεβού υγείας, booking flows
-    για οργανωμένα ταξίδια, και QR ordering/operations συστήματα για χώρους
-    εστίασης που μπορούν να λειτουργούν hosted ή τοπικά. Παράλληλα συμμετέχω στο
-    Google Summer of Code 2026, κάνοντας fine-tuning ένα open-source speech-to-text
-    μοντέλο για δημοτικά συμβούλια ώστε να μειωθούν τα λάθη που διορθώνουν χειροκίνητα
-    οι reviewers, και είμαι active maintainer στο OpenCouncil.
+    My recent work includes Greek speech-recognition research for OpenCouncil,
+    a photo-to-embroidery desktop workflow and interactive digital-skills lessons
+    for older adults. I care about the handover as much as the implementation:
+    someone should be able to use the result and understand its limits.
 
-    Εκτός από τον κώδικα, ασχολούμαι με τη μουσική, τον εθελοντισμό,
-    και την εκπαίδευση — από σεμινάρια ψηφιακών δεξιοτήτων μέχρι εθελοντισμό σε
-    φεστιβάλ νεολαίας. Πιστεύω ότι η τεχνολογία έχει τεράστιες δυνατότητες
-    για καλό, αλλά πρέπει να την προσεγγίζουμε κριτικά.
+    Outside software, I teach digital skills, subtitle films, play piano and swim.
 
   social:
     github: "https://github.com/angelospk"
-    linkedin: "https://www.linkedin.com/in/angelos-papamichail/-"
+    linkedin: "https://www.linkedin.com/in/angelos-papamichail/"
 
 # -----------------------------------------------------------------------------
 # PERSONAL INTERESTS

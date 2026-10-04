@@ -17,6 +17,7 @@ options = {
   basename: nil,
   compile: true,
   pin_projects: nil,
+  max_projects: nil,
   explain: false
 }
 
@@ -33,6 +34,13 @@ OptionParser.new do |parser|
   parser.on("--pin-experience IDS", "Comma-separated experience ids to force into Experience, in order") { |v| options[:pin_experience] = v }
   parser.on("--location LOC", "Override the contact-line location (e.g. the target city)") { |v| options[:location] = v }
   parser.on("--phone PHONE", "Override the contact-line phone number") { |v| options[:phone] = v }
+  parser.on("--eligibility TEXT", "Work-authorisation/mobility line under the contact details") { |v| options[:eligibility] = v }
+  parser.on("--overlay PATH", "Private overlay YAML merged over the portfolio data") { |v| options[:overlay] = v }
+  parser.on("--max-projects N", Integer,
+            "Cap Selected Projects below the default #{Ranking::PROJECT_LIMIT}. The template sits within\n"\
+            "                                     a line of one page, so a profile with long project highlights spills onto a\n"\
+            "                                     second page carrying nothing but Certifications. Dropping one project is the\n"\
+            "                                     cheapest way back.") { |v| options[:max_projects] = v }
   parser.on("--explain-ranking", "Print project scores and matched terms to stderr") { options[:explain] = true }
 end.parse!
 
@@ -49,6 +57,93 @@ end
 
 def array(value)
   value.is_a?(Array) ? value : []
+end
+
+# --- Private overlay -----------------------------------------------------------
+# The portfolio YAML is published: it drives this repo's public website. The CV is
+# not published, and a CV is allowed to say the same true things in the language of
+# the business problem they solved, which is not the language a portfolio page wants.
+# So the sharper wording lives in a file outside this repo and is merged in here.
+#
+# Merge is per top-level key, overlay wins: an overlay entry giving `highlights:`
+# replaces the whole list rather than appending to it, because appending would
+# silently produce an entry that argues with itself. Patching an id that does not
+# exist is an error; an addition has to say so with `op: add`, so a typo cannot
+# quietly put a half-empty block on the CV.
+#
+# There is deliberately no auto-discovered default. A file that applies itself would
+# turn every future CV — web, Go, backend — into whichever profile was written last,
+# and regenerating an application months later would produce a different document
+# than the one that was sent.
+def overlay_path(option)
+  return nil if option == false || option.nil? || option.to_s.strip.empty?
+
+  path = File.expand_path(option.to_s)
+  abort("Overlay not found: #{path}") unless File.file?(path)
+  path
+end
+
+def load_overlay(path)
+  return {} if path.nil?
+
+  data = YAML.load_file(path)
+  abort("#{path}: overlay must be a YAML mapping") unless data.is_a?(Hash)
+
+  unknown = data.keys - OVERLAY_KEYS
+  abort("#{path}: unknown overlay key(s) #{unknown.join(', ')}; expected #{OVERLAY_KEYS.join(', ')}") unless unknown.empty?
+
+  # `summary: Applied AI engineer.` instead of `summary: {en: ...}` is the easy
+  # mistake, and it does not fail on its own: String#[] takes a string argument, so
+  # the lookup below would quietly put the word "en" at the top of the CV.
+  # Keys are checked too: YAML turns a bare `no:` into the boolean false, so a
+  # Norwegian summary would parse fine and then never be found by a string lookup.
+  summary = data["summary"]
+  unless summary.nil? || (summary.is_a?(Hash) && summary.all? { |lang, text|
+    lang.is_a?(String) && !lang.strip.empty? && (text.nil? || text.is_a?(String))
+  })
+    abort("#{path}: 'summary' must be a mapping of language to text, e.g. summary: {en: ...}")
+  end
+
+  data
+end
+
+OVERLAY_KEYS = %w[summary experiences projects].freeze
+
+def merge_overlay(items, patches, kind, prepend_new: false)
+  abort("overlay: '#{kind}s' must be a list") unless patches.nil? || patches.is_a?(Array)
+
+  by_id = {}
+  items.each { |item| by_id[item["id"].to_s.downcase] = item }
+
+  added = []
+  seen = []
+  array(patches).each do |patch|
+    abort("overlay: every #{kind} entry needs an id") unless patch.is_a?(Hash) && !patch["id"].to_s.empty?
+
+    id = patch["id"].to_s.downcase
+    abort("overlay: #{kind} '#{id}' patched twice") if seen.include?(id)
+
+    seen << id
+    op = (patch["op"] || "patch").to_s
+    patch = patch.reject { |key, _| key == "op" }
+    case op
+    when "patch"
+      abort("overlay: no #{kind} with id '#{id}' to patch (typo?)") unless by_id.key?(id)
+
+      by_id[id] = by_id[id].merge(patch)
+    when "add"
+      abort("overlay: #{kind} '#{id}' already exists; drop `op: add` to patch it") if by_id.key?(id)
+      abort("overlay: added #{kind} '#{id}' needs a title") if patch["title"].to_s.empty?
+
+      by_id[id] = patch
+      added << patch
+    else
+      abort("overlay: #{kind} '#{id}' has unknown op '#{op}' (expected patch or add)")
+    end
+  end
+
+  kept = items.map { |item| by_id[item["id"].to_s.downcase] }
+  prepend_new ? added + kept : kept + added
 end
 
 def text_of(value)
@@ -244,14 +339,20 @@ education = load_yaml("data/portfolio/education.yaml")
 projects = load_yaml("data/portfolio/projects.yaml")
 skills = load_yaml("data/portfolio/skills.yaml")
 
+overlay = load_overlay(overlay_path(options[:overlay]))
+
 profile = personal["profile"]
 # Per-application contact overrides (e.g. present the target city / a local number).
 # dup so we never mutate the loaded YAML across a batch run.
 profile = profile.dup
 profile["location"] = options[:location] if options[:location] && !options[:location].strip.empty?
 profile["phone"] = options[:phone] if options[:phone] && !options[:phone].strip.empty?
-experiences = array(experience["experiences"])
-project_items = array(projects)
+# The phone number stays out of the public repo: cv/private.yaml is gitignored.
+private_path = File.join(__dir__, "private.yaml")
+profile["phone"] ||= YAML.load_file(private_path)["phone"] if File.exist?(private_path)
+experiences = merge_overlay(array(experience["experiences"]), overlay["experiences"],
+                            "experience", prepend_new: true)
+project_items = merge_overlay(array(projects), overlay["projects"], "project")
 
 # Ranked terms are stemmed/aliased; `wanted` stays raw for the keyword checks below
 # and for highlight ordering, which compare against literal word lists.
@@ -305,8 +406,12 @@ end
 
 unknown = pinned_ids.reject { |id| projects_by_id.key?(id) }
 abort("Unknown --pin-projects id(s): #{unknown.join(", ")}") unless unknown.empty?
-if pinned_ids.length > Ranking::PROJECT_LIMIT
-  abort("--pin-projects takes at most #{Ranking::PROJECT_LIMIT} ids, got #{pinned_ids.length}")
+project_limit = options[:max_projects] || Ranking::PROJECT_LIMIT
+if project_limit < 1 || project_limit > Ranking::PROJECT_LIMIT
+  abort("--max-projects must be between 1 and #{Ranking::PROJECT_LIMIT}, got #{project_limit}")
+end
+if pinned_ids.length > project_limit
+  abort("--pin-projects takes at most #{project_limit} ids, got #{pinned_ids.length}")
 end
 
 pinned_projects = pinned_ids.map { |id| projects_by_id[id] }
@@ -330,10 +435,10 @@ end
 
 pinned_experiences = pinned_exp_ids.map { |id| experiences_by_id[id] }
 selected_experiences = (pinned_experiences + (ranked_experiences - pinned_experiences)).first(Ranking::EXPERIENCE_LIMIT)
-selected_projects = (pinned_projects + (ranked_projects - pinned_projects)).first(Ranking::PROJECT_LIMIT)
+selected_projects = (pinned_projects + (ranked_projects - pinned_projects)).first(project_limit)
 
 if options[:explain]
-  warn "\n# project ranking (#{eligible_projects.length} eligible, top #{Ranking::PROJECT_LIMIT} selected)"
+  warn "\n# project ranking (#{eligible_projects.length} eligible, top #{project_limit} selected)"
   warn "# pinned: #{pinned_ids.empty? ? "(none)" : pinned_ids.join(", ")}"
   ranked_projects.each_with_index do |item, index|
     score = project_scorer.score(item, ranked_terms)
@@ -348,7 +453,13 @@ skill_groups = skills["skills"] || {}
 flat_skills = skill_groups.values.flatten.map { |s| s["name"] }.compact
 ordered_skills = flat_skills.sort_by { |skill| wanted.any? { |kw| normalize(skill).include?(kw) } ? 0 : 1 }.first(16)
 
-summary = if language == "el"
+# The default summary sells a full-stack web developer. When the overlay supplies one
+# (`summary: {en:, el:}`) it wins: the same person is a different headline depending on
+# whether the target is a web role or an applied-AI one, and only the CV needs to know.
+overlay_summary = (overlay["summary"] || {})[language]
+summary = if overlay_summary && !overlay_summary.to_s.strip.empty?
+            overlay_summary.to_s.strip.gsub(/\s+/, " ")
+          elsif language == "el"
             "Full-stack developer με εμπειρία σε SvelteKit, Go, Python, data-driven εφαρμογές και end-to-end product delivery. Χτίζω πρακτικά web προϊόντα από τη βάση δεδομένων και το backend μέχρι το frontend, deployment και operations."
           else
             "Full-stack developer with experience in SvelteKit, Go, Python, data-driven applications, and end-to-end product delivery. I build practical web products from database and backend design through frontend, deployment, and operations."
@@ -404,6 +515,13 @@ contact_bits = [
   "#link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]",
 ].compact
 lines << "#align(center)[#{contact_bits.join(" | ")}]"
+# Work authorisation and mobility get their own line rather than being appended to
+# the location. They answer a different question ("can I hire this person, and when"),
+# and jamming them into the address is how a contact line ends up implying a residence
+# nobody claimed.
+if options[:eligibility] && !options[:eligibility].strip.empty?
+  lines << "#align(center)[#text(size: 8.2pt, fill: rgb(\"#444\"), \"#{typst_escape(options[:eligibility])}\")]"
+end
 lines << ""
 lines << typst_escape(summary)
 lines << ""

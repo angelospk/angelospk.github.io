@@ -1,45 +1,37 @@
-+++
-title = "Project Secretary"
-description = "Smart Secretary for a GitHub Backlog"
-date = "2026-03-01"
-tags = ["Python", "SurrealDB", "Embeddings", "GitHub API", "Vector Search"]
-categories = ["ai"]
-weight = 9
-+++
+---
+title: Project Secretary
+description: Backlog retrieval and review queues across GitHub repositories
+weight: 9
+tags:
+- Python
+- SurrealDB
+- Embeddings / fastembed
+- GitHub API
+- Vector Search
+categories:
+- ai
+---
 
-# Project Secretary
+Stops maintainers from repeating work already discussed: a Python service finds related issues and pull requests across GitHub repositories. Local embeddings and a graph-aware reranker separate true duplicates from overlap and useful context.
 
-**Smart secretary for a GitHub backlog**
+## The problem
 
-## Overview
+In a busy backlog the same idea gets filed twice, the issue describing a feature
+lives in one repo while the code that implements it lives in another, and nobody
+has time to wire those connections by hand.
 
-Project Secretary is a library and tool that remembers everything in one or more GitHub
-repos — issues, PRs, comments, Project items — connects related work even across repo
-boundaries, and enriches a new issue with relevant history plus grounded codebase context.
+## What I built
 
-### The Problem
+Built a memory backbone over SurrealDB that syncs issues, PRs, comments, and
+Project v2 items, with a local-embeddings semantic layer and a reranker that
+classifies items as duplicate, overlap, prior context, or noise.
 
-In a busy backlog the same idea gets filed twice, the issue describing a feature lives in
-one repo while the code that implements it lives in another, and nobody has time to wire
-those connections by hand.
+## Implementation
 
-### The Approach
-
-A memory backbone over SurrealDB syncs issues, PRs, comments, and Project v2 items into a
-single graph store. A semantic layer using local embeddings (fastembed/ONNX, no torch) finds
-candidates, and a reranker decides which are a duplicate, an overlap, prior context, or just
-noise — using structure that's already there, like shared labels, edges, and milestones.
-
-## Key Features
-
-- **Cross-repo memory:** index several repos in one store so a frontend issue can surface
-  the backend PR that implements it.
-- **Semantic related work:** local embeddings plus a heuristic reranker, no hosted model
-  required.
-- **Grounded issue comments:** writes an idempotent, sticky comment with related history and
-  DeepWiki file-level context to help resolve an issue.
-- **Auto-labels & backlog help:** embeddings-based categorization to suggest labels and
-  surface related issues and PRs.
+- Indexed issues, pull requests, comments and Project items in SurrealDB using repository-scoped identifiers.
+- Combined local embeddings with labels, milestones and graph relationships to classify related work.
+- Added review queues, explained label suggestions and a read-only MCP interface for agent access.
+- Made enrichment writes idempotent and backlog-maintenance commands dry-run by default; documented remaining recovery and deployment gaps.
 
 ## Links
 

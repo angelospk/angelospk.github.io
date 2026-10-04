@@ -6,45 +6,347 @@
 # WORK-EMBEDDED PROJECTS (Promoted from Experience)
 # ========================
 
-- id: "find-doctors-server"
-  title: "FindDoctors Aggregator Server"
-  subtitle: "Unified Public Health Appointment Search"
-  type: "personal"
-  category: "backend"
+- id: find-doctors-server
+  title: FindDoctors Aggregator Server
+  subtitle: Public appointment discovery across health providers
+  type: personal
+  category: backend
   weight: 10
+  period:
+    start: '2026'
+    end: 
+  description: >-
+    Finds the earliest public-health appointment in one search instead of one provider
+    at a time, across hospitals and primary-care centres on finddoctors.gov.gr. A Go
+    service ranks results by soonest slot and distance; booking stays on the official
+    portal, and live searches need an authenticated upstream session.
+  context:
+    problem: People need to compare availability across provider types and regions
+      without repeating each search manually.
+    solution: A bounded worker pool searches providers concurrently. The response
+      distinguishes failed checks from empty calendars, and the bundled interface
+      links to the official booking portal. First-time setup still needs an end-to-end
+      user trial.
+  highlights:
+  - text: Built a concurrent Go API with bounded fan-out, retries and Prometheus metrics
+      for upstream failures.
+  - text: Added a Greek search interface with specialty, location and distance filters,
+      served directly from the Go binary.
+  - text: Kept failed availability checks visible with scanOk and a null date, so
+      an outage is not reported as no appointments.
+  - text: Documented the session-bridge dependency and deprecated an endpoint whose
+      upstream returned no useful results.
+  links:
+  - url: https://github.com/angelospk/find_doctors_server
+    label: GitHub
+  technologies:
+  - Go
+  - REST API
+  - Concurrent Workers
+  - TypeScript Types
+  - TDD
+  featured: true
+
+
+- id: job-hunt-pipeline
+  title: Job-Search Automation Pipeline
+  subtitle: Personal Job Aggregation, Tracking & Tailored Documents
+  type: personal
+  category: backend
+  weight: 9
+  period:
+    start: '2026'
+    end: 
+  description: Built a personal job-search pipeline that collects listings, removes
+    duplicates and tracks applications in one store. It generates tailored documents
+    and reconciles unambiguous employer acknowledgements, while leaving application
+    decisions and submission to the user.
+  context:
+    problem: |
+      Job hunting means checking many boards daily, re-reading the same listings,
+      losing track of what was applied to, and rewriting the CV for every role.
+    solution: |
+      Built a stdlib-only Python pipeline: pluggable sources feed a single
+      deduplicated store, a relevance filter keeps only on-topic roles, a Kanban
+      board and daily digest surface what needs action, and tailored documents are
+      generated per application. A launchd job runs it every morning, catches up on
+      wake if the machine was asleep, and sends a desktop notification.
+  highlights:
+  - text: Multi-Source Aggregation
+    detail: Pluggable RSS and web sources normalize into one pipeline with stable-id
+      deduplication across sources.
+  - text: Relevance Filtering & Tracking
+    detail: Keyword relevance filter plus a status workflow (new → interested → applied
+      → interview) with a generated Kanban board and daily digest.
+  - text: Tailored Documents
+    detail: Per-role CV generation (Typst) and cover-letter scaffolding driven by
+      the captured job description.
+  - text: Scheduled, Self-Reminding
+    detail: launchd scheduling with wake catch-up, once-per-day guard, atomic storage,
+      and native desktop notifications.
+  technologies:
+  - Python
+  - pytest
+  - launchd
+  - Typst
+  featured: false
+
+
+# ========================
+# AI / RESEARCH / AGENT SYSTEMS
+# ========================
+
+- id: greek-council-asr
+  title: Greek Council Speech Recognition
+  subtitle: Greek speech recognition with reproducible evaluation
+  type: open-source
+  category: ai
+  weight: 10
+  period:
+    start: 2026-05
+    end: 2026-08
+  description: >-
+    Fewer hand corrections for the volunteers who review Greek council transcripts: a
+    Whisper LoRA model trained and published for OpenCouncil during Google Summer of
+    Code 2026. Built the evaluation that decides whether a new model earns its place in
+    production. Deliverable submitted in August 2026; research continues.
+  context:
+    problem: Council transcripts need human correction. Model changes must preserve
+      speech and be evaluated consistently before they can justify a change to the
+      transcription workflow.
+    solution: Curated correction pairs, trained Whisper LoRA adapters, built a review
+      interface and compared systems on fixed audio through a controlled decoder.
+      The August 23 held-out evaluation covered 391 windows from 117 meetings. The
+      newer adapter reduced deletion rate from 0.0525 to 0.0313, but its WER difference
+      of -0.0040 had a 95% confidence interval crossing zero, so it was not promoted.
+  highlights:
+  - text: >-
+      Cut the deletion rate on held-out council audio from 5.25% to 3.13% (391 windows,
+      117 meetings) with a new adapter, and reported the overall WER change as
+      inconclusive rather than overselling it.
+  - text: >-
+      Published a Whisper LoRA model and built reproducible evaluation with fixed audio,
+      model hashes and meeting-clustered confidence intervals.
+  - text: >-
+      Kept the incumbent adapter when the replacement failed its predeclared promotion
+      rule; documented the tradeoff between deletions, insertions and substitutions.
+  - text: >-
+      Built dataset review tooling and a GPU serving path with word timestamps and
+      model-version metadata.
+  links:
+  - url: https://huggingface.co/opencouncil/whisper-large-v3-el-council-lora
+    label: Model
+  - url: https://github.com/eellak/gsoc2026-opencouncil-stt
+    label: GitHub
+  technologies:
+  - Python
+  - Whisper
+  - LoRA / PEFT
+  - PyTorch
+  - CTranslate2
+  - Serverless GPU
+  - Statistical evaluation
+  featured: true
+
+
+- id: "brain"
+  title: "Brain"
+  subtitle: "Local-first second brain with retrieval over your own notes"
+  type: "personal"
+  category: "ai"
+  weight: 9
+  period:
+    start: "2026"
+    end: null
+  description: >-
+    A personal knowledge system where spoken brain-dumps and dropped files become
+    Markdown notes that stay the source of truth, readable in Obsidian and queryable in
+    natural language. Local embeddings index the notes. It answers chronology-aware
+    questions like "what occupied me last week", extracts the tasks hiding inside a
+    ramble, and asks before it acts on any of them.
+  context:
+    problem: |
+      Note apps store text but cannot answer questions about it, and cloud assistants
+      that can answer want the whole private archive uploaded first. Neither reads a
+      voice transcript and turns it into what actually needs doing.
+    solution: |
+      Built a Python system where capture, extraction, retrieval and dispatch are
+      separate stages over plain Markdown. Embeddings run locally against a LanceDB
+      index; the chat layer routes through a fallback chain of cloud backends so a
+      low-RAM machine is never forced to load a local model. Extracted actions are
+      proposed, not executed, and reach Apple Reminders or Telegram only after
+      approval.
+  highlights:
+    - text: "Your files stay yours"
+      detail: "Markdown notes in a normal folder are the source of truth. The index is derived and can be rebuilt from scratch."
+    - text: "Retrieval that knows about time"
+      detail: "Local embeddings plus contextual retrieval and generated maps of content, so questions about a period answer from what was actually written then."
+    - text: "Voice to task, with a human gate"
+      detail: "Transcripts are cleaned, actions are extracted with due dates, and each one is approved through a Telegram bot before it becomes a real reminder."
+    - text: "Claims get checked"
+      detail: "Factual claims pulled from entries are verified against live web sources and recorded with a verdict, instead of being trusted because they were said out loud."
+    - text: "Built to be maintained"
+      detail: "111 test modules, an entity and person graph, and 15 shipped phases planned as a decision register rather than a backlog."
+  technologies:
+    - "Python"
+    - "LanceDB"
+    - "Local embeddings (Ollama)"
+    - "RAG"
+    - "LLM routing"
+    - "Telegram Bot API"
+    - "pytest"
+  featured: true
+
+- id: "codex-bridge"
+  title: "Codex Bridge"
+  subtitle: "Safe orchestration layer for a second coding agent"
+  type: "personal"
+  category: "automation"
+  weight: 8
   period:
     start: "2026"
     end: null
   description: |
-    High-performance Go backend that aggregates appointment availability from 
-    finddoctors.gov.gr, making it easier to discover where and when public health 
-    appointments are available across hospitals and primary care centers.
+    Infrastructure that lets one coding agent hand work to another without either of
+    them being able to reach past the boundary it was given. A queue, a worker and a
+    single policy module decide which model runs, what it is allowed to write, how
+    long it gets and whether the budget can afford it. Over 1,000 jobs have gone
+    through it.
   context:
     problem: |
-      The official platform makes it difficult to search across different public 
-      health entities, regions, and appointment dates at once.
+      Calling a second agent directly from a shell means an unbounded process that can
+      hang the session, write wherever the config happens to allow, and burn quota
+      with nobody watching. A review job that silently gained write access to the repo
+      it was reviewing is the failure that started this.
     solution: |
-      Built a concurrent aggregator API that searches multiple entities in parallel, 
-      returns the soonest available appointments, and is designed to power a future 
-      patient-facing UI for booking faster when availability exists.
+      Every job goes through a client that enqueues and a worker that runs it under an
+      explicitly passed sandbox. Reasoning effort selects the model and the time budget
+      together, so no caller can assemble a combination nobody designed. Write access
+      exists only inside a declared lane, arguments are an allowlist rather than a
+      denylist, and what the job touched is verified against a git baseline taken at
+      enqueue time.
   highlights:
-    - text: "Unified Smart Search"
-      detail: "Combines nationwide, proximity, hospital, and primary care center search into a single endpoint."
-    - text: "Parallel Scanner Engine"
-      detail: "Uses a concurrent worker pool to probe health units for first available slots with low latency."
-    - text: "Actionable Capacity Reports"
-      detail: "Reports fill rates and earliest available dates per specialty for hospital departments."
-    - text: "Privacy-first Discovery"
-      detail: "Read-only, stateless search layer that does not store user cookies or appointment session data."
-  links:
-    - url: "https://github.com/angelospk/find_doctors_server"
-      label: "GitHub"
+    - text: "Fails closed by design"
+      detail: "Read-only sandbox is passed explicitly on every job, since inheriting it from config is how a review once wrote to disk. Unknown flags reject the job instead of being forwarded."
+    - text: "Never hangs the caller"
+      detail: "Two-phase waiting that only times out when the queue stops moving, bounded concurrency of three reads and one write, and a stop hook that refuses to end a session with its own job still running."
+    - text: "Spends nothing it should not"
+      detail: "A usage gate reads the live quota windows before enqueueing and refuses on unclassified or incomplete usage data rather than guessing there is room."
+    - text: "Scope is measured, not promised"
+      detail: "Post-job verification compares the changed files against the declared allowlist using a baseline from the enqueue moment, so concurrent human edits are never blamed on the agent."
+    - text: "4,800 lines of tests"
+      detail: "Eight test modules covering policy resolution, sandbox confinement, offload gating, watch delivery and the pending-work hook."
   technologies:
-    - "Go"
-    - "REST API"
-    - "Concurrent Workers"
-    - "TypeScript Types"
-    - "TDD"
+    - "Python"
+    - "SQLite"
+    - "Job queue / worker"
+    - "Sandboxing"
+    - "Agent orchestration"
+    - "pytest"
+  featured: true
+
+- id: roomly
+  title: Roomly
+  subtitle: Shared-household hub for money, chores and the calendar
+  type: personal
+  category: fullstack
+  weight: 9
+  period:
+    start: '2026'
+    end: 
+  description: >-
+    Takes shared bills and chores out of the group chat: housemates record who paid,
+    settle a debt only when the other side confirms, and see chores, events and open
+    bills on one calendar. Splits must balance to the cent, enforced in Postgres.
+  context:
+    problem: |
+      Shared expenses live in a group chat and a half-remembered mental ledger. Chores
+      rotate until somebody stops believing it is fair. Every existing app solves one
+      of these and asks the household to install three.
+    solution: |
+      One app with expenses, chores, calendar and shopping in the same account.
+      Splits must balance to the cent or the write is rejected by Postgres, a
+      settlement is only recorded when the person who received the money confirms it,
+      and recurring expenses are generated by a scheduled idempotent job instead of
+      being retyped monthly.
+  highlights:
+  - text: Invariants in the database
+    detail: Row-level security plus constraints that make unequal splits balance and
+      stop a debt being settled twice, so no client path can write an inconsistent
+      ledger.
+  - text: Settlement needs both sides
+    detail: Either flatmate can record a payment, but it only closes when the recipient
+      confirms it, which is the part every splitting app leaves to trust.
+  - text: Chores that stay fair
+    detail: Assignment, recurrence and rotation with a weekly leaderboard, so the
+      rota is visible rather than remembered.
+  - text: Greek and English throughout
+    detail: Full i18n including date and currency formatting and due-date wording,
+      tested per locale.
+  - text: Designed, not themed
+    detail: A cream and ink visual system built on semantic design tokens, replacing
+      brand-specific utility classes so components carry meaning instead of a colour
+      name.
+  technologies:
+  - TypeScript
+  - React
+  - TanStack Start
+  - Supabase / PostgreSQL
+  - Row-Level Security
+  - pg_cron
+  - Tailwind CSS
+  - i18next
+  featured: true
+
+
+- id: atlas-prosvasis
+  title: Atlas Prosvasis
+  subtitle: Where in Greece you can actually book a public doctor
+  type: personal
+  category: data
+  weight: 9
+  period:
+    start: '2026-09'
+    end:
+  description: >-
+    Maps how well every Greek prefecture is covered by the Ministry of Health's online
+    appointment catalogue: bookable sites per specialty, per 100,000 residents, distance
+    from the prefecture seat and how soon the first free appointment is. Rebuilt weekly
+    from a full scan of the catalogue.
+  context:
+    problem: |
+      The official catalogue answers one search at a time, so nobody can see that a
+      specialty simply does not exist in a whole prefecture, or that the first free slot
+      is weeks away.
+    solution: |
+      A weekly private scan aggregates the catalogue into one static JSON file, and a
+      static SvelteKit site turns it into a map, comparisons between prefectures and
+      waiting-time charts. Only public units are named; private doctors appear as towns.
+  highlights:
+  - text: Coverage map and comparisons
+    detail: Leaflet map switchable between coverage, first appointment and mean wait,
+      plus side-by-side comparison of two prefectures or specialties.
+  - text: Change tracking between scans
+    detail: Shows what changed since the previous weekly scan for the chosen prefecture,
+      specialty and sector.
+  - text: Embeddable and shareable
+    detail: Every view lives in the URL, so it can be shared or embedded as a widget by
+      journalists and local media.
+  - text: Fast on a phone
+    detail: One shared index cut phone hydration from 3.7s to 0.9s; keyboard and screen
+      reader pass included.
+  links:
+  - url: https://atlas.haroldpoi.dev
+    label: Live Site
+  - url: https://github.com/angelospk/atlas-prosvasis
+    label: Repo
+  technologies:
+  - SvelteKit
+  - Svelte 5
+  - TypeScript
+  - Leaflet
+  - Vitest
+  - GitHub Actions
   featured: true
 
 - id: "unitrip"
@@ -56,10 +358,11 @@
   period:
     start: "2026"
     end: null
-  description: |
-    Full-stack booking platform for organized youth trips, covering public trip 
-    discovery, multi-step bookings, payment flows, admin operations, referrals, 
-    QR/UTM campaigns, and booking sharing after the initial reservation.
+  description: >-
+    Puts a youth-travel organiser's group bookings and card payments online without an
+    in-house engineer: trip discovery, multi-step reservations, Viva payment
+    verification and a back office. Referrals and QR/UTM campaigns are tracked through
+    checkout, and travellers can join an existing booking after it is paid.
   context:
     problem: |
       Travel agencies need a fast booking experience that can handle group travel, 
@@ -99,10 +402,11 @@
   period:
     start: "2026"
     end: null
-  description: |
-    Founder of SkipQ, a QR ordering system for restaurants, beach bars, clubs,
-    canteens, festivals, and fast-service food businesses. The goal is to reduce
-    service friction, support self-ordering, and give venues live operational insights.
+  description: >-
+    Lets a busy venue take orders without a queue at the counter: customers order from a
+    QR code, staff claim orders and run open tabs, and the venue keeps serving when the
+    internet drops. Founder; the demo is moving to a Go backend and Svelte SPA over
+    ConnectRPC.
   context:
     problem: |
       During peak hours, customers struggle to get served and staff spend too much 
@@ -112,24 +416,280 @@
       order tracking, waiter calls, menu analytics, stock-aware availability, and 
       both cloud and local deployment options.
   highlights:
+    - text: "Working Demo"
+      detail: "Full-stack SvelteKit demo with customer self-ordering, staff order claims, open tabs, and an admin menu editor."
+    - text: "Go + ConnectRPC Migration"
+      detail: "Migrating to a Go backend and Svelte SPA over ConnectRPC, with shared proto contracts and SSE for live order updates."
     - text: "Personalized Store Experience"
       detail: "Each venue can configure safety controls, customer-visible options, menu behavior, and ordering rules."
     - text: "Local-first Deployment"
       detail: "Designed to run in the cloud or locally for venues that need control or reliability during internet outages."
-    - text: "Live Menu Intelligence"
-      detail: "Future-facing menu updates based on stock, demand, queue load, and estimated preparation times."
     - text: "Hospitality Analytics"
       detail: "Plans for menu analytics, customer preference insights, occupancy signals, reservations, and staff operations."
-    - text: "Upcoming AI Assistant"
-      detail: "Roadmap includes AI voice dictation to help customers quickly find and order what they want."
   technologies:
     - "Go"
-    - "Svelte"
-    - "SPA"
-    - "Local-first"
-    - "Analytics"
+    - "SvelteKit"
+    - "Svelte 5"
+    - "TypeScript"
+    - "ConnectRPC"
+    - "SSE"
     - "QR Ordering"
   featured: true
+
+- id: "aloud"
+  title: "Aloud"
+  subtitle: "Voice Assistant That Turns Speech into Actions"
+  type: "personal"
+  category: "ai"
+  weight: 10
+  period:
+    start: "2026"
+    end: null
+  description: >-
+    Lets someone book a Greek public-health appointment by speaking: streaming speech-to-text feeds a deterministic, fully tested engine that fills the real search form.
+    It runs on top of the FindDoctors aggregator; two more demos cover legal intake and
+    restaurant ordering. The orchestration behind the LLM front end is scripted code
+    that can be tested, rather than another prompt.
+  context:
+    problem: |
+      Voice interfaces usually stop at dictation. Turning "βρες μου καρδιολόγο κοντά
+      μου την άλλη εβδομάδα" into an actual search, with slots, areas, and dates
+      resolved correctly, needs a deterministic engine behind the microphone.
+    solution: |
+      Built a scripted, testable orchestration engine in TypeScript first, then ported
+      it to Go for production. The Go port is verified against the TypeScript
+      reference with a 32-scenario golden harness that produces byte-identical output.
+  highlights:
+    - text: "Deterministic Voice Engine"
+      detail: "Intent extraction, specialty/area/date resolution, and form merging run scripted and fully testable, with no API key required."
+    - text: "Go Port with Golden Parity"
+      detail: "voice-core reimplements the TS engine in Go; parity is enforced by ported unit tests plus a 32-scenario golden harness, byte-identical to the reference."
+    - text: "Resilient Sessions"
+      detail: "Per-session actors with ordered turns, dedupe, bounded event logs, and reconnect-resume over a versioned WebSocket contract; go test -race clean."
+    - text: "Real Data Behind the Voice"
+      detail: "Plugs into the FindDoctors Go aggregator and soniox-core streaming STT, so the demo searches real availability."
+    - text: "Optional LLM Layer"
+      detail: "Claude can rephrase assistant replies into more natural Greek without touching the deterministic flow."
+  links:
+    - url: "https://github.com/angelospk"
+      label: "GitHub"
+  technologies:
+    - "Go"
+    - "TypeScript"
+    - "SvelteKit"
+    - "WebSocket"
+    - "Streaming STT"
+    - "LLM Integration"
+  featured: true
+
+- id: "dictation-stack"
+  title: "DictationBar + soniox-core"
+  subtitle: "macOS Live Dictation with AI Cleanup"
+  type: "personal"
+  category: "ai"
+  weight: 9
+  period:
+    start: "2026"
+    end: null
+  description: >-
+    Turns speech into clean text at the cursor in any macOS app, used every day for real
+    work. A Swift menu-bar app streams audio to a concurrent Go server over WebSocket,
+    and an LLM pass fixes punctuation and phrasing per user-editable profile.
+  highlights:
+    - text: "Native macOS Client"
+      detail: "Swift menu-bar app with a global hotkey, live status states, transcript history, and auto-paste into whichever app was active."
+    - text: "Concurrent Go Core"
+      detail: "Streams to real-time STT over WebSocket and also transcribes uploaded audio/video files up to 512 MB."
+    - text: "Tunable LLM Cleanup"
+      detail: "Cleanup prompts and profiles are plain files, applied per request with no restart, and tuned against real transcripts with an evaluation command."
+    - text: "Daily-driver Reliability"
+      detail: "Reconnecting sessions, cleanup-failure advisories, and per-session JSONL logs, because a tool you dictate emails with cannot silently drop text."
+  links:
+    - url: "https://github.com/angelospk/soniox-core"
+      label: "soniox-core"
+    - url: "https://github.com/angelospk/dictation-bar"
+      label: "DictationBar"
+  technologies:
+    - "Go"
+    - "Swift"
+    - "WebSocket"
+    - "Streaming STT"
+    - "LLM Cleanup"
+  featured: true
+
+- id: "eventlens"
+  title: "EventLens"
+  subtitle: "Event Photos, from Camera to the Venue Screen"
+  type: "personal"
+  category: "fullstack"
+  weight: 8
+  period:
+    start: "2026"
+    end: null
+  description: >-
+    Gets a festival's photos from the photographer's camera to the venue screen the same
+    night, with a manager approving each one first. Photos are converted and watermarked
+    in the browser, uploads queue through Wi-Fi drops, and a public wall loops the
+    approved set with sponsor messages. Prototype built for the Ardas Youth Festival.
+  highlights:
+    - text: "In-browser Processing"
+      detail: "Photos are converted to AVIF, watermarked with the event logo, and color-graded in the browser before upload."
+    - text: "Offline-tolerant Uploads"
+      detail: "An IndexedDB queue holds photos when the venue Wi-Fi drops and retries when it comes back."
+    - text: "Live Public Wall"
+      detail: "Full-screen slideshow that picks up newly confirmed photos automatically, mixed with sponsor slides."
+    - text: "Small, Cheap Infrastructure"
+      detail: "Static SvelteKit app on GitHub Pages plus one Cloudflare Worker with D1 and R2."
+  technologies:
+    - "SvelteKit"
+    - "Cloudflare Workers"
+    - "D1"
+    - "R2"
+    - "IndexedDB"
+    - "AVIF"
+  featured: true
+
+- id: nightshift
+  title: Nightshift
+  subtitle: Autonomous Overnight Coding-Agent Orchestration
+  type: personal
+  category: ai
+  weight: 8
+  period:
+    start: '2026'
+    end: 
+  description: >-
+    Lets a coding agent work overnight without overspending the API budget or acting
+    unsupervised. A scheduler reads live quota data, asks the operator before starting,
+    and refuses to run when it cannot tell what the budget is. An append-only run ledger
+    records every task transition.
+  highlights:
+  - text: Fail-closed Budgeting
+    detail: A quota watcher reads real usage APIs and computes each night's budget
+      with reserves and per-night caps; unknown usage means no run.
+  - text: Auditable State
+    detail: Every task transition goes through a state service with an immutable run
+      ledger; chat notifications and reports are projections, never the source of
+      truth.
+  - text: Human in the Loop
+    detail: A Telegram bridge asks spec questions with inline buttons, sends a night
+      digest for approval, and reports results in the morning.
+  technologies:
+  - Python
+  - Agent Orchestration
+  - Telegram Bot API
+  - systemd
+  - SQLite
+  featured: true
+
+
+- id: "carpool"
+  title: "Carpool"
+  subtitle: "Region-Scoped Ride Sharing, Self-Hosted"
+  type: "personal"
+  category: "mobile"
+  weight: 9
+  period:
+    start: "2026-07"
+    end: null
+  description: >-
+    Fills empty seats on commutes people in one Greek prefecture already drive: drivers
+    publish their routes, passengers post where they need to be, and a driver whose
+    route passes nearby gets asked. There is no dispatching and no in-app payment; the
+    driver always accepts explicitly. Go backend and Expo app, in active development.
+  context:
+    problem: |
+      Outside the big cities there is nothing to match a passenger with the
+      neighbour who drives that road every morning, and the platforms that exist
+      are built around a commission that makes a 40 km commute not worth listing.
+    solution: |
+      Built the whole stack to run on one small machine: Go, PostGIS and a local
+      OSRM extract in Docker, about 330 MiB for the lot, so the running cost of
+      a regional community is a mini PC rather than a routing API bill. Money is a
+      suggestion the app computes and caps, never something it moves.
+  highlights:
+    - text: "Two-Stage Geospatial Matching"
+      detail: "A direction- and order-aware PostGIS filter narrows candidate routes, then OSRM computes the incremental detour against the driver's actual itinerary; matched drivers are asked sequentially by push, with timeouts, rather than auctioned."
+    - text: "Cost the Car Actually Has"
+      detail: "Consumption is derived from the vehicle's registration document (fuel, engine size, CO₂) instead of typed, and the suggested share is capped so a full car cannot turn a commute into a profit."
+    - text: "Recurring Routes as Templates"
+      detail: "A weekday commute is published once and materialises into occurrences; each departure carries the car it actually goes out in, so editing a route cannot silently change the plate a passenger is standing at the kerb looking for."
+    - text: "Safety Decisions in the Schema"
+      detail: "Age gate, moderated bios, closed preference vocabulary, per-trip chat, mutual ratings, plate revealed only after a seat is accepted, and retention periods enforced by scheduled jobs rather than by policy text."
+    - text: "Verified End to End"
+      detail: "vet, staticcheck and race-clean concurrency packages, 293 app tests, and a fourteen-step scenario that runs from a fresh database against real PostGIS and real OSRM: publish, request, ask, accept, chat, confirm, rate."
+  technologies:
+    - "Go"
+    - "PostgreSQL / PostGIS"
+    - "OSRM"
+    - "React Native"
+    - "Expo"
+    - "TypeScript"
+    - "Docker"
+    - "MapLibre"
+    - "Push Notifications"
+  featured: true
+
+- id: digital-skills-platform
+  title: Interactive Digital Skills Platform
+  subtitle: Practical digital-skills learning for older adults
+  type: personal
+  category: fullstack
+  weight: 9
+  period:
+    start: '2026'
+    end: 
+  description: >-
+    Gives older adults a safe place to practise the phone and computer tasks they need,
+    from scanning a QR code to spotting a scam SMS. 218 hands-on lessons across Windows,
+    Mac, Android and iPhone, in Greek, with a home screen that says where they stopped
+    last time.
+  context:
+    problem: |
+      Digital training for this age group is usually a video of somebody else
+      clicking, which gives the learner nothing to do. And somebody who comes back
+      after three weeks meets a menu of two hundred lessons with no indication of
+      where they were.
+    solution: |
+      218 lessons across Windows, Mac, Android and iPhone tracks, each one an
+      interaction the learner performs, with the platform accepting the realities
+      of the audience: no password, deep links that survive login, progress that
+      cannot be demoted by adding content, and a home screen that answers "what
+      was I doing" before it offers anything else.
+  highlights:
+  - text: Unplayable lessons cannot ship
+    detail: Every seeded lesson's configuration is parsed by a contract test, including
+      disabled ones, so a lesson whose config no longer matches its component fails
+      CI rather than opening blank in front of a learner.
+  - text: A phone that behaves like a phone
+    detail: Android and iOS tracks with working settings, camera QR scanning, a gov.gr
+      link check, screenshots via the real button chord, and force-closing a stuck
+      app; a Mac track built around the window-close versus quit distinction.
+  - text: Scam recognition as practice
+    detail: 28 realistic Greek scenarios across email, SMS, Viber and voice calls,
+      each one naming the specific signal that gives it away rather than marking the
+      answer right or wrong.
+  - text: Built for coming back
+    detail: 'The home page opens with where the learner stopped, how long ago in plain
+      words, and two buttons: continue, or repeat the last one together with whoever
+      is helping. There is no streak and no overdue notice; a three-week gap is stated
+      and not scored.'
+  - text: No password, and no way to lose your progress by waiting
+    detail: Sign-in is a name and no password, sessions are HMAC-signed cookies, deep
+      links survive the login step, and 'basic route completed' is recorded separately
+      from 'all lessons completed' so adding lessons never demotes somebody who had
+      finished.
+  technologies:
+  - SvelteKit
+  - Svelte 5
+  - TypeScript
+  - SQLite / Turso
+  - Drizzle ORM
+  - Vitest
+  - Playwright
+  - inlang
+  featured: true
+
 
 - id: "enosi-extension"
   title: "Agronet Automation Suite"
@@ -140,9 +700,11 @@
   period:
     start: "2025-05"
     end: "2025-10"
-  description: |
-    A sophisticated browser extension and automation suite built to solve critical inefficiencies 
-    in the agricultural cooperative's ERP data entry platform.
+  description: >-
+    Cut repetitive ERP data entry at an agricultural cooperative by an estimated 40% on
+    the most-used workflows. A Vue.js browser extension batch-fills declarations,
+    carries data over from the previous year and explains validation errors in plain
+    language with an LLM.
   context:
     problem: |
       Employees were manually copying data between hundreds of land plots on a legacy web ERP. 
@@ -175,9 +737,10 @@
   period:
     start: "2024-06"
     end: "2024-08"
-  description: |
-    A suite of digital tools developed to improve guest experience and operational efficiency 
-    at TUI Magic Life Plimmiri.
+  description: >-
+    Sped up hotel check-in about 3x and helped guests find their way around a large
+    resort at TUI Magic Life Plimmiri. A Python automation for the front-desk PMS and a
+    mobile-first map PWA built on Leaflet.
   context:
     problem: |
       Guests struggled with navigation due to outdated PDF maps, and reception faced long queues 
@@ -218,12 +781,11 @@
   period:
     start: "2026-02"
     end: null
-  description: |
-    Active maintainer on OpenCouncil by Schema Labs (schemalabz/opencouncil), the
-    open-source platform that makes Greek municipal council meetings searchable and
-    accountable. Also a Google Summer of Code 2026 contributor, fine-tuning an
-    open-source Greek speech-to-text model to reduce the corrections human reviewers
-    make by hand.
+  description: >-
+    Keeps OpenCouncil, the open-source platform that makes Greek municipal council
+    meetings searchable, working for the people who review its transcripts. Maintainer
+    of the Next.js platform (Schema Labs) and Google Summer of Code 2026 contributor on
+    Greek speech-to-text, so reviewers fix fewer errors by hand.
   context:
     problem: |
       Council meeting transcripts are produced by automatic speech recognition, and
@@ -263,10 +825,10 @@
   period:
     start: "2026"
     end: null
-  description: |
-    Founder of PulseCheck, a startup that measures the real pulse of a company's
-    workforce through genuinely anonymous surveys and actionable insights, aimed at
-    EU mid-market HR teams who are tired of low-participation engagement tools.
+  description: >-
+    Gives HR teams survey answers employees mean: PulseCheck runs anonymous pulse
+    surveys for EU mid-market companies, with anonymity treated as the product promise
+    rather than a checkbox. Founder; product, positioning and engineering.
   context:
     problem: |
       Employees do not trust that engagement surveys are anonymous, so participation
@@ -287,20 +849,19 @@
     - "Startup"
   featured: true
 
-- id: "project-secretary"
-  title: "Project Secretary"
-  subtitle: "Smart Secretary for a GitHub Backlog"
-  type: "personal"
-  category: "ai"
+- id: project-secretary
+  title: Project Secretary
+  subtitle: Backlog retrieval and review queues across GitHub repositories
+  type: personal
+  category: ai
   weight: 9
   period:
-    start: "2026"
-    end: null
-  description: |
-    A library and tool that acts as a smart secretary for one or more GitHub repos.
-    It remembers every issue, PR, comment, and Project item, connects related work
-    even across repo boundaries, and enriches new issues with relevant history plus
-    grounded codebase context.
+    start: '2026'
+    end: 
+  description: >-
+    Stops maintainers from repeating work already discussed: a Python service finds
+    related issues and pull requests across GitHub repositories. Local embeddings and a
+    graph-aware reranker separate true duplicates from overlap and useful context.
   context:
     problem: |
       In a busy backlog the same idea gets filed twice, the issue describing a feature
@@ -311,24 +872,25 @@
       Project v2 items, with a local-embeddings semantic layer and a reranker that
       classifies items as duplicate, overlap, prior context, or noise.
   highlights:
-    - text: "Cross-Repo Memory"
-      detail: "Indexes several repos in one graph store so a frontend issue can surface the backend PR that implements it."
-    - text: "Semantic Related Work"
-      detail: "Local embeddings (fastembed/ONNX, no torch) plus a heuristic reranker using labels, edges, and milestones."
-    - text: "Grounded Issue Comments"
-      detail: "Writes an idempotent, sticky comment with related history and DeepWiki file-level context to help resolve an issue."
-    - text: "Auto-Labels & Backlog Help"
-      detail: "Embeddings-based categorization to suggest labels and surface related issues/PRs across the project backlog."
+  - text: Indexed issues, pull requests, comments and Project items in SurrealDB using
+      repository-scoped identifiers.
+  - text: Combined local embeddings with labels, milestones and graph relationships
+      to classify related work.
+  - text: Added review queues, explained label suggestions and a read-only MCP interface
+      for agent access.
+  - text: Made enrichment writes idempotent and backlog-maintenance commands dry-run
+      by default; documented remaining recovery and deployment gaps.
   links:
-    - url: "https://github.com/angelospk/project_secretary"
-      label: "GitHub"
+  - url: https://github.com/angelospk/project_secretary
+    label: GitHub
   technologies:
-    - "Python"
-    - "SurrealDB"
-    - "Embeddings / fastembed"
-    - "GitHub API"
-    - "Vector Search"
+  - Python
+  - SurrealDB
+  - Embeddings / fastembed
+  - GitHub API
+  - Vector Search
   featured: true
+
 
 - id: "whypride"
   title: "WhyPride.gr"
@@ -346,7 +908,7 @@
     an ally you really are.
   highlights:
     - text: "Interactive Challenges"
-      detail: "Flip a card, answer a scenario, play with a switch — prompts that make newcomers think and tell allies something new."
+      detail: "Flip a card, answer a scenario, play with a switch, prompts that make newcomers think and tell allies something new."
     - text: "Ally Quiz"
       detail: "A short quiz that reflects back how much of an ally you actually are, and answers questions people rarely ask out loud."
     - text: "Calm, Documented Tone"
@@ -395,50 +957,46 @@
     - "Machine Learning"
   featured: true
 
-- id: "gemini-rag-demo"
-  title: "Gemini RAG Demo"
-  subtitle: "Greek FEK Document Q&A System"
-  type: "personal"
-  category: "ai"
+- id: gemini-rag-demo
+  title: Gemini RAG Demo
+  subtitle: Greek FEK Document Q&A System
+  type: personal
+  category: ai
   weight: 8
   period:
-    start: "2026-01"
-    end: "2026-01"
-  description: |
-    RAG (Retrieval-Augmented Generation) system that answers questions 
-    based on Greek FEK (Government Gazette) PDF documents, using Gemini 
-    for embeddings and generation.
+    start: 2026-01
+    end: 2026-01
+  description: >-
+    Answers questions about Greek Government Gazette (FEK) PDFs with the document and
+    page reference for every answer, so a reader can check the source instead of
+    trusting the model. Retrieval uses Gemini embeddings, FAISS and LangChain over dense
+    Greek legal text.
   context:
-    problem: |
-      Greek legal documents (ΦΕΚ) are dense and difficult to navigate. 
-      Finding specific information requires manual reading of multiple documents.
-    solution: |
-      Built a RAG pipeline that indexes PDF documents, stores semantic embeddings 
-      in FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.
+    problem: "Greek legal documents (ΦΕΚ) are dense and difficult to navigate. \nFinding
+      specific information requires manual reading of multiple documents.\n"
+    solution: "Built a RAG pipeline that indexes PDF documents, stores semantic embeddings
+      \nin FAISS, and uses Gemini 2.5 Flash to answer questions with source citations.\n"
   highlights:
-    - text: "PDF Ingestion Pipeline"
-      detail: "Reads and chunks PDF documents using LangChain, optimized for Greek text."
-    - text: "Gemini Embeddings"
-      detail: "Uses text-embedding-004 with native Greek language support."
-    - text: "FAISS Vector Store"
-      detail: "Local vector database for fast similarity search."
-    - text: "Source Citations"
-      detail: "Returns answers with references to specific documents and pages."
-    - text: "Google Colab Support"
-      detail: "Includes notebook for easy cloud-based experimentation."
+  - text: Implemented PDF ingestion, chunking and vector retrieval with Python, LangChain
+      and FAISS.
+  - text: Returned source document and page references alongside generated answers.
+  - text: Included a Colab notebook for reproducing the workflow; citation correctness
+      and abstention remain evaluation priorities.
   links:
-    - url: "https://github.com/angelospk/gemini-rag-demo"
-      label: "GitHub"
-    - url: "https://colab.research.google.com/github/angelospk/gemini-rag-demo/blob/main/rag_demo.ipynb"
-      label: "Open in Colab"
+  - url: https://github.com/angelospk/gemini-rag-demo
+    label: GitHub
+  - url: https://colab.research.google.com/github/angelospk/gemini-rag-demo/blob/main/rag_demo.ipynb
+    label: Open in Colab
   technologies:
-    - "Python"
-    - "LangChain"
-    - "Gemini API"
-    - "FAISS"
-    - "RAG"
-    - "NLP"
+  - Python
+  - LangChain
+  - Gemini API
+  - FAISS
+  - RAG
+  - Embeddings
+  - NLP
   featured: true
+
 
 # ========================
 # FULL STACK & WEB APPS
@@ -537,36 +1095,39 @@
     - "Modern UI"
   featured: true
 
-- id: "diesi-analytics"
-  title: "Diesi Analytics"
-  subtitle: "Radio Station Analytics Platform"
-  type: "personal"
-  category: "fullstack"
+- id: diesi-analytics
+  title: Diesi Analytics
+  subtitle: Radio Station Analytics Platform
+  type: personal
+  category: fullstack
   weight: 9
   period:
-    start: "2026"
-    end: null
-  description: |
-    Analytics platform for Diesi FM radio station. Analyzes 3 years of 
-    song play history (~337K records) with ML predictions and real-time dashboards.
+    start: '2026'
+    end: 
+  description: >-
+    Shows a radio station what it plays: dashboards over roughly 337,000 historical song
+    plays expose rotation patterns by song, artist and time of day. SQL aggregations and
+    predictive models explore what may play next.
   highlights:
-    - text: "Analytics dashboards for top artists, songs, time patterns"
-    - text: "Markov Chain + time-aware ML predictions for next song"
-    - text: "Real-time Now Playing with persistent audio player"
-    - text: "Docker deployment with Redis caching"
-    - text: "Interactive ECharts visualizations"
+  - text: Queried roughly 337,000 play records by artist, song and time window for
+      interactive dashboards.
+  - text: Used Redis caching for heavier aggregate queries and ECharts for exploration.
+  - text: Explored Markov-chain and time-aware next-song predictions alongside live
+      now-playing data.
   links:
-    - url: "https://diesi.haroldpoi.click"
-      label: "Live Demo"
+  - url: https://diesi.haroldpoi.click
+    label: Live Demo
   technologies:
-    - "Python"
-    - "FastAPI"
-    - "Vue.js 3"
-    - "SQLite"
-    - "Redis"
-    - "Docker"
-    - "ECharts"
+  - SQL
+  - Python
+  - FastAPI
+  - Vue.js 3
+  - SQLite
+  - Redis
+  - Docker
+  - ECharts
   featured: true
+
 
 - id: "rationvet"
   title: "RationVet"
@@ -627,9 +1188,10 @@
   period:
     start: "2025"
     end: null
-  description: |
-    Self-hosted restaurant ordering system designed for Raspberry Pi. 
-    Customers scan QR codes to browse menu and place orders from their phones.
+  description: >-
+    Lets a small restaurant take QR orders from customers' phones on a Raspberry Pi it
+    owns, with no cloud dependency and no monthly fee. A single Go binary serves the
+    menu, ordering and live order tracking.
   highlights:
     - text: "Single binary deployment - no runtime dependencies"
     - text: "Optimized for Raspberry Pi hardware (< 1GB RAM)"
@@ -804,22 +1366,41 @@
     - "MySQL"
   featured: false
 
-# ========================
-# CONCEPTS / MENTIONS
-# ========================
-
-- id: "carpooling-app"
-  title: "Carpooling App"
-  subtitle: "Mobile App Concept"
-  type: "concept"
-  weight: 7
-  category: "mobile"
-  description: |
-    Mobile εφαρμογή carpooling (proof of concept).
+- id: photo2stitch
+  title: photo2stitch
+  subtitle: Photo-to-embroidery desktop workflow
+  type: personal
+  category: ai
+  weight: 10
   period:
-    start: "2025"
-    end: "2025"
+    start: 2026-07
+    end: 
+  description: >-
+    Lets an embroidery operator turn a customer's photograph into a machine-ready stitch
+    file without a designer or three separate tools. Colour reduction and directional
+    fills produce the stitch plan, and a printable job sheet carries the thread order
+    the DST format cannot store. Python desktop app for a non-technical user.
+  context:
+    problem: An embroidery operator needs a usable stitch file and the correct thread
+      order, without manually moving the design through several tools.
+    solution: Combined photo tracing, palette reduction, region consolidation and
+      stitch export with a desktop interface. Added a printable colour sheet and packaging
+      for macOS and Windows. Physical sew-out validation remains a separate acceptance
+      step.
+  highlights:
+  - text: Built a Python image-processing pipeline with colour quantisation, region
+      merging and directional stitch fills.
+  - text: Added a printable job sheet with the thread order and colour information
+      absent from DST files.
+  - text: Used paired-seed experiments to distinguish algorithm changes from k-means
+      variation.
+  - text: Implemented desktop packaging, signed update manifests and a Cloudflare
+      licence gate; physical output still needs sew-out validation.
   technologies:
-    - "React Native"
-    - "Expo"
-  featured: false
+  - Python
+  - OpenCV
+  - NumPy
+  - scikit-learn
+  - PyInstaller
+  - Cloudflare Workers
+  featured: true

@@ -27,3 +27,15 @@ Thumbs.db
 # SpecStory explanation file
 .specstory/.what-is-this.md
 scripts/
+# Local Erasmus+ application corpus (personal data, not for publishing)
+erasmus/
+
+# Private notes and data, not for publishing
+cv/private.yaml
+cv/interview-qa.md
+cv/learning-gaps.md
+asep_*.txt
+theseis_immy_*
+cv/cv-genai-deloitte.md
+cv/cv-angelospapgenai.pdf
+cv/voice-practice-prompt.md

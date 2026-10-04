@@ -1,73 +1,33 @@
-+++
-title = "FindDoctors Aggregator Server"
-description = "Unified Public Health Appointment Search"
-date = "2026-01-01"
-tags = ["Go","REST API","Concurrent Workers","TypeScript Types","TDD"]
-categories = ["backend"]
-weight = 10
-+++
+---
+title: FindDoctors Aggregator Server
+description: Public appointment discovery across health providers
+weight: 10
+tags:
+- Go
+- REST API
+- Concurrent Workers
+- TypeScript Types
+- TDD
+categories:
+- backend
+---
 
-# FindDoctors Aggregator Server
+Finds the earliest public-health appointment in one search instead of one provider at a time, across hospitals and primary-care centres on finddoctors.gov.gr. A Go service ranks results by soonest slot and distance; booking stays on the official portal, and live searches need an authenticated upstream session.
 
-**Unified search backend for Greek public health appointments**
+## The problem
 
-## Overview
+People need to compare availability across provider types and regions without repeating each search manually.
 
-High-performance Go backend that aggregates appointment availability from 
-finddoctors.gov.gr, making it easier to discover where and when public health 
-appointments are available across hospitals and primary care centers.
+## What I built
 
-### The Problem
-The official platform makes it difficult to search across different public 
-health entities, regions, and appointment dates at once.
+A bounded worker pool searches providers concurrently. The response distinguishes failed checks from empty calendars, and the bundled interface links to the official booking portal. First-time setup still needs an end-to-end user trial.
 
-### The Solution
-Built a concurrent aggregator API that searches multiple entities in parallel, 
-returns the soonest available appointments, and is designed to power a future 
-patient-facing UI for booking faster when availability exists.
+## Implementation
 
-
-## Key Features
-
-- **Unified Smart Search** - A single `/api/search` endpoint for soonest appointments with optional distance and region filters
-- **Cross-Entity Search** - Searches public hospitals and primary health centers concurrently
-- **Distance-Aware Results** - Supports location-based filtering and proximity sorting
-- **Capacity Reports** - Shows fill rates and earliest availability per specialty for a hospital
-- **Granular Slots** - Fetches appointment times, doctor names, clinic metadata, and unit details
-- **Type Safety** - Generates TypeScript types from Go models with `tygo`
-- **TDD-Backed Core** - Tests cover the search and sorting logic
-
-## Technical Implementation
-
-### Architecture
-
-The backend works as a read-only aggregator in front of the official appointment system. It does not store user cookies or appointment session data; it focuses on stateless discovery.
-
-| Area | Implementation |
-|------|----------------|
-| Backend | Go HTTP server |
-| Search | Concurrent worker pool |
-| Entities | Public hospitals and primary care centers |
-| API | REST endpoints |
-| Types | Go to TypeScript generation via `tygo` |
-| Testing | Go tests with race detection |
-
-### Core Endpoints
-
-| Endpoint | Purpose |
-|----------|---------|
-| `/api/search` | Find the soonest available appointment by specialty, region, and distance |
-| `/api/hospitals/{hunitId}/capacity` | Inspect hospital specialty capacity and first available dates |
-| `/api/hospitals/{hunitId}/slots` | Fetch detailed appointment slots for a unit, specialty, and date |
-| `/api/specialties` | Discover available medical specialties |
-
-## Product Direction
-
-The backend is designed as the foundation for a UI that helps patients answer the question that matters most:
-
-> Is there an appointment available, where is it, and how soon can I book it?
-
-The intended user experience is fast, practical, and patient-centered: enter a specialty and location, see the nearest or soonest useful options, and avoid repeated manual searches across the public platform.
+- Built a concurrent Go API with bounded fan-out, retries and Prometheus metrics for upstream failures.
+- Added a Greek search interface with specialty, location and distance filters, served directly from the Go binary.
+- Kept failed availability checks visible with scanOk and a null date, so an outage is not reported as no appointments.
+- Documented the session-bridge dependency and deprecated an endpoint whose upstream returned no useful results.
 
 ## Links
 

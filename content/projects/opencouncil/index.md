@@ -13,10 +13,7 @@ weight = 10
 
 ## Overview
 
-Active maintainer on OpenCouncil by Schema Labs (schemalabz/opencouncil), the open-source
-platform that makes Greek municipal council meetings searchable and accountable. As a Google
-Summer of Code 2026 contributor, I'm fine-tuning an open-source Greek speech-to-text model so
-the people who review council transcripts have fewer errors to fix by hand.
+Keeps OpenCouncil, the open-source platform that makes Greek municipal council meetings searchable, working for the people who review its transcripts. Maintainer of the Next.js platform (Schema Labs) and Google Summer of Code 2026 contributor on Greek speech-to-text, so reviewers fix fewer errors by hand.
 
 ### The Problem
 

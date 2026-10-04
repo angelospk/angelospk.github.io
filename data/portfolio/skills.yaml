@@ -14,7 +14,9 @@ skills:
       level: "intermediate"
     - name: "SQL"
       level: "intermediate"
-      
+    - name: "Swift (macOS)"
+      level: "beginner"
+
   frameworks:
     - name: "SvelteKit"
       level: "advanced"
@@ -22,13 +24,17 @@ skills:
       level: "intermediate"
     - name: "React"
       level: "intermediate"
-    - name: "React Native"
-      level: "beginner"
+    - name: "Next.js"
+      level: "intermediate"
+    - name: "React Native / Expo"
+      level: "intermediate"
     - name: "Astro"
       level: "intermediate"
     - name: "Hugo"
       level: "intermediate"
     - name: "PocketBase"
+      level: "intermediate"
+    - name: "Supabase (Postgres, RLS)"
       level: "intermediate"
       
   devops:
@@ -42,19 +48,31 @@ skills:
       level: "intermediate"
     - name: "Software Infrastructure"
       level: "advanced"
-    - name: "Cloudflare Pages/Workers"
+    - name: "Cloudflare (Pages, Workers, D1, R2)"
       level: "intermediate"
 
-      
+
   other:
     - name: "AI/LLM Integration"
+      level: "advanced"
+    - name: "RAG & Embeddings"
+      level: "advanced"
+    - name: "ASR / Whisper Fine-tuning"
+      level: "intermediate"
+    - name: "Voice Agents & Streaming STT"
+      level: "intermediate"
+    - name: "Agentic AI & Orchestration"
+      level: "intermediate"
+    - name: "gRPC / ConnectRPC"
+      level: "intermediate"
+    - name: "WebSockets / Realtime"
       level: "intermediate"
     - name: "Product Analytics"
       level: "intermediate"
     - name: "Payment Integrations"
       level: "intermediate"
-    - name: "Mobile Game Development"
+    - name: "Geospatial (PostGIS, OSRM)"
       level: "intermediate"
 
     - name: "Prompt Engineering"
-      level: "intermediate"
+      level: "advanced"
