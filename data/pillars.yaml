@@ -1,0 +1,34 @@
+# Homepage "What I build" section. One entry per area of work; each project links to
+# its page under /projects/ or, when there is none, to its live site or repo.
+- title: Greek voice AI
+  blurb: Speech recognition and voice interfaces that work in Greek, where most tools don't.
+  projects:
+    - {name: OpenCouncil ASR (GSoC 2026), url: /projects/greek-council-asr/}
+    - {name: Dictation stack, url: /projects/dictation-stack/}
+    - {name: Aloud, url: /projects/aloud/}
+- title: Civic tech & open data
+  blurb: Public data turned into something a citizen can actually use.
+  projects:
+    - {name: OpenCouncil, url: /projects/opencouncil/}
+    - {name: Atlas Prosvasis, url: "https://atlas.haroldpoi.dev"}
+    - {name: FindDoctors, url: /projects/find-doctors-server/}
+    - {name: Carpool, url: /projects/carpool/}
+- title: AI agent tooling
+  blurb: Infrastructure that lets coding agents work on budget, with a human approving what matters.
+  projects:
+    - {name: Nightshift, url: /projects/nightshift/}
+    - {name: Codex bridge, url: /projects/codex-bridge/}
+    - {name: Brain, url: /projects/brain/}
+    - {name: Project secretary, url: /projects/project-secretary/}
+- title: Small-business software
+  blurb: Booking, ordering and household tools for people with no engineering team.
+  projects:
+    - {name: Roomly, url: /projects/roomly/}
+    - {name: UniTrip, url: /projects/unitrip/}
+    - {name: SkipQ, url: /projects/skipq/}
+    - {name: Order Local, url: /projects/order-local/}
+- title: Media & subtitles
+  blurb: Subtitle tooling and recommendation side projects from a long-time film subtitler.
+  projects:
+    - {name: SubtitleKit, url: /projects/subtitlekit/}
+    - {name: AiMovie, url: /projects/aimovie/}
