@@ -36,6 +36,12 @@ skills:
       level: "intermediate"
     - name: "Supabase (Postgres, RLS)"
       level: "intermediate"
+    - name: "FastAPI"
+      level: "intermediate"
+    - name: "Redis"
+      level: "beginner"
+    - name: "MySQL"
+      level: "beginner"
       
   devops:
     - name: "Docker"
@@ -58,6 +64,10 @@ skills:
     - name: "RAG & Embeddings"
       level: "advanced"
     - name: "ASR / Whisper Fine-tuning"
+      level: "intermediate"
+    - name: "Machine Learning"
+      level: "intermediate"
+    - name: "PyTorch"
       level: "intermediate"
     - name: "Voice Agents & Streaming STT"
       level: "intermediate"
