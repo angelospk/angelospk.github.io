@@ -295,7 +295,15 @@ def first_sentence(text, limit = 200)
   s = s[/\A.*?[.!?](?=\s|\z)/] || s
   return s if s.length <= limit
 
-  s[0, limit].sub(/\s+\S*\z/, "")
+  # A cut inside a clause leaves "...that week," on the page; an ATS and a reader both
+  # take that for a typo.
+  s[0, limit].sub(/\s+\S*\z/, "").sub(/[\s,;:]+\z/, "")
+end
+
+# "https://www.linkedin.com/in/x/" -> "linkedin.com/in/x": the URL as printed text, which
+# is what an ATS can read even when it ignores the PDF's link annotations.
+def url_label(url)
+  url.to_s.sub(%r{\Ahttps?://(www\.)?}, "").chomp("/")
 end
 
 def period_text(period)
@@ -451,7 +459,18 @@ end
 
 skill_groups = skills["skills"] || {}
 flat_skills = skill_groups.values.flatten.map { |s| s["name"] }.compact
-ordered_skills = flat_skills.sort_by { |skill| wanted.any? { |kw| normalize(skill).include?(kw) } ? 0 : 1 }.first(16)
+# One ranking feeds both the Skills list and the "Focus:" line. They used to differ: Skills
+# matched the short keyword list by substring and sorted unstably, so a skill the summary
+# called out (Go) could be missing from the list while Hugo and Astro were in it. Ties go
+# to the shorter name, then to the order in skills.yaml, and with no target at all the
+# yaml order stands.
+ctx_norm = normalize(context)
+skill_hits_by_name = flat_skills.to_h { |skill| [skill, skill_hits(skill_needles(skill), ctx_norm, context)] }
+skill_rank = flat_skills.each_with_index.sort_by do |skill, index|
+  hits = skill_hits_by_name[skill]
+  [-hits, hits.positive? ? skill.length : 0, index]
+end.map(&:first).uniq
+ordered_skills = skill_rank.first(16)
 
 # The default summary sells a full-stack web developer. When the overlay supplies one
 # (`summary: {en:, el:}`) it wins: the same person is a different headline depending on
@@ -469,14 +488,7 @@ if context.strip.length.positive?
   # Focus terms are the candidate's own skills that the posting actually asks for,
   # ranked by how often the posting mentions them. Ranking raw posting words instead
   # surfaces whatever the ad happens to open with ("Focus: exness, not, just").
-  ctx_norm = normalize(context)
-  top_terms = flat_skills
-              .map { |skill| [skill, skill_hits(skill_needles(skill), ctx_norm, context)] }
-              .select { |_, hits| hits.positive? }
-              .sort_by { |skill, hits| [-hits, skill.length] }
-              .map(&:first)
-              .first(5)
-              .join(", ")
+  top_terms = skill_rank.select { |skill| skill_hits_by_name[skill].positive? }.first(5).join(", ")
   summary += " Focus: #{top_terms}." if top_terms.length.positive?
 end
 
@@ -499,22 +511,23 @@ labels = if language == "el"
          end
 
 lines = []
+lines << "#set document(title: \"#{typst_escape(profile["name"])} CV\", author: \"#{typst_escape(profile["name"])}\")"
 lines << '#set page(paper: "a4", margin: (x: 1.25cm, y: 1.15cm))'
 lines << '#set text(font: "Helvetica", size: 8.8pt, lang: "en")'
 lines << '#set par(justify: false, leading: 0.5em)'
 lines << '#show link: underline'
 lines << '#let section(title) = block(above: 1.25em, below: 0.5em)[#text(size: 10pt, weight: "bold", upper(title)) #v(0.16em) #line(length: 100%, stroke: 0.45pt)]'
-lines << '#let entry(title, meta, body) = block(above: 0.34em, below: 0.24em)[#grid(columns: (1fr, auto), gutter: 0.6em, text(weight: "bold", title), text(size: 7.9pt, fill: rgb("#444"), meta)) #v(0.08em) #body]'
+lines << '#let entry(title, meta, body) = block(above: 0.34em, below: 0.24em)[#text(weight: "bold", title) #h(1fr) #text(size: 7.9pt, fill: rgb("#444"), meta) #v(0.08em) #body]'
 lines << ""
 lines << "#align(center)[#text(size: 16pt, weight: \"bold\", \"#{typst_escape(profile["name"])}\")]"
 contact_bits = [
   "#link(\"mailto:#{typst_escape(profile["email"])}\")[#{typst_escape_content(profile["email"])}]",
   profile["phone"] ? "#link(\"tel:#{typst_escape(profile["phone"].to_s.gsub(/[^+\d]/, ""))}\")[#{typst_escape_content(profile["phone"])}]" : nil,
   "#text(\"#{typst_escape(profile["location"])}\")",
-  "#link(\"#{profile.dig("social", "github")}\")[GitHub]",
-  "#link(\"#{profile.dig("social", "linkedin")}\")[LinkedIn]",
+  "#link(\"#{profile.dig("social", "github")}\")[#{typst_escape_content(url_label(profile.dig("social", "github")))}]",
+  "#link(\"#{profile.dig("social", "linkedin")}\")[#{typst_escape_content(url_label(profile.dig("social", "linkedin")))}]",
 ].compact
-lines << "#align(center)[#{contact_bits.join(" | ")}]"
+lines << "#align(center)[#text(size: 7.8pt)[#{contact_bits.join(" | ")}]]"
 # Work authorisation and mobility get their own line rather than being appended to
 # the location. They answer a different question ("can I hire this person, and when"),
 # and jamming them into the address is how a contact line ends up implying a residence
