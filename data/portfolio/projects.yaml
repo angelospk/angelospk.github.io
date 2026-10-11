@@ -816,39 +816,6 @@
     - "TypeScript"
   featured: true
 
-- id: "pulsecheck"
-  title: "PulseCheck"
-  subtitle: "Anonymous Employee Pulse Surveys & Insights"
-  type: "startup"
-  category: "fullstack"
-  weight: 10
-  period:
-    start: "2026"
-    end: null
-  description: >-
-    Gives HR teams survey answers employees mean: PulseCheck runs anonymous pulse
-    surveys for EU mid-market companies, with anonymity treated as the product promise
-    rather than a checkbox. Founder; product, positioning and engineering.
-  context:
-    problem: |
-      Employees do not trust that engagement surveys are anonymous, so participation
-      and honesty stay low and HR ends up with data it cannot act on.
-    solution: |
-      Building a survey product designed around credible anonymity and clear insights,
-      so HR can see what is actually going on and act on it before people leave.
-  highlights:
-    - text: "Credible Anonymity"
-      detail: "Anonymity is treated as the core product promise, not a checkbox, so employees answer honestly."
-    - text: "Actionable Insights"
-      detail: "Turns survey responses into signals HR can act on, instead of dashboards nobody reads."
-    - text: "Founder & Builder"
-      detail: "Leading product, positioning, and engineering for an EU mid-market HR audience."
-  technologies:
-    - "Full Stack"
-    - "Product Analytics"
-    - "Startup"
-  featured: true
-
 - id: project-secretary
   title: Project Secretary
   subtitle: Backlog retrieval and review queues across GitHub repositories

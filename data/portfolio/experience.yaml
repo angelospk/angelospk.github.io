@@ -38,28 +38,6 @@ experiences:
       - "Full Stack Development"
       - "Founder"
 
-  - id: "pulsecheck-founder"
-    title: "Founder"
-    organization: "PulseCheck"
-    organization_type: "Startup"
-    type: "work"
-    period:
-      start: "2026-01"
-      end: null
-    description: >-
-      Founder of PulseCheck, anonymous employee pulse surveys for EU mid-market HR
-      teams. Anonymity is the core product promise, so employees answer honestly and HR
-      gets data it can act on.
-    highlights:
-      - text: "Leading product, positioning, and engineering for an EU mid-market HR audience."
-        link: "#pulsecheck"
-    technologies:
-      - "Full Stack"
-      - "Product Analytics"
-    skills:
-      - "Product Development"
-      - "Founder"
-
   - id: gsoc-opencouncil
     title: AI Engineer (GSoC 2026)
     title_en: AI Engineer (GSoC 2026)

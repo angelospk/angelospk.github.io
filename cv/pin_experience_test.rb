@@ -74,7 +74,7 @@ class PinExperienceTest < Minitest::Test
   end
 
   def test_too_many_pins_is_an_error
-    status, _, output = generate_exp(pins: "skipq-founder,pulsecheck-founder,gsoc-opencouncil,unitrip-fullstack,enosi-2025")
+    status, _, output = generate_exp(pins: "skipq-founder,gsoc-opencouncil,unitrip-fullstack,enosi-2025,tui-magic-life")
     refute_predicate status, :success?
     assert_match(/at most/, output)
   end

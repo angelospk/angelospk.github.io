@@ -7,7 +7,7 @@ template. Keep it short; the CV does the rest.
 A few facts I lean on across all of them:
 - MEng in Electrical & Computer Engineering (AUTH).
 - Google Summer of Code 2026 contributor and active maintainer on OpenCouncil (open source).
-- Founder of two products: PulseCheck and SkipQ.
+- Founder of SkipQ (working demo, moving to a Go backend).
 - I ship full products end to end, not just features: UniTrip.gr (booking + payments),
   FindDoctors aggregator (Go), a self-hosted ordering system that runs on a Raspberry Pi,
   Aloud (a voice assistant that books doctor appointments by voice), and a macOS

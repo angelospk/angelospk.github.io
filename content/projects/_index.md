@@ -27,17 +27,6 @@ have fewer transcript errors to fix by hand.
 
 ---
 
-### [PulseCheck](/projects/pulsecheck/) (2026)
-**Anonymous Employee Pulse Surveys & Insights — Founder**
-
-Startup measuring the real pulse of a company's workforce through genuinely anonymous
-surveys and actionable insights, built for EU mid-market HR teams tired of low-participation
-engagement tools.
-
-*Technologies: Full Stack, Product Analytics, Startup*
-
----
-
 ### [FindDoctors Aggregator Server](/projects/find-doctors-server/) (2026)
 **Unified Public Health Appointment Search**
 
