@@ -18,6 +18,7 @@ options = {
   compile: true,
   pin_projects: nil,
   max_projects: nil,
+  projects_first: false,
   explain: false
 }
 
@@ -41,6 +42,7 @@ OptionParser.new do |parser|
             "                                     a line of one page, so a profile with long project highlights spills onto a\n"\
             "                                     second page carrying nothing but Certifications. Dropping one project is the\n"\
             "                                     cheapest way back.") { |v| options[:max_projects] = v }
+  parser.on("--projects-first", "Put Selected Projects above Experience") { options[:projects_first] = true }
   parser.on("--explain-ranking", "Print project scores and matched terms to stderr") { options[:explain] = true }
 end.parse!
 
@@ -539,20 +541,21 @@ lines << ""
 lines << typst_escape(summary)
 lines << ""
 
-lines << "#section(\"#{labels[:experience]}\")"
+# Built apart so --projects-first can swap the two sections without duplicating them.
+experience_lines = ["#section(\"#{labels[:experience]}\")"]
 selected_experiences.each do |item|
   title = item["title_en"] || item["title"]
   org = item["organization_en"] || item["organization"]
   meta = [org, period_text(item["period"])].reject(&:empty?).join(" | ")
   bullets = bullets_for(item, wanted, 3, language)
   body = bullets.map { |b| "- #{typst_escape(b)}" }.join("\n")
-  lines << "#entry(\"#{typst_escape(title)}\", \"#{typst_escape(meta)}\")["
-  lines << body
-  lines << "]"
+  experience_lines << "#entry(\"#{typst_escape(title)}\", \"#{typst_escape(meta)}\")["
+  experience_lines << body
+  experience_lines << "]"
 end
-lines << ""
+experience_lines << ""
 
-lines << "#section(\"#{labels[:projects]}\")"
+project_lines_out = ["#section(\"#{labels[:projects]}\")"]
 selected_projects.each do |item|
   title = item["title"]
   meta = array(item["technologies"]).first(6).join(", ")
@@ -569,11 +572,12 @@ selected_projects.each do |item|
               else
                 "\"#{typst_escape(title)}\""
               end
-  lines << "#entry(#{title_arg}, \"#{typst_escape(meta)}\")["
-  lines << body
-  lines << "]"
+  project_lines_out << "#entry(#{title_arg}, \"#{typst_escape(meta)}\")["
+  project_lines_out << body
+  project_lines_out << "]"
 end
-lines << ""
+project_lines_out << ""
+lines.concat(options[:projects_first] ? project_lines_out + experience_lines : experience_lines + project_lines_out)
 
 lines << "#section(\"#{labels[:skills]}\")"
 lines << typst_escape(ordered_skills.join(" | "))
