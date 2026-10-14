@@ -9,11 +9,11 @@ weight = 10
 
 # SkipQ
 
-**QR ordering and hospitality operations platform — Founder**
+**QR ordering and hospitality operations demo**
 
 ## Overview
 
-Founder of SkipQ, a QR ordering system for restaurants, beach bars, clubs, canteens,
+SkipQ is a working demo of a QR ordering system for restaurants, beach bars, clubs, canteens,
 festivals, and fast-service food businesses. The goal is to reduce service friction,
 support self-ordering, and give venues live operational insights.
 

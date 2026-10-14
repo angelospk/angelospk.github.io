@@ -4,40 +4,6 @@
 
 experiences:
   # Current Positions
-  - id: "skipq-founder"
-    title: "Founder"
-    organization: "SkipQ"
-    organization_type: "Startup"
-    type: "work"
-    period:
-      start: "2026-01"
-      end: null
-    description: >-
-      Founder of SkipQ, a QR ordering and operations platform so restaurants, beach bars
-      and fast-service venues can take orders without a queue at the counter. I own
-      product, positioning and engineering.
-    highlights:
-    - text: >-
-        Built a working full-stack demo: customer self-ordering, staff order claims,
-        open tabs and an admin menu editor.
-      link: "#skipq"
-    - text: >-
-        Designed for cloud or local deployment, so a venue keeps taking orders when the
-        internet drops.
-    - text: >-
-        Migrating the demo to a Go backend and Svelte SPA over ConnectRPC, with shared
-        proto contracts and SSE live updates.
-      link: "#skipq"
-    technologies:
-      - "Go"
-      - "SvelteKit"
-      - "TypeScript"
-      - "ConnectRPC"
-    skills:
-      - "Product Development"
-      - "Full Stack Development"
-      - "Founder"
-
   - id: gsoc-opencouncil
     title: AI Engineer (GSoC 2026)
     title_en: AI Engineer (GSoC 2026)

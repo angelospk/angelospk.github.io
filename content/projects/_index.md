@@ -49,7 +49,7 @@ SvelteKit booking platform for organized youth trips, with public trip discovery
 
 ---
 
-### [SkipQ](/projects/skipq/) (Upcoming) — Founder
+### [SkipQ](/projects/skipq/) (Demo)
 **QR Ordering & Hospitality Operations Platform**
 
 QR ordering system for restaurants, beach bars, clubs, canteens, festivals, and fast-service food businesses. Designed for self-ordering, live order tracking, local deployment, menu analytics, and future AI voice ordering.

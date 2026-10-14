@@ -395,18 +395,18 @@
 
 - id: "skipq"
   title: "SkipQ"
-  subtitle: "QR Ordering & Hospitality Operations Platform"
-  type: "startup"
+  subtitle: "QR ordering demo for hospitality venues"
+  type: "personal"
   category: "fullstack"
   weight: 10
   period:
     start: "2026"
     end: null
   description: >-
-    Lets a busy venue take orders without a queue at the counter: customers order from a
-    QR code, staff claim orders and run open tabs, and the venue keeps serving when the
-    internet drops. Founder; the demo is moving to a Go backend and Svelte SPA over
-    ConnectRPC.
+    A working demo product that lets a busy venue take orders without a queue at the
+    counter: customers order from a QR code, staff claim orders and run open tabs, and the
+    venue keeps serving when the internet drops. Moving to a Go backend and Svelte SPA
+    over ConnectRPC.
   context:
     problem: |
       During peak hours, customers struggle to get served and staff spend too much 
