@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 668" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Voice appointment finder: pipeline</title>
+  <desc id="d">Speech goes from the browser to streaming speech-to-text, then to an intent extractor with a fast classifier and hedged LLM providers, then to a deterministic engine, then to an aggregator that searches the Ministry catalogue. Results return to the screen.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="440" height="668" rx="14" fill="#f8fafc"/>
+
+  <g font-size="17" fill="#0f172a">
+    <rect x="16" y="16" width="370" height="70" rx="10" fill="#fff" stroke="#94a3b8"/>
+    <text x="32" y="44" font-weight="600">Browser</text>
+    <text x="32" y="70" font-size="14" fill="#475569">mic audio · status line · results, slots</text>
+
+    <rect x="16" y="118" width="370" height="70" rx="10" fill="#fff" stroke="#94a3b8"/>
+    <text x="32" y="146" font-weight="600">Streaming speech-to-text</text>
+    <text x="32" y="172" font-size="14" fill="#475569">Soniox, Greek, partials while you talk</text>
+
+    <rect x="16" y="220" width="370" height="150" rx="10" fill="#eef2ff" stroke="#6366f1"/>
+    <text x="32" y="248" font-weight="600">Intent extractor</text>
+    <text x="32" y="274" font-size="14" fill="#3730a3">fast classifier for navigation turns</text>
+    <text x="32" y="296" font-size="14" fill="#3730a3">LLM → structured intent (JSON)</text>
+    <text x="32" y="318" font-size="14" fill="#3730a3">hedged: next provider starts at 800 ms</text>
+    <text x="32" y="350" font-size="14" font-weight="600" fill="#1e1b4b">end of speech → intent: p50 0.6 s</text>
+
+    <rect x="16" y="402" width="370" height="96" rx="10" fill="#fff" stroke="#94a3b8"/>
+    <text x="32" y="430" font-weight="600">Engine (deterministic)</text>
+    <text x="32" y="456" font-size="14" fill="#475569">specialty → exact Ministry name</text>
+    <text x="32" y="478" font-size="14" fill="#475569">place, dates, follow-ups, emergency</text>
+
+    <rect x="16" y="530" width="370" height="122" rx="10" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="32" y="558" font-weight="600">Aggregator (Go)</text>
+    <text x="32" y="584" font-size="14" fill="#065f46">concurrent search over the</text>
+    <text x="32" y="606" font-size="14" fill="#065f46">Ministry appointment catalogue</text>
+    <text x="32" y="636" font-size="13" font-weight="600" fill="#064e3b">unit search, before the fix: p50 3.5 s, p90 10 s</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)">
+    <line x1="200" y1="86" x2="200" y2="116"/>
+    <line x1="200" y1="188" x2="200" y2="218"/>
+    <line x1="200" y1="370" x2="200" y2="400"/>
+    <line x1="200" y1="498" x2="200" y2="528"/>
+    <path d="M386 591 H418 V51 H390"/>
+  </g>
+</svg>
