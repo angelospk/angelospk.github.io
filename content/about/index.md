@@ -10,7 +10,7 @@ At an agricultural cooperative, I worked on repetitive ERP data entry and wrote 
 
 Through Google Summer of Code 2026, I built [Greek speech-recognition training and evaluation tools](/projects/greek-council-asr/) for OpenCouncil. The work included checking whether an apparent improvement survives a fair comparison, and recording why a model should stay out of production when it fails that test.
 
-Recent projects include [photo2stitch](/projects/photo2stitch/), which turns photos into embroidery files with a thread-colour job sheet, and [interactive digital-skills lessons](/projects/digital-skills-platform/) for older adults. Teaching helps me notice the steps that seem obvious to a developer but leave a user stuck.
+Recent projects include [Athens Transit](/projects/athens-transit/), a live public transport map, API and Android app, and [Atlas Prosvasis](https://atlas.haroldpoi.dev/), which explores the geographic coverage of Greece’s public online medical appointment directory. Teaching helps me notice the steps that seem obvious to a developer but leave a user stuck.
 
 I work mainly in Python, Go and TypeScript. I'm interested in software engineering, applied AI and automation roles where I can understand the problem, build the system and help people use it. Outside work, I subtitle films, play piano, swim and volunteer.
 
