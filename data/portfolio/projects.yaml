@@ -349,6 +349,70 @@
   - GitHub Actions
   featured: true
 
+- id: athens-transit
+  title: Athens Transit
+  subtitle: Live map, API and app for every bus and trolley in Athens
+  type: personal
+  category: data
+  weight: 10
+  period:
+    start: '2026-10'
+    end:
+  description: >-
+    Shows every OASA bus and trolley in Athens live on one map, with arrivals at every
+    stop, a trip planner and alerts. A Go backend turns the undocumented one-route-per-request
+    telematics endpoint into a keyless JSON API and GTFS-Realtime feeds; a Svelte web map
+    and a Flutter Android app read from it. Started as a Go port of
+    foivospro/athens-gtfs-realtime.
+  context:
+    problem: |
+      OASA publishes GPS positions only through an endpoint that answers one route per
+      request and times out for data-centre addresses, so there was no way to see the
+      whole network at once or to build apps on it.
+    solution: |
+      One Go service polls every active route under a single request budget, matches each
+      vehicle to a scheduled trip and serves cached answers through Cloudflare, so more
+      users add no load on OASA. The map is a static site; the app runs alerts with the
+      app closed.
+  highlights:
+  - text: Whole-network polling under one budget
+    detail: At most 6 requests per second to OASA in total, evenly spaced, with backoff;
+      a 403 or 429 stops all requests for 10 minutes.
+  - text: Vehicle-to-trip matching
+    detail: Projects GPS fixes on GTFS shapes and assigns vehicles to trips one-to-one
+      (Hungarian assignment, ported from scipy, with hysteresis).
+  - text: Standards-valid feeds
+    detail: GTFS-Realtime VehiclePositions and TripUpdates pass the MobilityData validator
+      with 0 errors; OpenAPI 3.1 reference with try-it.
+  - text: Measured motion model
+    detail: Buses move along their route between GPS fixes; on held-out recorded fixes the
+      median position error fell from 225 m to 122 m.
+  - text: Three clients, one API
+    detail: Svelte 5 + MapLibre web map with web-push and Telegram alerts; Flutter app with
+      background alerts, lock-screen live card and home-screen widgets.
+  links:
+  - url: https://bus.haroldpoi.dev
+    label: Live Map
+  - url: https://angelospk.github.io/athens-transit-rt/
+    label: API Docs
+  - url: https://github.com/angelospk/athens-transit-rt
+    label: Backend Repo
+  - url: https://github.com/angelospk/athens-transit-map
+    label: Map Repo
+  - url: https://github.com/angelospk/athens-transit-app
+    label: App Repo
+  technologies:
+  - Go
+  - GTFS / GTFS-Realtime
+  - OpenAPI
+  - Svelte 5
+  - MapLibre
+  - Flutter
+  - Cloudflare
+  - Docker
+  - GitHub Actions
+  featured: true
+
 - id: "unitrip"
   title: "UniTrip.gr"
   subtitle: "Youth Travel Booking Platform"
@@ -1002,7 +1066,7 @@
     - "Shadcn UI"
     - "Recharts"
     - "Tailwind CSS"
-  featured: true
+  featured: false
 
 - id: "pcbasics"
   title: "PC Basics"
@@ -1174,7 +1238,7 @@
     - "Alpine.js"
     - "Tailwind CSS"
     - "Chi Router"
-  featured: true
+  featured: false
 
 - id: "trading-toolkit"
   title: "Trading Automation Toolkit"

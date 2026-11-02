@@ -9,6 +9,7 @@
 - title: Civic tech & open data
   blurb: Public data turned into something a citizen can actually use.
   projects:
+    - {name: Athens Transit, url: /projects/athens-transit/}
     - {name: OpenCouncil, url: /projects/opencouncil/}
     - {name: Atlas Prosvasis, url: "https://atlas.haroldpoi.dev"}
     - {name: FindDoctors, url: /projects/find-doctors-server/}
@@ -26,7 +27,6 @@
     - {name: Roomly, url: /projects/roomly/}
     - {name: UniTrip, url: /projects/unitrip/}
     - {name: SkipQ, url: /projects/skipq/}
-    - {name: Order Local, url: /projects/order-local/}
 - title: Media & subtitles
   blurb: Subtitle tooling and recommendation side projects from a long-time film subtitler.
   projects:

@@ -14,6 +14,17 @@ A collection of personal and professional projects spanning full-stack developme
 
 ## Featured Projects
 
+### [Athens Transit](/projects/athens-transit/) (2026)
+**Live Map, API and App for Athens Buses**
+
+Every OASA bus and trolley in Athens live on one map, with arrivals at every stop, a trip planner and alerts. A Go backend turns OASA's one-route-per-request endpoint into a keyless JSON API and GTFS-Realtime feeds; a Svelte web map and a Flutter app read from it.
+
+*Technologies: Go, GTFS-Realtime, Svelte 5, MapLibre, Flutter, Cloudflare*
+
+[Live Map →](https://bus.haroldpoi.dev) | [API Docs →](https://angelospk.github.io/athens-transit-rt/) | [GitHub →](https://github.com/angelospk/athens-transit-rt)
+
+---
+
 ### [OpenCouncil](/projects/opencouncil/) (2026)
 **Active Maintainer & Google Summer of Code 2026 Contributor**
 
@@ -55,15 +66,6 @@ SvelteKit booking platform for organized youth trips, with public trip discovery
 QR ordering system for restaurants, beach bars, clubs, canteens, festivals, and fast-service food businesses. Designed for self-ordering, live order tracking, local deployment, menu analytics, and future AI voice ordering.
 
 *Technologies: Go, Svelte, QR Ordering, Local-first, Analytics*
-
----
-
-### [Order Local](/projects/order-local/) (2025)
-**Self-Hosted Restaurant Ordering System**
-
-Self-hosted ordering system for Raspberry Pi. Customers scan QR codes to browse menus and order from their phones. Single Go binary, no dependencies.
-
-*Technologies: Go, SQLite, HTMX, Alpine.js, Tailwind CSS*
 
 ---
 
@@ -148,6 +150,11 @@ Church products showcase using Google Sheets as database.
 Calm, interactive site explaining why Pride matters, using small challenges and an "how much of an ally are you" quiz instead of walls of text.
 
 [Live Site →](https://whypride.gr)
+
+---
+
+### [Order Local](/projects/order-local/) (2025)
+Self-hosted QR ordering system for a Raspberry Pi. Single Go binary, no dependencies.
 
 ---
 
