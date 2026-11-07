@@ -9,7 +9,7 @@
 - title: Civic tech & open data
   blurb: Public data turned into something a citizen can actually use.
   projects:
-    - {name: Athens Transit, url: /projects/athens-transit/}
+    - {name: Staseis (staseis.gr), url: /projects/staseis/}
     - {name: OpenCouncil, url: /projects/opencouncil/}
     - {name: Atlas Prosvasis, url: "https://atlas.haroldpoi.dev"}
     - {name: FindDoctors, url: /projects/find-doctors-server/}

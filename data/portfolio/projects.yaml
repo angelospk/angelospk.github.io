@@ -350,8 +350,8 @@
   featured: true
 
 - id: athens-transit
-  title: Athens Transit
-  subtitle: Live map, API and app for every bus and trolley in Athens
+  title: Staseis (staseis.gr)
+  subtitle: Live public-transport map, API and app for Greek cities
   type: personal
   category: data
   weight: 10
@@ -359,43 +359,48 @@
     start: '2026-10'
     end:
   description: >-
-    Shows every OASA bus and trolley in Athens live on one map, with arrivals at every
-    stop, a trip planner and alerts. A Go backend turns the undocumented one-route-per-request
-    telematics endpoint into a keyless JSON API and GTFS-Realtime feeds; a Svelte web map
-    and a Flutter Android app read from it. Started as a Go port of
-    foivospro/athens-gtfs-realtime.
+    Shows buses, trolleys, metro, tram and suburban rail live on one map, with arrivals
+    at every stop, a trip planner and alerts. Live in Athens and Thessaloniki. A Go
+    backend turns each city's telematics into a keyless JSON API and GTFS-Realtime
+    feeds; a Svelte web map and a Flutter Android app read from it. Started in Athens
+    as a Go port of foivospro/athens-gtfs-realtime.
   context:
     problem: |
-      OASA publishes GPS positions only through an endpoint that answers one route per
-      request and times out for data-centre addresses, so there was no way to see the
-      whole network at once or to build apps on it.
+      Greek transit operators publish GPS positions only through undocumented endpoints
+      (in Athens, one route per request, and no answer to data-centre addresses), so
+      there was no way to see a whole network at once or to build apps on it.
     solution: |
-      One Go service polls every active route under a single request budget, matches each
-      vehicle to a scheduled trip and serves cached answers through Cloudflare, so more
-      users add no load on OASA. The map is a static site; the app runs alerts with the
+      One Go binary runs one instance per city. It polls every active route under a
+      single request budget, matches each vehicle to a scheduled trip and serves cached
+      answers through Cloudflare, so more users add no load on the operator. The map is
+      a static site with a page per city, stop and line; the app runs alerts with the
       app closed.
   highlights:
+  - text: One backend, one instance per city
+    detail: Athens (OASA, STASY, Proastiakos) and Thessaloniki (OASTH, OSETH, GTFS from
+      data.gov.gr); a problem in one city never stops another.
   - text: Whole-network polling under one budget
-    detail: At most 6 requests per second to OASA in total, evenly spaced, with backoff;
-      a 403 or 429 stops all requests for 10 minutes.
+    detail: In Athens, at most 6 requests per second to OASA in total, evenly spaced, with
+      backoff; a 403 or 429 stops all requests for 10 minutes.
   - text: Vehicle-to-trip matching
     detail: Projects GPS fixes on GTFS shapes and assigns vehicles to trips one-to-one
       (Hungarian assignment, ported from scipy, with hysteresis).
   - text: Standards-valid feeds
     detail: GTFS-Realtime VehiclePositions and TripUpdates pass the MobilityData validator
       with 0 errors; OpenAPI 3.1 reference with try-it.
-  - text: Measured motion model
-    detail: Buses move along their route between GPS fixes; on held-out recorded fixes the
-      median position error fell from 225 m to 122 m.
+  - text: Measured accuracy
+    detail: The motion model between GPS fixes cut the median position error from 225 m
+      to 122 m on held-out fixes; each city has public pages for arrival accuracy and the
+      slowest lines.
   - text: Three clients, one API
     detail: Svelte 5 + MapLibre web map with web-push and Telegram alerts; Flutter app with
       background alerts, lock-screen live card and home-screen widgets.
   links:
-  - url: https://bus.haroldpoi.dev
+  - url: https://staseis.gr
     label: Live Map
-  - url: https://angelospk.github.io/athens-transit-rt/
+  - url: https://angelospk.github.io/staseis-rt/
     label: API Docs
-  - url: https://github.com/angelospk/athens-transit-rt
+  - url: https://github.com/angelospk/staseis-rt
     label: Backend Repo
   - url: https://github.com/angelospk/athens-transit-map
     label: Map Repo

@@ -14,14 +14,14 @@ A collection of personal and professional projects spanning full-stack developme
 
 ## Featured Projects
 
-### [Athens Transit](/projects/athens-transit/) (2026)
-**Live Map, API and App for Athens Buses**
+### [Staseis (staseis.gr)](/projects/staseis/) (2026)
+**Live Public-Transport Map, API and App for Greek Cities**
 
-Every OASA bus and trolley in Athens live on one map, with arrivals at every stop, a trip planner and alerts. A Go backend turns OASA's one-route-per-request endpoint into a keyless JSON API and GTFS-Realtime feeds; a Svelte web map and a Flutter app read from it.
+Buses, trolleys, metro, tram and suburban rail live on one map, with arrivals at every stop, a trip planner and alerts. Live in Athens and Thessaloniki. One Go backend, one instance per city, turns each operator's telematics into a keyless JSON API and GTFS-Realtime feeds; a Svelte web map and a Flutter app read from it.
 
 *Technologies: Go, GTFS-Realtime, Svelte 5, MapLibre, Flutter, Cloudflare*
 
-[Live Map →](https://bus.haroldpoi.dev) | [API Docs →](https://angelospk.github.io/athens-transit-rt/) | [GitHub →](https://github.com/angelospk/athens-transit-rt)
+[Live Map →](https://staseis.gr) | [API Docs →](https://angelospk.github.io/staseis-rt/) | [GitHub →](https://github.com/angelospk/staseis-rt)
 
 ---
 
