@@ -12,13 +12,12 @@ experiences:
     type: work
     period:
       start: 2026-05
-      end: 
+      end: 2026-10
     description: >-
-      Google Summer of Code 2026 contributor and OpenCouncil maintainer. Built the
+      Google Summer of Code 2026 contributor to OpenCouncil. Built the
       datasets, training and evaluation tooling that decide how Greek council
       transcripts are produced, so the volunteers who review them fix fewer errors by
-      hand. GSoC deliverable submitted in August 2026; platform maintenance and research
-      continue.
+      hand. GSoC deliverable submitted in August 2026.
     highlights:
     - text: >-
         Trained and published a Greek Whisper LoRA model (Hugging Face) with dataset

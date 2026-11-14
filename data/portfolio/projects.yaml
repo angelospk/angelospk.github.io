@@ -109,7 +109,7 @@
     Fewer hand corrections for the volunteers who review Greek council transcripts: a
     Whisper LoRA model trained and published for OpenCouncil during Google Summer of
     Code 2026. Built the evaluation that decides whether a new model earns its place in
-    production. Deliverable submitted in August 2026; research continues.
+    production. Deliverable submitted in August 2026.
   context:
     problem: Council transcripts need human correction. Model changes must preserve
       speech and be evaluated consistently before they can justify a change to the
@@ -402,7 +402,7 @@
     label: API Docs
   - url: https://github.com/angelospk/staseis-rt
     label: Backend Repo
-  - url: https://github.com/angelospk/athens-transit-map
+  - url: https://github.com/angelospk/staseis-map
     label: Map Repo
   - url: https://github.com/angelospk/athens-transit-app
     label: App Repo
@@ -1141,17 +1141,17 @@
     start: '2026'
     end: 
   description: >-
-    Shows a radio station what it plays: dashboards over roughly 337,000 historical song
+    Shows a radio station what it plays: dashboards over roughly 280,000 historical song
     plays expose rotation patterns by song, artist and time of day. SQL aggregations and
     predictive models explore what may play next.
   highlights:
-  - text: Queried roughly 337,000 play records by artist, song and time window for
+  - text: Queried roughly 280,000 play records by artist, song and time window for
       interactive dashboards.
   - text: Used Redis caching for heavier aggregate queries and ECharts for exploration.
   - text: Explored Markov-chain and time-aware next-song predictions alongside live
       now-playing data.
   links:
-  - url: https://diesi.haroldpoi.click
+  - url: https://diesi.haroldpoi.dev
     label: Live Demo
   technologies:
   - SQL

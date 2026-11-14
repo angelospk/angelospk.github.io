@@ -10,7 +10,7 @@ profile:
   
   # Short summary - will be used for CV headers
   summary: |
-    Software engineer (MEng Electrical and Computer Engineering) who builds tools for everyday operations: online bookings and payments, appointment search, ERP data entry, transcript review and digital-skills training. Python, Go and TypeScript, from requirements to deployment. Google Summer of Code 2026 contributor and OpenCouncil maintainer.
+    Software engineer (MEng Electrical and Computer Engineering) who builds tools for everyday operations: online bookings and payments, appointment search, ERP data entry, transcript review and digital-skills training. Python, Go and TypeScript, from requirements to deployment. Google Summer of Code 2026 contributor to OpenCouncil.
 
   # Longer about text - for the website
   about: |
