@@ -14,7 +14,9 @@ I built a voice front end for it. You say something like *«πονάει το γ
 The code is private, and the app runs only for me and a few people I share demo links with. Below is how it is built, how I measured it, and what the measurements changed.
 
 {{< notice info "Demo video" >}}
-**[PLACEHOLDER: 60-second demo video goes here.]** A spoken search from start to results, recorded on a phone.
+**[▶ Watch the demo on YouTube](https://www.youtube.com/watch?v=wLwOOCWtUp0)**: a spoken search from start to results.
+
+The prototype is shown through this video. There is no public live demo.
 {{< /notice >}}
 
 ## Architecture
